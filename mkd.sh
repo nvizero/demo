@@ -1,6 +1,6 @@
 #!/bin/bash
 # 
 
-mkdir -p storage/framework/sessions
-mkdir -p storage/framework/cache
-mkdir -p storage/framework/views
+mkdir -p /var/www/storage/framework/sessions
+mkdir -p /var/www/storage/framework/cache
+mkdir -p /var/www/storage/framework/views
