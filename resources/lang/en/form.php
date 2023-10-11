@@ -1,0 +1,20 @@
+<?php
+return [
+    'title' => '表單標題',
+    'text' => '文字',
+    'radio' => '單選',
+    'checkbox' => '多選',
+    'textarea' => '文字區塊',
+    'html_type' => '表單類別',
+    'case1' => '担保条件',
+    'case2' => '预付条件',
+    'case3' =>  '押金条件 ',
+    'area'=>  '地區 ',
+    'industries'=>  '行業',
+    'is_show'=>  '是否顯示',
+    'status'=>  '狀態',
+    'select'=>  '選項',
+    'industry' =>'行業',
+    'busCate1' =>'業務分類 1',
+    'busCate2' =>'業務分類 2',
+];

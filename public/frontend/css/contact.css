@@ -1,0 +1,40 @@
+.titleBox{
+    border-bottom: 3px solid #000;
+    border-color: var(--main-color);
+}
+.contactInfo {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.contactInfo li a{
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.contactInfo li {
+    display: block;
+    padding-left: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.contactInfo li+li{
+    border-top: 1px solid #eee;
+    border-color:  var(--main-color);
+}
+.contactInfo li b {
+    position: absolute;
+    left: 0;
+}
+
+.contactInfo li small{
+    display: block;
+    opacity: 0.4;
+    margin-top: 10px;
+}
+
+iframe{
+    width: 100%;
+    height: 50vh;
+}

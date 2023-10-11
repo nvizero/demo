@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'title' => '聯繫管理',
+    'contact_info' =>'Contact Information',
+    'address' =>'Address',
+    'calc' =>'Estimate',
+    'msg' =>'Leave a message',
+    'msg1' =>'Welcome to leave a message, there will be someone to serve you',
+    'fex' =>'Fex',
+    'tel' =>'Tel',
+    'ctel' =>'Tel',
+    'form' =>'Form Contact',
+    'contact_me' => 'Contact Me',
+    'txt' => 'You are welcome to give us any information and comments through this form',
+    'surname' => 'Surname',
+    'factroy' => 'Factory',
+    'email' =>'E-Mail',
+    'Mr' => 'Mr',
+    'gender' => 'Gender',
+    'Mrs' => 'Mrs',
+    'man' => 'Man',
+    'submit' =>'Submit',
+    'addr1' => '54041 No. 2, Ln. 327, Xinxing Rd., Nantou City, Nantou County ',
+    'factory_add' => '(Jinlida Park), Wuzhong District, Suzhou, Jiangsu',
+    'woman' => 'Woman',
+    'titles' => [
+        'name' => '標題',
+        'able' => '可用',
+        'sort' => '排序',
+        'telegram'    => 'telegram',
+        'telegram2'    => 'telegram2',
+        'text' => '內容',
+        'status' => '狀態',
+    ]
+];

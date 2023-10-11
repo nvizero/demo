@@ -1,0 +1,253 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Noto+Sans+TC:wght@100;400&display=Noto+Serif+TC:wght@600;700&=swap');
+
+/*
+
+黑體
+font-family: 'Noto Sans TC', sans-serif;
+
+明體
+font-family: 'Noto Serif TC', serif;
+
+英文 無襯
+font-family: 'Montserrat', sans-serif;
+
+英文 襯線
+font-family: 'Times New Roman', sans-serif;
+
+*/
+* {
+    position: relative;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+:root {
+    --main-color: #007040;
+
+}
+
+/* color: var(--main-color); */
+
+/*文字樣式*/
+
+a,
+.btn {
+    color: #c7c7c7;
+    border-radius: 0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--main-color);
+    text-decoration: none;
+    transition: 0.5s all;
+}
+
+a:focus,
+button:focus {
+    outline: none !important;
+}
+
+
+.text-green {
+    color: var(--main-color);
+}
+
+.text-gray {
+    color: #B3B3B3;
+}
+
+.bg-green {
+    background-image: linear-gradient(130deg, #004329 0%, #006A46 50%, #8FB630 100%);
+}
+
+
+.form-check-input:checked {
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #363f11;
+    border-color: #363f11;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    color: #fff;
+    background-color: #363f11;
+    border-color: #363f11;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #363f11;
+    border-color: #363f11;
+}
+
+
+
+
+
+.font-MT {
+    font-family: 'Noto Serif TC', serif;
+
+}
+
+.fancybox-navigation {
+    height: 100vh;
+}
+
+
+/*圖片樣式*/
+.innerImg {
+    width: 100%;
+    padding-top: 70%;
+}
+
+.innerImg .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+
+
+
+/* 單元標題 UnitTitle*/
+
+.unitTitle {
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.unitTitle small {
+    font-size: 1rem;
+    color: var(--main-color);
+}
+
+.unitTitle span {
+    display: block;
+    font-family: 'Noto Serif TC', serif;
+}
+
+
+/* 頁面主標題  pageTitle*/
+
+
+
+
+
+
+
+.slick-prev {
+left: 5% !important; 
+    z-index: 10;
+
+}
+
+
+.slick-next {
+    right: 5% !important;
+}
+
+.slick-next,
+.slick-prev {
+    width: auto;
+    height: auto;
+}
+
+.slick-next:before {
+    content: '>' !important;
+}
+
+.slick-prev:before {
+    content: '<' !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    display: inline-block;
+    font-family: bootstrap-icons !important;
+    font-style: normal;
+    font-weight: bolder;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: -0.125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 5rem !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+}
+
+.slick-dots li button:before {
+    color: #fff !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #fff !important;
+}
+
+.bannerArea .slick-dots{
+    bottom: 30px !important;
+}
+
+@media(max-width:991px) {
+    .navbar-brand img {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 70%;
+        height: auto!important;
+    }
+    .navbar{
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+
+        height: 60px;
+        top: 0;
+        right: 0;
+        border: none;
+        border-radius: 0;
+        color: #fff;
+        background-color: var(--main-color);
+    }
+
+    .navbar-collapse {
+        background-color:#eee;
+    }
+    .navbar-nav .nav-link{
+        color: var(--main-color) ;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+}
