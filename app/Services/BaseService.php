@@ -84,43 +84,4 @@ class BaseService
             return true;
         }
     }
-
-    #首頁廣告
-    public function getIndexAd()
-    {
-        // $key = 'indexAd';
-        // if (Redis::exists($key)) {
-        //     $obj = json_decode(Redis::get($key), true);
-        //     return ['ad_close_icon' => $obj['ad_close_icon'], 'ad_img' => $obj['ad_img'], 'status' => $obj['able']];
-        // }
-        $obj = $this->getTableData('advertisings', ['able' => 1,'is_pop_ups'=>1], '', ['id', 'desc'], 1);
-        if (count($obj) > 0) {
-            // $this->pubSetRedis($key, (array)$obj[0], 6000);
-            $obj = (array)$obj[0];
-            return [
-                'ad_close_icon' => $obj['ad_close_icon'],
-                'ad_img' => $obj['ad_img'],
-                'link' => $obj['link'],
-                'status' => $obj['able'],
-                'isPop'=>$obj['is_pop_ups']
-            ];
-        }
-        return ['ad_close_icon' => '', 'ad_img' => '', 'status' => false];
-    }
-
-    #廣告
-    #type=post新聞廣告   type=market市場廣告
-    public function otherAds($type)
-    {
-        if ($type == "market") {
-            $table = 'market_advertisings';
-        } else {
-            $table = 'post_advertisings';
-        }
-        $model = $this->getTableData($table, '', '', ['id', 'desc'], 1);
-        $where['model_type'] = '\App\Models\\' . ucfirst(strtolower($type)) . 'Advertising';
-        $where['model_id'] = $model[0]->id;
-        $model = $this->getTableData('advertising_imgs', $where, '', ['id', 'desc'], 99);
-        return $model;
-    }
 }

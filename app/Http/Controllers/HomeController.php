@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use App\Models\Semic;
 use App\Services\BaseService;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
@@ -22,13 +21,11 @@ class HomeController extends Controller
   public function __construct(
     Request $request,
     BaseService $baseService,
-    Semic $semic,
     ContactRepository $contResp
   ) {
       $this->contactRepository = $contResp;
       $this->request = $request;
       $this->baseService = $baseService;
-      $this->semic = $semic;
     }
 
     /**
@@ -38,7 +35,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $data['semics'] = $this->baseService->getTableData('posts', ['show' => 1,'status'=>1], '', ['show_sort', 'DESC'], 9);
+      $data['semics'] = $this->baseService->getTableData('posts', [], '', ['show_sort', 'DESC'], 9);
       return view('frontend.index',$data);
     }
 
