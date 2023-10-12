@@ -38,12 +38,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $data['ads'] = $this->baseService->getTableData('advertisings', ["able"=>1], '', ['sort', 'DESC'], 9);
-      $data['irons'] = $this->baseService->getTableData('irons', '', '', ['sort', 'DESC'], 4);
-      $data['semics'] = $this->baseService->getTableData('semics', ['show' => 1,'status'=>1], '', ['show_sort', 'DESC'], 9);
-      $data['about'] = $this->baseService->getTableData('scripts', ['key' => 'about'], '', '', 1);
-      $data['aboutEN'] = $this->baseService->getTableData('scripts', ['key' => 'aboutEN'], '', '', 1);
-      return view('frontend.index', $data);
+      $data['semics'] = $this->baseService->getTableData('posts', ['show' => 1,'status'=>1], '', ['show_sort', 'DESC'], 9);
+      return view('frontend.index',$data);
     }
 
     public function about()

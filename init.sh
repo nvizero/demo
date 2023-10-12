@@ -5,3 +5,4 @@
 /usr/bin/php /var/www/artisan db:seed --class=PermissionTableSeeder
 /usr/bin/php /var/www/artisan db:seed --class=CreateAdminUserSeeder
 /usr/bin/php /var/www/artisan config:cache
+/usr/bin/php /var/www/artisan storage:link
