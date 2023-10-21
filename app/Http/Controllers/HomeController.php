@@ -11,6 +11,7 @@ use Intervention\Image\Facades\Image;
 use App\Mail\OrderShipped;
 use App\Repository\ContactRepository;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Routing\UrlGenerator;
 class HomeController extends Controller
 {
   /**
@@ -18,13 +19,17 @@ class HomeController extends Controller
    *
    * @return void
    */
+  protected $url;
+
   public function __construct(
     Request $request,
     BaseService $baseService,
-    ContactRepository $contResp
+    ContactRepository $contResp,
+    UrlGenerator $url
   ) {
       $this->contactRepository = $contResp;
       $this->request = $request;
+      $this->url = $url;
       $this->baseService = $baseService;
     }
 
@@ -154,15 +159,15 @@ class HomeController extends Controller
         $image = Image::make(public_path("storage/{$imagePath}"));
         $image->save(public_path("storage/{$imagePath}"), 60);
         $image->save();
-        }
-        $json['success'] = true;
-        $json['elapsedTime'] = 0;
-        $json['time'] = date('Y-m-d H:i:s');
-        $json['data']['baseurl'] = env('APP_URL') ;
-        $json['data']['isImages'] = [true];
-        $json['data']['files'] = ['storage/'.$imagePath];
-        $json['data']['code'] = 200;
-        $json['data']['messages'] = ["/storage/" . $imagePath];
-        return  json_encode($json);
+      }
+      $json['success'] = true;
+      $json['elapsedTime'] = 0;
+      $json['time'] = date('Y-m-d H:i:s');
+      $json['data']['baseurl'] = $this->url->to('/') ;
+      $json['data']['isImages'] = [true];
+      $json['data']['files'] = ['/storage/'.$imagePath];
+      $json['data']['code'] = 200;
+      $json['data']['messages'] = ["/storage/" . $imagePath];
+      return  json_encode($json);
     }
 }
