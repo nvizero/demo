@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript HTML 操作示例</title>
+</head>
+
+<body>
+  <h1 id="header">歡迎來到我的網頁</h1>
+  <button id="changeText">更改標題</button>
+  <input type="text" id="inputText" placeholder="輸入新的標題">
+</body>
+
+<script>
+  document.getElementById('changeText').addEventListener('click', function () {
+    var newText = document.getElementById('inputText').value;
+    if (newText.trim() !== '') {
+      document.getElementById('header').textContent = newText;
+    }
+  });
+</script>
+
+</html>

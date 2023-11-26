@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>onchange 事件示例</title>
+</head>
+
+<body>
+  <input type="text" id="inputField" placeholder="輸入一些文字">
+  <p id="displayText">您輸入的文字將顯示在這裡</p>
+</body>
+<script>
+  document.getElementById('inputField').onchange = function () {
+    var text = document.getElementById('inputField').value;
+    document.getElementById('displayText').textContent = text;
+  };
+
+</script>
+
+</html>
