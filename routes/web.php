@@ -20,6 +20,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Adm
 });
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about/{id}', 'HomeController@about')->name('about');
 Route::post('uploadimgs', 'HomeController@uploadimgs')->name('uploadimgs');
 Route::get('/setcn', function(){
     App::setLocale('cn');

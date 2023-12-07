@@ -92,6 +92,22 @@ if (!function_exists('getChkBoxs')) {
 }
 
 
+
+if (!function_exists('getAbouts')) {
+    function getAbouts()
+    {
+        $baseResp = new BaseRepository();
+        $service = new BaseService($baseResp);
+        $sql = "select * from `abouts`";
+        $res = $service->raw($sql);
+        $html = "";
+        foreach ($res as $row) {
+            $html .= "<li><a href=\"/about/{$row->id}\">{$row->title}</a></li>";
+        }
+        return $html;
+    }
+}
+
 if (!function_exists('refSemics')) {
     function refSemics($datas)
     {

@@ -44,13 +44,15 @@ class HomeController extends Controller
       return view('frontend.index',$data);
     }
 
-    public function about()
+    public function about($id)
     {
-      return view('frontend.about');
+      $data['about'] = $this->baseService->find('abouts',  $id ,'*');
+      return view('frontend.about',$data);
     }
 
     public function aboutMe()
     {
+
       return view('frontend.aboutMe');
     }
 
