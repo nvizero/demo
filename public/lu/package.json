@@ -1,0 +1,32 @@
+{
+  "name": "html-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/isb_design/template2020.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/isb_design/template2020/issues"
+  },
+  "homepage": "https://gitlab.com/isb_design/template2020#readme",
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
+    "barba.js": "^1.0.0",
+    "bootstrap": "^5.2.3",
+    "bootstrap-material-design": "^4.1.3",
+    "gsap": "^3.2.4",
+    "jquery": "^3.6.3",
+    "lity": "^2.4.1",
+    "material-icons": "^1.13.1",
+    "owl.carousel": "^2.3.4",
+    "popper.js": "^1.16.1"
+  }
+}

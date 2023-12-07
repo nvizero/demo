@@ -13,7 +13,8 @@
                     <ul>
                     <li><a href="{{ route('posts.index') }}">文章列表</a></li>
                     <li><a href="{{ route('postCategories.index') }}">文章分類</a></li>
-                    <li><a href="{{ route('www.index') }}">www</a></li>
+                    <li><a href="{{ route('products.index') }}">產品</a></li>
+                    <li><a href="{{ route('abouts.index') }}">關於我們</a></li>
 
                 </ul>
                 <li class="menu-title">帳號設定 </li>

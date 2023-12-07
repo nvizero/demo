@@ -1,48 +1,123 @@
-<footer class="bg-green page text-white">
+<footer>
     <div class="container">
-        <div class="row     align-items-end">
-            <div class="mb-lg-0 mb-4 col-lg-2">
-                <div class="infoBox">
-                    <div><i class="bi bi-telephone-fill"></i> Tel <a href="tel:+886-3-6670300">+886-3-6670300</a></div>
-                    <div><i class="bi bi-newspaper"></i> Fax +886-3-5583011</div>
-                    <div></div>
-                </div>
+        <div class="row row-margin">
+            <div class="col-md-4 col-padding">
+                <p class='text-title'>
+                    { 有限公司}
+                </p>
+                <address class="mb-0 company-info">
+                    <ul>
+                        <li>
+                            <p class='mb-0'>地址：{--}</p>
+                        </li>
+                        <li>
+                            <p class='mb-0'>電話：<a href="tel: ">{ }</a></p>
+                        </li>
+                        <li>
+                            <p class='mb-0'>傳真：{ }</p>
+                        </li>
+                        <li>
+                            <p class='mb-0'>信箱：<a href="mailto: ">{}</a></p>
+                        </li>
+                        <li>
+                            <a href="" class='contact-button'>Contact</a>
+                        </li>
+                    </ul>
+                </address>
             </div>
-            <div class="mb-lg-0 mb-4 col-lg-5">
-                <i class="bi bi-envelope-fill"></i>{{ __("contacts.email") }}：<a href="/contact#section11">Sales@fumagnet.com</a> <br>
-                <!--
-                <i class="bi bi-geo-alt-fill" style="display:none;"></i> {{ __("contacts.address") }}：
-54041南投縣南投市新興路327巷2號
-                    <small class="d-block"> No.2, Ln 327, Nanxin Rd. Nantou City,Nantou Country 54041 Taiwan(R.O.C)</small>
-                  -->
-            </div>
-            <div class="mb-lg-0 mb-4 col-lg-5">
-
-
-                <i class="bi bi-geo-alt-fill"></i> {{ __("contacts.factroy") }}：
-{{ __("contacts.factory_add") }}
-<small class="d-block">Jinlida, Stamping Park, Wuzhong Dist., Suzhou City, Jiangxian, China</small>
-            </div>
-
-            <div class="col-12 text-center">
-        <p class="copyright">
-
-                                    @if (App::getLocale() == 'cn')
-          Copyright © 富磁特科技. All rights reserved.
-                                    @else
-          Copyright © Full Magnetic Tech. Co., Ltd.
-                                    @endif
-        </p>
+            <div class="col-md-8 col-padding">
+                <p class='text-title'>
+                    About Us
+                </p>
+                <nav>
+                    <div class="row row-margin">
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">公司簡介</a></div>
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">最新消息</a></div>
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">知識文章</a></div>
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">產品目錄</a></div>
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">影音專區</a></div>
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">下載專區</a></div>
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">型錄瀏覽</a></div>
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">人才招募</a></div>
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">常見問題</a></div>
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">隱私權專區</a></div>
+                        <!-- nav_item_start -->
+                        <div class="col-md-3 col-padding"><a href="aboutUs.php">服務條款</a></div>
+                    </div>
+                </nav>
+                <ul class='d-flex socialmedia-container align-items-center'>
+                    <li class='text-title'>Social media：</li>
+                    <!-- item_start -->
+                    <li>
+                        <a href="#" class="img-content img-icon">
+                            <img src="/lu/images/socialmedia/youtube.png" />
+                        </a>
+                    </li>
+                    <!-- item_start -->
+                    <li>
+                        <a href="#" class="img-content img-icon">
+                            <img src="/lu/images/socialmedia/ig.png" />
+                        </a>
+                    </li>
+                    <!-- item_start -->
+                    <li>
+                        <a href="#" class="img-content img-icon">
+                            <img src="/lu/images/socialmedia/line.png" />
+                        </a>
+                    </li>
+                    <!-- item_start -->
+                    <li>
+                        <a href="#" class="img-content img-icon">
+                            <img src="/lu/images/socialmedia/facebook.png" />
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </footer>
-
-<script>
-    $("section").attr("data-aos", "fade-up").attr("data-aos-delay", "100");
-    $(".unitTitle").attr("data-aos", "fade-up").attr("data-aos-delay", "100");
-    AOS.init({
-        duration: 1500,
-        anchorPlacement: 'center-center',
-    });
-</script>
+<!-- 版權宣告 -->
+<div class="copyright">
+    <div class="container">
+        <p class='mb-0'>
+            Copyright @ / Designed by <a href="">B</a>
+        </p>
+    </div>
+</div>
+<!-- 版權宣告/政策/網站地圖_end -->
+<!-- 頁尾_end -->
+<!-- 常駐項_start -->
+<aside class="float-menu-container">
+    <ul>
+        <li>
+            <a href="tel:0277137789">
+                <span class="material-icons">call</span>
+            </a>
+        </li>
+        <li>
+            <a href="mailto:isb@isb.com.tw">
+                <span class="material-icons">email</span>
+            </a>
+        </li>
+        <li>
+            <a href="contact.php">
+                <span class="material-icons">contact_page</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="goTop">
+                <span class="material-icons">keyboard_arrow_up</span>
+            </a>
+        </li>
+    </ul>
+</aside>

@@ -1,0 +1,101 @@
+/* 預留用CSS檔案 */
+
+.gaInner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+}
+
+.gaInner iframe {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+
+/* 有事找陳立昇 */
+
+.searchInfoList .tab-content ul.newsItemContent li.newsItem .newsItemInner:first-child {
+    display: none;
+}
+
+.stepText {
+    color: dodgerblue;
+    border: 2px solid dodgerblue;
+    padding: 4px 12px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 8px;
+    border-radius: 8px;
+    letter-spacing: 0px;
+}
+
+.formContent-sm {
+    width: 567px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+    -ms-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+    -o-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 24px 12px;
+}
+
+.formBtnContent {
+    text-align: center;
+    padding-top: 12px;
+}
+
+.productContentInner .row .col-padding:nth-child(n+6) {
+    border: 1px solid #FF0000;
+    display: none;
+}
+
+.productContentInner {
+    position: relative;
+}
+
+.productContentInner::after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    height: 24px;
+    background-color: #FF0000;
+    display: block;
+    z-index: -1;
+}
+
+.ptItem:hover {
+    background-color: var(--white-color-100);
+}
+
+@media only screen and (max-width: 1499px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+@media only screen and (max-width: 1199px) {}
+
+@media only screen and (min-width: 992px) {}
+
+@media only screen and (max-width: 991px) {}
+
+@media only screen and (min-width: 768px) {}
+
+@media only screen and (max-width: 767px) {}
+
+@media only screen and (max-width: 568px) {}
+
+@media only screen and (max-width: 440px) {}
+
+@media only screen and (max-width: 420px) {}

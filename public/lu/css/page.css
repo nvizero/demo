@@ -1,0 +1,158 @@
+/* 基本設定_start */
+
+.pageContainer {
+    padding: 0px;
+}
+
+
+/* 基本設定_end */
+
+
+/* 內頁banner_start */
+
+
+/* 內頁banner_end */
+
+
+/* 內頁_start */
+
+.page-container {
+    padding: 48px 0px;
+}
+
+
+/* 內頁_end */
+
+
+/* 麵包屑_start */
+
+.breadcrumb-container {
+    border-bottom: var(--gray-color-50) solid 1px;
+    padding: 12px 0px;
+    margin-bottom: 48px;
+}
+
+.breadcrumb-container ul {
+    text-align: left;
+    line-height: 1.4;
+}
+
+.breadcrumb-container ul li {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.breadcrumb-container ul li::after {
+    content: "/";
+    margin: 0px 2px 0px 6px;
+    display: inline-block;
+}
+
+.breadcrumb-container ul li:nth-last-child(1)::after {
+    content: "";
+    margin: 0px;
+}
+
+.breadcrumb-container ul li a {
+    font-size: 14px;
+}
+
+
+/* 麵包屑_end */
+
+.main-member-container {
+    position: relative;
+    background-color: #f7f7f9;
+}
+
+.main-member-container .row-margin {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.main-member-container .col-padding {
+    padding: 15px;
+}
+
+.member-body {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+    background-color: var(--white-color-100);
+    padding: 20px;
+}
+
+.member-container {
+    border: 1px solid #f00;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.nav-tabs {
+    margin-bottom: 15px;
+}
+
+.nav-tabs li {
+    margin-right: 10px;
+}
+
+
+/* .nav-tabs li a:hover, */
+
+.nav-tabs li button {
+    outline: unset;
+    background-color: transparent;
+    border: unset;
+    color: var(--black-color-100);
+    padding: 10px 20px;
+    line-height: 1;
+    font-size: 0.75rem;
+}
+
+.nav-tabs li button.active {
+    background-color: #0089A7;
+    color: var(--white-color-100);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.nav-tabs li:last-child {
+    margin-right: 0;
+}
+
+@media only screen and (max-width: 1499px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+@media only screen and (max-width: 1199px) {}
+
+@media only screen and (min-width: 992px) {}
+
+@media only screen and (max-width: 991px) {}
+
+@media only screen and (min-width: 768px) {
+    .member-side-container {
+        width: 240px;
+        z-index: 999;
+        bottom: 0;
+        margin-top: 0;
+        position: fixed;
+        top: 0;
+    }
+    .member-container {
+        margin-left: 240px;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    /* 內頁banner_start */
+    .innerBannerContainer {
+        height: 180px;
+    }
+    /* 內頁banner_end */
+}
+
+@media only screen and (max-width: 568px) {}
+
+@media only screen and (max-width: 440px) {}
+
+@media only screen and (max-width: 420px) {}
