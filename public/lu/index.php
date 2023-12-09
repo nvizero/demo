@@ -540,21 +540,21 @@
                     <div class="row row-margin">
                         <div class="col-md-4 col-padding">
                             <p class='text-title'>
-                                {久大寰宇股份有限公司}
+                                {}
                             </p>
                             <address class="mb-0 company-info">
                                 <ul>
                                     <li>
-                                        <p class='mb-0'>地址：{台北市中正區衡陽路7號10樓}</p>
+                                        <p class='mb-0'>地址：{}</p>
                                     </li>
                                     <li>
-                                        <p class='mb-0'>電話：<a href="tel:02-7713-7789">{02-7713-7789}</a></p>
+                                        <p class='mb-0'>電話：<a href="">{}</a></p>
                                     </li>
                                     <li>
-                                        <p class='mb-0'>傳真：{02-2381-8877}</p>
+                                        <p class='mb-0'>傳真：{}</p>
                                     </li>
                                     <li>
-                                        <p class='mb-0'>信箱：<a href="mailto:isb@isb.com.tw">{isb@isb.com.tw}</a></p>
+                                        <p class='mb-0'>信箱：<a href="">{}</a></p>
                                     </li>
                                     <li>
                                         <a href="" class='contact-button'>Contact</a>
@@ -627,7 +627,7 @@
             <div class="copyright">
                 <div class="container">
                     <p class='mb-0'>
-                        Copyright @ Newoil 3.0 / Designed by <a href="http://www.isb.com.tw">iSB</a>
+                         / Designed by <a href=""></a>
                     </p>
                 </div>
             </div>
@@ -637,12 +637,12 @@
             <aside class="float-menu-container">
                 <ul>
                     <li>
-                        <a href="tel:0277137789">
+                        <a href="tel:">
                             <span class="material-icons">call</span>
                         </a>
                     </li>
                     <li>
-                        <a href="mailto:isb@isb.com.tw">
+                        <a href="mailto:">
                             <span class="material-icons">email</span>
                         </a>
                     </li>
