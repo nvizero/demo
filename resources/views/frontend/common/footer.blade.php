@@ -100,17 +100,17 @@
 <aside class="float-menu-container">
     <ul>
         <li>
-            <a href="tel:0277137789">
-                <span class="material-icons">call</span>
+            <a href="">
+                <span class="material-icons">--call</span>
             </a>
         </li>
         <li>
-            <a href="mailto:isb@isb.com.tw">
-                <span class="material-icons">email</span>
+            <a href="">
+                <span class="material-icons">--email</span>
             </a>
         </li>
         <li>
-            <a href="contact.php">
+            <a href="">
                 <span class="material-icons">contact_page</span>
             </a>
         </li>
