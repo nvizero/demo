@@ -56,7 +56,7 @@ class Post extends BaseModel
             ],            
             'img' => [
                 'type' => 'file',                
-                'required' => false,
+                'required' => true,
                 'multi' => true,
                 'search' => false,
 

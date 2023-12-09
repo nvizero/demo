@@ -46,6 +46,17 @@ class Product extends BaseModel
                     'level' => 'like',
                ]
           ],
+          'sort' => [
+               'type' => 'number',
+               'required' => 1,
+               'search' => [
+                    'level' => 'like',
+               ]
+          ],
+          'is_flag' => [
+            'type' => 'checkbox',             
+               'required' => 0,
+          ],
           'content' => [
                'type' => 'ckeditor',
                'required' => 1,

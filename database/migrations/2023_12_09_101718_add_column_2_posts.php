@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumn2Product extends Migration
+class AddColumn2Posts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddColumn2Product extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {            
+        Schema::table('posts', function (Blueprint $table) {            
             $table->integer('is_flag')->comment('首頁開關');
             $table->string('serial')->comment('產品序號');
         });
@@ -26,8 +26,7 @@ class AddColumn2Product extends Migration
      */
     public function down()
     {
-        //
-        Schema::table('products', function (Blueprint $table) {            
+        Schema::table('postts', function (Blueprint $table) {            
             $table->dropColumn('is_flag');
             $table->dropColumn('serial');
         });

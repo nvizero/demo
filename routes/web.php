@@ -13,6 +13,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Adm
     Route::resource('postCategories', 'PostCategoryController');                #新闻分类管理
     Route::resource('products', 'ProductController');
     Route::resource('abouts', 'AboutController');
+    Route::resource('index_about', 'IndexAboutController');
+    Route::resource('index_show', 'IndexShowController');
+    Route::resource('keyval', 'KeyvalController');
 
     Route::post('delimage', 'TemplateController@delimage')->name('delimage');               //刪除圖片
 

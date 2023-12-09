@@ -1,7 +1,8 @@
 <?php
 namespace App\Models;
 use Kyslik\ColumnSortable\Sortable;
-class About extends BaseModel
+
+class Keyval extends BaseModel
 {
     /**
      * The attributes that are mass assignable.
@@ -9,10 +10,7 @@ class About extends BaseModel
      * @var array
      */
     use Sortable;
-    protected $table = 'abouts';
-    protected $fillable = [
-         'title','subtitle','content',
-    ];
+    protected $table = 'keyval';
 
     public function tableFieldsSetting()
     {
@@ -24,7 +22,14 @@ class About extends BaseModel
                     'level' => 'like',
                ]
           ],
-          'subtitle' => [
+          'key' => [
+               'type' => 'text',
+               'required' => 1,
+               'search' => [
+                    'level' => 'like',
+               ]
+          ],
+          'value' => [
                'type' => 'text',
                'required' => 1,
                'search' => [
@@ -41,13 +46,6 @@ class About extends BaseModel
           'is_flag' => [
             'type' => 'checkbox',             
                'required' => 0,
-          ],
-          'content' => [
-               'type' => 'ckeditor',
-               'required' => 1,
-               'search' => [
-                    'level' => 'like',
-               ]
           ],
        ];
     }

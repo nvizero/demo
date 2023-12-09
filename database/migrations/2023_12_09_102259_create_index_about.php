@@ -1,8 +1,11 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-class CreateProductsTable extends Migration{
+
+class CreateIndexAbout extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -10,13 +13,13 @@ class CreateProductsTable extends Migration{
      */
     public function up()
     {
-    Schema::create('products', function (Blueprint $table) {
+        Schema::create('index_about', function (Blueprint $table) {
             $table->id();
-            $table->string("tags");
-            $table->string("imgs");
             $table->string("title");
+            $table->string("img");
+            $table->integer('is_flag')->comment('開關');
+            $table->integer('sort')->comment('排序');
             $table->text("content");
-
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateProductsTable extends Migration{
      */
     public function down()
     {
-     Schema::dropIfExists('Products');
+        Schema::dropIfExists('index_about');
     }
 }

@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 use Kyslik\ColumnSortable\Sortable;
-class About extends BaseModel
+class IndexShow extends BaseModel
 {
     /**
      * The attributes that are mass assignable.
@@ -9,7 +9,7 @@ class About extends BaseModel
      * @var array
      */
     use Sortable;
-    protected $table = 'abouts';
+    protected $table = 'index_show';
     protected $fillable = [
          'title','subtitle','content',
     ];
@@ -24,12 +24,12 @@ class About extends BaseModel
                     'level' => 'like',
                ]
           ],
-          'subtitle' => [
-               'type' => 'text',
-               'required' => 1,
-               'search' => [
-                    'level' => 'like',
-               ]
+          'img' => [
+            'type' => 'file',                
+            'required' => true,
+            'multi' => true,
+            'search' => false,
+
           ],
           'sort' => [
                'type' => 'number',
