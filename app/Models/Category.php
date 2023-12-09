@@ -21,7 +21,7 @@ class Category extends BaseModel
           ],
           'parent_id' => [
                 'type' => 'select',
-                'required' => 'required|not_in:0',
+                'required' => 0,
                 'search' => [
                     'level' => 'equal'
                 ],

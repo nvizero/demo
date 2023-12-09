@@ -5,9 +5,9 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                     <li><a href="{{ route('posts.index') }}">文章列表</a></li>
-                    <li><a href="{{ route('categories.index') }}">文章分類</a></li>
+                    <!-- <li><a href="{{ route('categories.index') }}">文章分類</a></li> -->
                     <li><a href="{{ route('products.index') }}">產品</a></li>
-                    <li><a href="{{ route('prodcatelist') }}">產品分類</a></li>
+                    <li><a href="{{ route('categories.index') }}">產品分類</a></li>
                     <li><a href="{{ route('abouts.index') }}">關於我們</a></li>
                     <li><a href="{{ route('index_about.index') }}">首頁-關於我們</a></li>
                     <li><a href="{{ route('index_show.index') }}">首頁-橫幅標題(上方)</a></li>
