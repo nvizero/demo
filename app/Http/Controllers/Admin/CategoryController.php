@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
+use app\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\PostCate;
-use app\Http\Controllers\Controller;
+use App\Category;
 
-class PostCategoryController extends Controller
+
+class CategoryController extends Controller
 {
     /**
      * Show the application dashboard.
@@ -14,13 +17,14 @@ class PostCategoryController extends Controller
      */
     public function manageCategory()
     {
-        $categories = PostCate::where('parent_id', '=', 0)->get();
-        $allCategories = PostCate::pluck('title','id')->all();
-        $router  = route('add.postCategory');
+        $categories = Category::where('parent_id', '=', 0)->get();
+        $allCategories = Category::pluck('title','id')->all();
+        $router  = 'category';
         $main = '';
         $page_show = '';
         return view('categoryTreeview',compact('router','page_show','categories','main','allCategories'));
     }
+
 
     /**
      * Show the application dashboard.
@@ -35,9 +39,8 @@ class PostCategoryController extends Controller
         $input = $request->all();
         $input['parent_id'] = empty($input['parent_id']) ? 0 : $input['parent_id'];
         
-        PostCate::create($input);
+        Category::create($input);
         return back()->with('success', 'New Category added successfully.');
     }
-
 
 }

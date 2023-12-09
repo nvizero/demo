@@ -15,8 +15,15 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Adm
     Route::resource('abouts', 'AboutController');
 
     Route::post('delimage', 'TemplateController@delimage')->name('delimage');               //刪除圖片
+
     Route::post('destroy_image', 'TemplateController@remove_image')->name('destroy_image'); //刪除圖片
     Route::get('google2faSet/{id}',  'UserController@google2faSet')->name('users.google2faSet');
+
+    Route::get('post-cate-tree-view',['uses'=>'PostCategoryController@manageCategory'])->name('postcatelist');
+    Route::post('add-post-category',['as'=>'add.postCategory','uses'=>'PostCategoryController@addCategory']);
+
+    Route::get('category-tree-view',['uses'=>'CategoryController@manageCategory'])->name('prodcatelist');;
+    Route::post('add-category',['as'=>'add.category','uses'=>'CategoryController@addCategory']);
 });
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -31,3 +38,5 @@ Route::get('/seten', function(){
     App::setLocale('en');
     return redirect()->back();
 });
+
+

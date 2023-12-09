@@ -17,12 +17,20 @@ class Product extends BaseModel
     public function tableFieldsSetting()
     {
         return  [
-          'content' => [
-               'type' => 'ckeditor',
+          'title' => [
+               'type' => 'text',
                'required' => 1,
                'search' => [
                     'level' => 'like',
                ]
+          ],
+          'serial' => [
+               'type' => 'text',
+               'required' => 1,
+          ],
+          'is_flag' => [
+               'type' => 'number',
+               'required' => 0,
           ],
           'tags' => [
                'type' => 'text',
@@ -38,8 +46,8 @@ class Product extends BaseModel
                     'level' => 'like',
                ]
           ],
-          'title' => [
-               'type' => 'text',
+          'content' => [
+               'type' => 'ckeditor',
                'required' => 1,
                'search' => [
                     'level' => 'like',

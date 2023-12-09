@@ -4,19 +4,12 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title">{{ __('menu.normal') }} </li>
-                    <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="ri-home-2-line"></i>
-                            <span>其他</span>
-                        </a>
-                    <ul>
                     <li><a href="{{ route('posts.index') }}">文章列表</a></li>
-                    <li><a href="{{ route('postCategories.index') }}">文章分類</a></li>
+                    <li><a href="{{ route('postcatelist') }}">文章分類</a></li>
                     <li><a href="{{ route('products.index') }}">產品</a></li>
+                    <li><a href="{{ route('prodcatelist') }}">產品分類</a></li>
                     <li><a href="{{ route('abouts.index') }}">關於我們</a></li>
 
-                </ul>
                 <li class="menu-title">帳號設定 </li>
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
