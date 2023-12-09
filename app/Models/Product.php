@@ -52,13 +52,13 @@ class Product extends BaseModel
                     'level' => 'like',
                ]
           ],
-          'imgs' => [
-               'type' => 'text',
-               'required' => 0,
-               'search' => [
-                    'level' => 'like',
-               ]
-          ],
+            'imgs' => [
+                'type' => 'file',                
+                'required' => true,
+                'multi' => true,
+                'search' => false,
+
+            ],
           'sort' => [
                'type' => 'number',
                'required' => 1,
