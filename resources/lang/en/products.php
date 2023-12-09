@@ -6,6 +6,7 @@ return [
     'title' => '產品',
     'titles' => [
         'name' => 'SEO顯示',
+        'category_id' => '分類',
         'serial' => '序號',
         'ad_close_icon' => '右側icon',
         'ad_img' => '廣告圖',

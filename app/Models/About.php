@@ -14,7 +14,7 @@ class About extends BaseModel
          'title','subtitle','content',
     ];
 
-    public function tableFieldsSetting()
+   public function tableFieldsSetting()
     {
         return  [
           'title' => [

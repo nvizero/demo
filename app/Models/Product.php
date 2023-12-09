@@ -24,6 +24,19 @@ class Product extends BaseModel
                     'level' => 'like',
                ]
           ],
+          'category_id' => [
+              'type' => 'select',
+              'required' => 'required|not_in:0',
+              'search' => [
+                  'level' => 'equal'
+              ],
+              'association' => [
+                  'bool' => true,
+                  'hasOne' => "\App\Models\Category",
+                  'type' => "hasOne",
+                  'pluck' => ['title', 'id']
+              ]
+          ],
           'serial' => [
                'type' => 'text',
                'required' => 1,

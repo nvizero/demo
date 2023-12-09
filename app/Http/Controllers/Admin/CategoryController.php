@@ -1,15 +1,21 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
-use app\Http\Controllers\Controller;
+use App\Services\RequestService;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Category;
+use App\Models\Category;
 
-
-class CategoryController extends Controller
+class CategoryController extends TemplateController
 {
+    public string $main = 'categories';
+    function __construct(Request $request, Category $categories, RequestService $requestService)
+    {
+        $this->entity = $categories;
+        $this->request = $request;
+        $this->fieldsSetting = $this->entity->tableFieldsSetting();
+        $this->requestService = $requestService;
+    }
+
     /**
      * Show the application dashboard.
      *

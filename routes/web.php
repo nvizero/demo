@@ -16,9 +16,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Adm
     Route::resource('index_about', 'IndexAboutController');
     Route::resource('index_show', 'IndexShowController');
     Route::resource('keyval', 'KeyvalController');
-
+    Route::resource('categories', 'CategoryController');
     Route::post('delimage', 'TemplateController@delimage')->name('delimage');               //刪除圖片
-
     Route::post('destroy_image', 'TemplateController@remove_image')->name('destroy_image'); //刪除圖片
     Route::get('google2faSet/{id}',  'UserController@google2faSet')->name('users.google2faSet');
 
