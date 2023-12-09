@@ -3,22 +3,11 @@
         <div class="row row-margin">
             <div class="col-md-4 col-padding">
                 <p class='text-title'>
-                    { 有限公司}
+                        {!!getKVBy('main')!!}
                 </p>
                 <address class="mb-0 company-info">
                     <ul>
-                        <li>
-                            <p class='mb-0'>地址：{--}</p>
-                        </li>
-                        <li>
-                            <p class='mb-0'>電話：<a href="tel: ">{ }</a></p>
-                        </li>
-                        <li>
-                            <p class='mb-0'>傳真：{ }</p>
-                        </li>
-                        <li>
-                            <p class='mb-0'>信箱：<a href="mailto: ">{}</a></p>
-                        </li>
+                        {!!companyinfo()!!}
                         <li>
                             <a href="" class='contact-button'>Contact</a>
                         </li>

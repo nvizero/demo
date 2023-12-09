@@ -8,6 +8,7 @@
     <div class="container">
         <div class="owl-carousel owl-theme">
             <!-- banner_item_start -->
+            @foreach($index_shows as $show)
             <div class="item">
                 <div class="row row-margin align-items-center">
                     <div class="col-md-5 col-padding">
@@ -17,49 +18,22 @@
                     </div>
                     <div class="col-md-7 col-padding">
                         <div class="uk-content-subtitle text-left">
-                            <h3>
-                                Hot1 Product
+                            <h3>{{$show->hot}}
                             </h3>
                         </div>
                         <div class="uk-content-title text-left">
-                            <h2>橫幅標題</h2>
+                            <h2>{{$show->title}}</h2>
                         </div>
                         <article class='text-container mb-4 bg-light'>
-                            {圖文編輯器-Our mission is what drives us to do everything possible to expand human potential. We do that by creating groundbreaking sport innovations, by making our products more sustainably, by building a creative and diverse global team and by making a positive impact in communities where we live and work. Based in Beaverton, Oregon, NIKE, Inc. includes the Nike, Converse, and Jordan brands.}
+                            {!!$show->content!!}
                         </article>
                         <div class="liner-button">
-                            <a href="product.php">View More</a>
+                            <a href="{{$show->link}}">View More</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- banner_item_end -->
-            <!-- banner_item_start -->
-            <div class="item">
-                <div class="row row-margin align-items-center">
-                    <div class="col-md-5 col-padding">
-                        <a href="#" class="img-content img-5by7">
-                            <img src="/lu/images/75807939_p0 (1).png" alt="" title="" />
-                        </a>
-                    </div>
-                    <div class="col-md-7 col-padding">
-                        <div class="uk-content-subtitle text-left">
-                            <h3>
-                                Hot Product
-                            </h3>
-                        </div>
-                        <div class="uk-content-title text-left">
-                            <h2>橫幅標題</h2>
-                        </div>
-                        <article class='text-container mb-4 bg-light'>
-                            {圖文編輯器-Our mission is what drives us to do everything possible to expand human potential. We do that by creating groundbreaking sport innovations, by making our products more sustainably, by building a creative and diverse global team and by making a positive impact in communities where we live and work. Based in Beaverton, Oregon, NIKE, Inc. includes the Nike, Converse, and Jordan brands.}
-                        </article>
-                        <div class="liner-button">
-                            <a href="product.php">View More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
             <!-- banner_item_end -->
         </div>
     </div>

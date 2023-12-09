@@ -91,7 +91,38 @@ if (!function_exists('getChkBoxs')) {
     }
 }
 
+if (!function_exists('getKVBy')) {
+    function getKVBy($key)
+    {
+        $baseResp = new BaseRepository();
+        $service = new BaseService($baseResp);
+        $sql = "select * from keyval where `key` = '".$key."';";
+        $res = $service->raw($sql);
+        return $res[0]->value;
+    }
+}
 
+
+if (!function_exists('companyinfo')) {
+    function companyinfo()
+    {
+        $baseResp = new BaseRepository();
+        $service = new BaseService($baseResp);
+        $sql = 'select * from keyval where is_flag =1 ;';
+        $res = $service->raw($sql);
+        $html = "";
+        foreach ($res as $row) {
+          if($row->key=='tel'){
+                $html .= "<li><p class='mb-0'>{$row->title}：<a href=\"tel: \">{$row->value}</a></p></li>";
+          }elseif($row->key=='mail'){
+                $html .= "<li><p class='mb-0'>{$row->title}：<a href=\"mailto: \">{$row->value}</a></p></li>";
+          }else{
+                $html .= "<li><p class='mb-0'>{$row->title}：{$row->value}</p></li>";
+          }
+        }
+        return $html;
+    }
+}
 
  
 

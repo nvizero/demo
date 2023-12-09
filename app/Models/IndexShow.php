@@ -31,6 +31,20 @@ class IndexShow extends BaseModel
             'search' => false,
 
           ],
+          'link' => [
+               'type' => 'text',
+               'required' => 1,
+               'search' => [
+                    'level' => 'like',
+               ]
+          ],
+          'hot' => [
+               'type' => 'text',
+               'required' => 1,
+               'search' => [
+                    'level' => 'like',
+               ]
+          ],
           'sort' => [
                'type' => 'number',
                'required' => 1,

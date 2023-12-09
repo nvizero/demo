@@ -3,9 +3,11 @@
 return [
     'create_new_product' => '新增產品',
     'item' => '產品項目',
-    'title' => '首頁顯示',
+    'title' => '首頁-橫幅標題',
     'titles' => [
         'title' => '顯示',
+        'hot' => 'hot',
+        'link' => 'link',
         'key' => 'key',
         'img' => '圖片',
         'value' => '值',
