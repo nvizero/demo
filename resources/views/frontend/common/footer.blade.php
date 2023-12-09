@@ -14,11 +14,11 @@
                     </ul>
                 </address>
             </div>
-            <div class="col-md-8 col-padding">
+            <div class="col-md-8 col-padding" style="display:none">
                 <p class='text-title'>
                     About Us
                 </p>
-                <nav>
+                <nav style="display:none">
                     <div class="row row-margin">
                         <!-- nav_item_start -->
                         <div class="col-md-3 col-padding"><a href="aboutUs.php">公司簡介</a></div>

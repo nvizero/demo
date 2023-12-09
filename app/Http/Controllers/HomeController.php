@@ -42,6 +42,7 @@ class HomeController extends Controller
     {
       $data['semics'] = $this->baseService->getTableData('posts', [], '', ['show_sort', 'DESC'], 9);
       $data['index_shows'] = $this->baseService->getTableData('index_show', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
+      $data['index_about'] = $this->baseService->getTableData('index_about', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
       return view('frontend.index',$data);
     }
 

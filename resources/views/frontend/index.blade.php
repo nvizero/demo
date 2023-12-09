@@ -141,6 +141,7 @@
     </div>
 </section>
 <!-- index_product_owl_end -->
+@if(isset($index_about[0]))
 <section class='bg-light'>
     <div class="container">
         <div class="uk-content-subtitle">
@@ -149,13 +150,14 @@
             </h3>
         </div>
         <div class="uk-content-title mb-1 after-none">
-            <h2>圖文編輯器標題</h2>
+            <h2>{{$index_about[0]->title}}</h2>
         </div>
         <article class='text-container mb-0 bg-white col-padding'>
-            {圖文編輯器}
+            {!!$index_about[0]->content!!}
         </article>
     </div>
 </section>
+@endif
 <!-- index_product_start -->
 <section class="product-container">
     <div class="container">
