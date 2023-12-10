@@ -59,7 +59,7 @@
                                             @endcan
 
                                             @can("$main-delete")
-                                            {!! Form::open(['method' => 'DELETE','route' => ['customers.destroy', $user->id],'style'=>'display:inline']) !!}
+                                            {!! Form::open(['method' => 'DELETE','route' => ['customers.destroy', $user->id]]) !!}
                                             {!! Form::submit( __('default.delete'), ['class' => 'btn btn-danger']) !!}
                                             {!! Form::close() !!}
                                             @endcan

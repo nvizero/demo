@@ -38,9 +38,23 @@ class About extends BaseModel
                     'level' => 'like',
                ]
           ],
-          'is_flag' => [
+          'able' => [
             'type' => 'checkbox',             
                'required' => 0,
+          ],
+      //about_category_id
+          'about_category_id' => [
+              'type' => 'select',
+              'required' => 'required|not_in:0',
+              'search' => [
+                  'level' => 'equal'
+              ],
+              'association' => [
+                  'bool' => true,
+                  'hasOne' => "\App\Models\AboutCategory",
+                  'type' => "hasOne",
+                  'pluck' => ['name', 'id']
+              ]
           ],
           'content' => [
                'type' => 'ckeditor',

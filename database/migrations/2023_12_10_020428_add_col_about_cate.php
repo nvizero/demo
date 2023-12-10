@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColProd2 extends Migration
+class AddColAboutCate extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddColProd2 extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {            
-            $table->integer('sort')->comment('排序');
+        //
+        Schema::table('abouts', function (Blueprint $table) {            
+            $table->integer('about_category_id')->comment('分類ID');
         });
     }
 
@@ -25,9 +26,8 @@ class AddColProd2 extends Migration
      */
     public function down()
     {
-        //
-        Schema::table('products', function (Blueprint $table) {            
-            $table->dropColumn('sort');
+        Schema::table('abouts', function (Blueprint $table) {            
+            $table->dropColumn('about_category_id');
         });
     }
 }

@@ -5,19 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
-class PostCategory extends BaseModel
+class AboutCategory extends BaseModel
 {
     use Sortable;
-    protected $table = 'post_cates';
+    protected $table = 'about_categories';
     /**
      * The attributes that are mass assignable.
      *	
      * @var array
      */
     protected $fillable = [
-        'title', 'able', 'sort'
+        'name', 'able', 'sort'
     ];
 
+    /**
+     * 获取新闻分类下的帖子
+     *
+     * @return void
+     */
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post', 'category_id', 'id')->orderBy('id', 'desc');
+    }
 
     /**
      * 
@@ -25,26 +34,13 @@ class PostCategory extends BaseModel
     public function tableFieldsSetting()
     {
         return  [
-            'title' => [
+            'name' => [
                 'type' => 'text',
                 'required' => true,
                 'search' => true,
                 'search' => [
                     'level' => 'like'
                 ],
-            ],
-            'parent_id' => [
-                  'type' => 'select',
-                  'required' => 0,
-                  'search' => [
-                      'level' => 'equal'
-                  ],
-                  'association' => [
-                      'bool' => true,
-                      'hasOne' => "\App\Models\PostCategory",
-                      'type' => "hasOne",
-                      'pluck' => ['title', 'id']
-                  ]
             ],
             'able' => [
                 'type' => 'checkbox',

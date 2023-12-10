@@ -10,13 +10,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Adm
     Route::resource('roles', 'RoleController');                                 #用戶組/角色
     Route::resource('users', 'UserController');                                 #後台管理員
     Route::resource('posts', 'PostController');                                 #新聞管理
-    Route::resource('postCategories', 'PostCategoryController');                #新闻分类管理
+    Route::resource('post_cates', 'PostCategoryController');                #新闻分类管理
     Route::resource('products', 'ProductController');
     Route::resource('abouts', 'AboutController');
     Route::resource('index_about', 'IndexAboutController');
     Route::resource('index_show', 'IndexShowController');
     Route::resource('keyval', 'KeyvalController');
     Route::resource('categories', 'CategoryController');
+    Route::resource('aboutCategories', 'AboutCategoryController');
     Route::post('delimage', 'TemplateController@delimage')->name('delimage');               //刪除圖片
     Route::post('destroy_image', 'TemplateController@remove_image')->name('destroy_image'); //刪除圖片
     Route::get('google2faSet/{id}',  'UserController@google2faSet')->name('users.google2faSet');

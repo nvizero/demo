@@ -6,16 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\AboutCategory;
 use App\Services\RequestService;
 
-class PostCategoryController extends TemplateController
+class AboutCategoryController extends TemplateController
 {
-    public string $main = 'post_cates';
-
+    public string $main = 'aboutCategories';
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     function __construct(Request $request, AboutCategory $aboutCategories, RequestService $requestService)
     {        
         $this->entity = $aboutCategories;
