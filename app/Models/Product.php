@@ -14,6 +14,11 @@ class Product extends BaseModel
          'content','tags','imgs','title',
     ];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
     public function tableFieldsSetting()
     {
         return  [

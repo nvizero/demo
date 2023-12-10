@@ -13,7 +13,7 @@
                 <div class="row row-margin align-items-center">
                     <div class="col-md-5 col-padding">
                         <a href="#" class="img-content img-5by7">
-                            <img src="/lu/images/82887113_p0.png" alt="" title="" />
+                            <img src="/storage/{{$show->img}}" alt="" title="" />
                         </a>
                     </div>
                     <div class="col-md-7 col-padding">
@@ -55,85 +55,28 @@
             </div>
             <div class="col-md-9 col-padding">
                 <div class="owl-carousel owl-theme">
+                  @foreach($products  as $prod)
                     <!-- item_start -->
                     <div class="item">
                         <!-- item-main_start -->
                         <div class="uk-card-liner">
                             <div class="uk-card-item">
                                 <div class="uk-card-header">
-                                    <a href="productCate.php" class='img-content img-4by3'><img src="/lu/images/sampleCategory/nike.jpg" /></a>
+                                    <a href="productCate.php" class='img-content img-4by3'><img src="/storage/{{$prod->imgs}}" /></a>
                                 </div>
                                 <div class="uk-card-body">
-                                    <a href="productCate.php" class="text-title">{NIKE}</a><br />
-                                    <a href="productCate.php" class="uk-text-subtitle">{產品分類副標題}</a>
+                                    <a href="productCate.php" class="text-title">{{$prod->title}}</a><br />
+                                    <a href="productCate.php" class="uk-text-subtitle">{{$prod->category->title}}</a>
                                 </div>
                                 <div class="uk-card-footer">
-                                    <a href="productCate.php" class='ell-text'>{Our mission is what drives us to do everything possible to expand human potential. We do that by creating groundbreaking sport innovations, by making our products more sustainably, by building a creative and diverse global team and by making a positive impact in communities where we live and work. Based in Beaverton, Oregon, NIKE, Inc. includes the Nike, Converse, and Jordan brands.}</a>
+                                    <a href="productCate.php" class='ell-text'>{!! $prod->content!!}</a>
                                 </div>
                             </div>
                         </div>
                         <!-- item-main_end -->
                     </div>
-                    <!-- item_end -->
+                  @endforeach
                     <!-- item_start -->
-                    <div class="item">
-                        <!-- item-main_start -->
-                        <div class="uk-card-liner">
-                            <div class="uk-card-item">
-                                <div class="uk-card-header">
-                                    <a href="productCate.php" class='img-content img-4by3'><img src="/lu/images/sampleCategory/nike.jpg" /></a>
-                                </div>
-                                <div class="uk-card-body">
-                                    <a href="productCate.php" class="text-title">{NIKE}</a><br />
-                                    <a href="productCate.php" class="uk-text-subtitle">{產品分類副標題}</a>
-                                </div>
-                                <div class="uk-card-footer">
-                                    <a href="productCate.php" class='ell-text'>{Our mission is what drives us to do everything possible to expand human potential. We do that by creating groundbreaking sport innovations, by making our products more sustainably, by building a creative and diverse global team and by making a positive impact in communities where we live and work. Based in Beaverton, Oregon, NIKE, Inc. includes the Nike, Converse, and Jordan brands.}</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- item-main_end -->
-                    </div>
-                    <!-- item_end -->
-                    <!-- item_start -->
-                    <div class="item">
-                        <!-- item-main_start -->
-                        <div class="uk-card-liner">
-                            <div class="uk-card-item">
-                                <div class="uk-card-header">
-                                    <a href="productCate.php" class='img-content img-4by3'><img src="/lu/images/sampleCategory/nike.jpg" /></a>
-                                </div>
-                                <div class="uk-card-body">
-                                    <a href="productCate.php" class="text-title">{NIKE}</a><br />
-                                    <a href="productCate.php" class="uk-text-subtitle">{產品分類副標題}</a>
-                                </div>
-                                <div class="uk-card-footer">
-                                    <a href="productCate.php" class='ell-text'>{Our mission is what drives us to do everything possible to expand human potential. We do that by creating groundbreaking sport innovations, by making our products more sustainably, by building a creative and diverse global team and by making a positive impact in communities where we live and work. Based in Beaverton, Oregon, NIKE, Inc. includes the Nike, Converse, and Jordan brands.}</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- item-main_end -->
-                    </div>
-                    <!-- item_end -->
-                    <!-- item_start -->
-                    <div class="item">
-                        <!-- item-main_start -->
-                        <div class="uk-card-liner">
-                            <div class="uk-card-item">
-                                <div class="uk-card-header">
-                                    <a href="productCate.php" class='img-content img-4by3'><img src="/lu/images/sampleCategory/nike.jpg" /></a>
-                                </div>
-                                <div class="uk-card-body">
-                                    <a href="productCate.php" class="text-title">{NIKE}</a><br />
-                                    <a href="productCate.php" class="uk-text-subtitle">{產品分類副標題}</a>
-                                </div>
-                                <div class="uk-card-footer">
-                                    <a href="productCate.php" class='ell-text'>{Our mission is what drives us to do everything possible to expand human potential. We do that by creating groundbreaking sport innovations, by making our products more sustainably, by building a creative and diverse global team and by making a positive impact in communities where we live and work. Based in Beaverton, Oregon, NIKE, Inc. includes the Nike, Converse, and Jordan brands.}</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- item-main_end -->
-                    </div>
                     <!-- item_end -->
                 </div>
             </div>

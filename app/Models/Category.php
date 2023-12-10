@@ -9,6 +9,10 @@ class Category extends BaseModel
 
     public $fillable = ['title','parent_id'];
 
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
     public function tableFieldsSetting()
     {
         return  [

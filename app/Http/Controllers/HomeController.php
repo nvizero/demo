@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Post;
+use App\Models\Product;
 use App\Services\BaseService;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
@@ -38,9 +38,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Product $prod)
     {
-      $data['semics'] = $this->baseService->getTableData('posts', [], '', ['show_sort', 'DESC'], 9);
+      // $data['products'] = $this->baseService->getTableData('products', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
+      $data['products'] = $prod->where('is_flag',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
       $data['index_shows'] = $this->baseService->getTableData('index_show', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
       $data['index_about'] = $this->baseService->getTableData('index_about', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
       return view('frontend.index',$data);
