@@ -131,7 +131,7 @@
                 <!-- item-main_start -->
                 <div class="uk-card-item">
                     <div class="uk-card-header">
-                        <a href="productCate.php" class='img-content img-1by1'><img src="/lu/images/sampleCategory/product04-02.jpg" /></a>
+                        <a href="productCate.php" class='img-content img-1by1'><img src="/storage/{{$hot->imgs}}" /></a>
                     </div>
                     <div class="uk-card-body">
                         <a href="productCate.php" class='text-primary'>{{$hot->serial}}</a><br />
