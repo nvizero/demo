@@ -126,6 +126,7 @@
         </article>
         <div class="row row-margin row-high">
             <!-- product_item_start -->
+            @foreach($hots as $hot)
             <div class="col-lg-3 col-md-3 col-sm-6 col-padding">
                 <!-- item-main_start -->
                 <div class="uk-card-item">
@@ -133,16 +134,17 @@
                         <a href="productCate.php" class='img-content img-1by1'><img src="/lu/images/sampleCategory/product04-02.jpg" /></a>
                     </div>
                     <div class="uk-card-body">
-                        <a href="productCate.php" class='text-primary'>N-001</a><br />
-                        <a href="productCate.php" class="text-title">{NIKE}</a><br />
-                        <a href="productCate.php" class="uk-text-subtitle">{產品分類副標題}</a>
+                        <a href="productCate.php" class='text-primary'>{{$hot->serial}}</a><br />
+                        <a href="productCate.php" class="text-title">{{$hot->title}}</a><br />
+                        <a href="productCate.php" class="uk-text-subtitle">{{$hot->->category->title}}</a>
                     </div>
                     <div class="uk-card-footer">
-                        <a href="productCate.php" class='ell-text'>{Our mission is what drives us to do everything possible to expand human potential. We do that by creating groundbreaking sport innovations, by making our products more sustainably, by building a creative and diverse global team and by making a positive impact in communities where we live and work. Based in Beaverton, Oregon, NIKE, Inc. includes the Nike, Converse, and Jordan brands.}</a>
+                        <a href="productCate.php" class='ell-text'>{!! $prod->content!!}</a>
                     </div>
                 </div>
                 <!-- item-main_end -->
             </div>
+            @endforeach
             <!-- product_item_end -->
         </div>
     </div>

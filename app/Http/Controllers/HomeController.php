@@ -42,6 +42,7 @@ class HomeController extends Controller
     {
       // $data['products'] = $this->baseService->getTableData('products', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
       $data['products'] = $prod->where('is_flag',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
+      $data['hots'] = $prod->where('is_hot',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
       $data['index_shows'] = $this->baseService->getTableData('index_show', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
       $data['index_about'] = $this->baseService->getTableData('index_about', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
       return view('frontend.index',$data);
