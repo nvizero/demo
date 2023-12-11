@@ -136,7 +136,7 @@
                     <div class="uk-card-body">
                         <a href="productCate.php" class='text-primary'>{{$hot->serial}}</a><br />
                         <a href="productCate.php" class="text-title">{{$hot->title}}</a><br />
-                        <a href="productCate.php" class="uk-text-subtitle">{{$hot->->category->title}}</a>
+                        <a href="productCate.php" class="uk-text-subtitle">{{$hot->category->title}}</a>
                     </div>
                     <div class="uk-card-footer">
                         <a href="productCate.php" class='ell-text'>{!! $prod->content!!}</a>
