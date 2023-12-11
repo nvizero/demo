@@ -17,6 +17,7 @@ return [
         'link' => '鏈結',
         'content' => '內容',
         'is_flag' => '開啟',
+        'is_hot' => '熱門商品',
         'tags' => 'Tags',
         'imgs' => '圖片',
         'title'=> '名稱'

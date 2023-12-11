@@ -50,6 +50,10 @@ class Product extends BaseModel
                'type' => 'number',
                'required' => 0,
           ],
+          'is_hot' => [
+               'type' => 'number',
+               'required' => 0,
+          ],
           'tags' => [
                'type' => 'text',
                'required' => 0,
