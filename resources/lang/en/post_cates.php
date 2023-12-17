@@ -1,13 +1,13 @@
 <?php
 
 return [    
-    'title' => '新聞',    
+    'title' => '新聞分類',    
     'titles' => [
-        'title' => '標題',        
+        'name' => '標題',        
         'category_id' => '分類',
         'content' => '內容',
         'sort' => '排序',         
-        'is_flag' => '啟用',         
+        'able' => '啟用',         
         'user_id' =>'用户id',
         'username'=>'昵称',
         'created_at'=>'創建時間',

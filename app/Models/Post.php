@@ -66,6 +66,10 @@ class Post extends BaseModel
                 'required' => true,
                 'search' =>  false,
             ],
+            'is_flag' => [
+                 'type' => 'checkbox',
+                 'required' => 0,
+            ],
             'category_id' => [
                 'type' => 'select',
                 'required' => 'required|not_in:0',
@@ -76,7 +80,7 @@ class Post extends BaseModel
                     'bool' => true,
                     'hasOne' => "\App\Models\PostCategory",
                     'type' => "hasOne",
-                    'pluck' => ['name', 'id']
+                    'pluck' => ['title', 'id']
                 ]
             ],
             'content' => [

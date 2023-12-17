@@ -173,65 +173,28 @@
         </div>
         <div class="row row-margin row-high">
             <!-- product_item_start -->
+            @foreach($news as $new)
             <div class="col-lg-4 col-md-4 col-sm-6 col-padding">
                 <!-- item-main_start -->
                 <div class="uk-card-liner">
                     <div class="uk-card-item">
                         <div class="uk-card-header">
-                            <a href="productCate.php" class='img-content img-10by3'><img src="/lu/images/banner/81438612_p0.png" /></a>
+                            <a href="productCate.php" class='img-content img-10by3'><img src="/storage/{{$new->img}}" /></a>
                         </div>
                         <div class="uk-card-body">
-                            <a href="productCate.php" class='text-primary'>2023-0501</a><br />
-                            <a href="productCate.php" class="text-title">{最新消息標題}</a><br />
+                            <a href="productCate.php" class='text-primary'>{{$new->created_at}}</a><br />
+                            <a href="productCate.php" class="text-title">{{$new->title}}</a><br />
                         </div>
                         <div class="uk-card-footer">
-                            <a href="productCate.php" class='ell-text'>{台灣往年遇到的颱風大多是從西北太平洋來的，根據氣象局2010年至2019年氣候年報顯示，西北太平洋海域全年颱風生成數最多的一年為2013年，當年有31個颱風生成；最少為2010年，有14個颱風生成。從生成月份來看，颱風主要生成季節於7月至10月，以2019年舉例，全年颱風總數為29個，8月、9月至11月生成數較多。}</a>
+                            <a href="productCate.php" class='ell-text'>{!! $new->content!!}</a>
                         </div>
                     </div>
                 </div>
                 <!-- item-main_end -->
             </div>
+            @endforeach
             <!-- product_item_end -->
             <!-- product_item_start -->
-            <div class="col-lg-4 col-md-4 col-sm-6 col-padding">
-                <!-- item-main_start -->
-                <div class="uk-card-liner">
-                    <div class="uk-card-item">
-                        <div class="uk-card-header">
-                            <a href="productCate.php" class='img-content img-10by3'><img src="/lu/images/banner/81438612_p0.png" /></a>
-                        </div>
-                        <div class="uk-card-body">
-                            <a href="productCate.php" class='text-primary'>2023-0501</a><br />
-                            <a href="productCate.php" class="text-title">{最新消息標題}</a><br />
-                        </div>
-                        <div class="uk-card-footer">
-                            <a href="productCate.php" class='ell-text'>{台灣往年遇到的颱風大多是從西北太平洋來的，根據氣象局2010年至2019年氣候年報顯示，西北太平洋海域全年颱風生成數最多的一年為2013年，當年有31個颱風生成；最少為2010年，有14個颱風生成。從生成月份來看，颱風主要生成季節於7月至10月，以2019年舉例，全年颱風總數為29個，8月、9月至11月生成數較多。}</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- item-main_end -->
-            </div>
-            <!-- product_item_end -->
-            <!-- product_item_start -->
-            <div class="col-lg-4 col-md-4 col-sm-6 col-padding">
-                <!-- item-main_start -->
-                <div class="uk-card-liner">
-                    <div class="uk-card-item">
-                        <div class="uk-card-header">
-                            <a href="productCate.php" class='img-content img-10by3'><img src="/lu/images/banner/81438612_p0.png" /></a>
-                        </div>
-                        <div class="uk-card-body">
-                            <a href="productCate.php" class='text-primary'>2023-0501</a><br />
-                            <a href="productCate.php" class="text-title">{最新消息標題}</a><br />
-                        </div>
-                        <div class="uk-card-footer">
-                            <a href="productCate.php" class='ell-text'>{台灣往年遇到的颱風大多是從西北太平洋來的，根據氣象局2010年至2019年氣候年報顯示，西北太平洋海域全年颱風生成數最多的一年為2013年，當年有31個颱風生成；最少為2010年，有14個颱風生成。從生成月份來看，颱風主要生成季節於7月至10月，以2019年舉例，全年颱風總數為29個，8月、9月至11月生成數較多。}</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- item-main_end -->
-            </div>
-            <!-- product_item_end -->
         </div>
     </div>
 </section>
