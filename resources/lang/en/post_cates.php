@@ -3,7 +3,7 @@
 return [    
     'title' => '新聞分類',    
     'titles' => [
-        'name' => '標題',        
+        'title' => '標題',        
         'category_id' => '分類',
         'content' => '內容',
         'sort' => '排序',         
@@ -13,5 +13,6 @@ return [
         'created_at'=>'創建時間',
         'img'=>'封面圖',
         'isTop'=>'是否设为推荐',
+        'parent_id'=>'上一層',
     ]
 ];

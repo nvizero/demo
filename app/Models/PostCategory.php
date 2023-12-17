@@ -58,4 +58,7 @@ class PostCategory extends BaseModel
             ],
         ];
     }
+    public function childs() {
+        return $this->hasMany('App\Models\PostCategory','parent_id','id') ;
+    }
 }

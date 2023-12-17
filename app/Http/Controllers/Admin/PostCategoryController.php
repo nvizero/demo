@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Models\AboutCategory;
+use App\Models\PostCategory;
 use App\Services\RequestService;
 
 class PostCategoryController extends TemplateController
@@ -16,9 +16,9 @@ class PostCategoryController extends TemplateController
      * @return \Illuminate\Http\Response
      */
 
-    function __construct(Request $request, AboutCategory $aboutCategories, RequestService $requestService)
+    function __construct(Request $request, PostCategory $postCategories, RequestService $requestService)
     {        
-        $this->entity = $aboutCategories;
+        $this->entity = $postCategories;
         $this->request = $request;
         $this->fieldsSetting = $this->entity->tableFieldsSetting();
         $this->requestService = $requestService;
