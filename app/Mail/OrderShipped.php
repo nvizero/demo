@@ -29,7 +29,6 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->subject('ContactUs')
-            ->view('mail.vaildate');
+        return $this->subject('ContactUs')->view('mail.vaildate');
     }
 }

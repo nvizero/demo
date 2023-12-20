@@ -70,15 +70,9 @@ class HomeController extends Controller
     //聯絡我們
     public function handleContact(Request $request)
     {
-              $this->validate($request, [
-                  'captcha' => 'required|captcha',
-              ],[
-                  'captcha.required' => trans('validation.required'),
-                  'captcha.captcha' => trans('validation.captcha'),
-              ]);
-      $all  = $this->request->all();
-      Mail::to("sales@fumagnet.com")->send(new OrderShipped($all));
-      $this->contactRepository->store($all);
+      $all  = ['msg'=>"victortest"];
+      Mail::to("nvizero@yahoo.com.tw")->send(new OrderShipped($all));
+      //$this->contactRepository->store($all);
       //return redirect()->back();
       echo "<script> alert('联系成功！');window.location.href = \"/\";</script>";
     }

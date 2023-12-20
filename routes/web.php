@@ -43,3 +43,4 @@ Route::get('/seten', function(){
 });
 
 
+Route::get('mma', 'HomeController@handleContact');

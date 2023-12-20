@@ -52,6 +52,11 @@ class AboutCategory extends BaseModel
                 'required' => true,
                 'search' => true,
             ],
+            'level' => [
+                'type' => 'level',
+                'required' => 'required|not_in:4',
+                'max' => 4,
+            ],
         ];
     }
 }

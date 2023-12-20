@@ -6,9 +6,11 @@
 
 
 <div class="row mb-3">
-    @if ($setting['type'] != 'system')
+
+    @if ($setting['type'] != 'system' && $setting['type'] != 'level')
         <label for="example-text-input" class="col-sm-2 col-form-label">{{ __("$main.titles.$name") }}</label>
     @endif
+
     <div class="col-sm-10">
         @if ($setting['type'] == 'text' || $setting['type'] == 'number')
             <input type="{{ $setting['type'] }}" name="{{ $name }}" value='{{ old("$name") }}' class="form-control"
@@ -35,6 +37,8 @@
         @elseif($setting['type'] == 'file')
             <input type="{{ $setting['type'] }}" name="{{ $name }}" value='{{ old("$name") }}'
                 placeholder='{{ __("$main.titles.$name") }}'>
+        @elseif($setting['type'] == 'level')
+            @include('backend.components.level')
         @elseif($setting['type'] == 'files')
             @include('backend.components.files')
         @elseif($setting['type'] == 'select' && isset($setting['association']['bool']))

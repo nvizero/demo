@@ -6,7 +6,7 @@
 
 
 <div class="row mb-3"            @if(isset($setting['isHidden']) )  style="display:none;"  @endif>
-    @if ($setting['type'] != 'system')
+    @if ($setting['type'] != 'system' && $setting['type'] != 'level')
         <label for="example-text-input" class="col-sm-2 col-form-label" >{{ __("$main.titles.$name") }}</label>
     @endif
 
@@ -35,6 +35,8 @@
                 },
                   height: "500px"});
             </script>
+        @elseif($setting['type'] == 'level')
+            @include('backend.components.level')
         @elseif($setting['type'] == 'file')
             @include('backend.components.file')
         @elseif($setting['type'] == 'files')

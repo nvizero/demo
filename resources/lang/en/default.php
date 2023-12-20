@@ -3,6 +3,7 @@ return [
     'index' => '列表',
     'captcha'                  => ':attribute 不正确。',
     'captcha'               => '验证码',
+    'created_faild' =>"新增.失敗最多:max層",
     'show' => '顯示',
     'edit' => '編輯',
     'delete' => '刪除',

@@ -63,10 +63,10 @@ class TemplateController extends DashboardController
     public function preDBPress($fieldsSetting, $request, $entity, $main)
     {
         $this->requestService = new RequestService();
+        $inputAll = $request->except(['_token', '_method', 'id', 'files']);
         //必填        
         $required = $this->requestService->isRequired($fieldsSetting);
         request()->validate($required);
-        $inputAll = $request->except(['_token', '_method', 'id', 'files']);
 
         //checkbox 問題修正
         $inputChkbox = $this->requestService->fieldsCheckbox($fieldsSetting, $request);
@@ -76,6 +76,7 @@ class TemplateController extends DashboardController
         $imageData = $this->requestService->imgService($inputFiles, $request);
 
         $allDatas = $this->requestService->collectData($inputAll, $inputChkbox, $imageData);
+
         if ($request->input('id') > 0) {
             //更新
             $entity = $entity->find($request->input('id'));
@@ -96,9 +97,21 @@ class TemplateController extends DashboardController
             }
         }
         $entity->save();
+        //等級
         //多圖片上傳
         $this->requestService->multiImgService($request, $entity, $fieldsSetting, $main);
         return $entity;
+    }
+
+    //等級 
+    public function calcLevel($inputAll){
+      
+      if($inputAll['parent_id']==0){
+        return 1;
+      }
+      $res = DB::table($this->main)->where('id',$inputAll['parent_id'])->first();
+      return (int)$res->level+1;
+      
     }
     /**
      * Store a newly created resource in storage.
@@ -110,8 +123,25 @@ class TemplateController extends DashboardController
     {
         //必填設定 
         self::preDBPress($this->fieldsSetting, $this->request, $this->entity, $this->main);
-        return redirect()->route("$this->main.index")
-            ->with('success', __("$this->main.title") . __('default.created_successfully'));
+        //level
+        if($this->request->input('level')>0){
+          $inputAll = $this->request->except(['_token', '_method', 'id', 'files']);
+          $level = self::calcLevel($inputAll);
+          $max = $this->fieldsSetting['level']['max'];
+          if($level<$max){
+            $this->entity->level = $level;
+            $this->entity->save();
+            return redirect()->route("$this->main.index")
+                ->with('success', __("$this->main.title") . __('default.created_successfully'));
+          }else{
+            $this->entity->delete();
+            return redirect()->route("$this->main.index")
+                ->with('error', __("$this->main.title") . __('default.created_faild',['max'=>$max-1]));
+          }
+        }else{
+          return redirect()->route("$this->main.index")
+              ->with('success', __("$this->main.title") . __('default.created_successfully'));
+        }
     }
 
     /**

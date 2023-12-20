@@ -56,6 +56,11 @@ class PostCategory extends BaseModel
                 'required' => true,
                 'search' => true,
             ],
+            'level' => [
+                'type' => 'level',
+                'required' => 'required|not_in:4',
+                'max' => 4,
+            ],
         ];
     }
     public function childs() {
