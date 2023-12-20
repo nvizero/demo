@@ -11,6 +11,7 @@ return [
         'sort' => '排序',
         'content' => '內容',
         'parent_id' => '上一層',
+        'level' => '層級',
     ]
 ];
 

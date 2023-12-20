@@ -10,6 +10,7 @@ return [
         'subtitle' => '副標題',
         'able' => '是否顯示',
         'sort' => '排序',
+        'level' => '層級',
         'content' => '內容',
     ]
 ];

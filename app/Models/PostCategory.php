@@ -59,7 +59,7 @@ class PostCategory extends BaseModel
             'level' => [
                 'type' => 'level',
                 'required' => 'required|not_in:4',
-                'max' => 4,
+                'max' => 3,
             ],
         ];
     }
