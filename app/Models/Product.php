@@ -42,6 +42,15 @@ class Product extends BaseModel
                   'pluck' => ['title', 'id']
               ]
           ],
+          'qrcode' => [
+               'type' => 'file',
+               'required' => 0,
+          ],
+          'parse_qrcode' => [
+               'type' => 'no',
+               'required' => 0,
+          ],
+
           'serial' => [
                'type' => 'text',
                'required' => 1,

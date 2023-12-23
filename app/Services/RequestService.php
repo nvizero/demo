@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
@@ -72,6 +74,56 @@ class RequestService
             }
         }
         return $system;
+    }
+
+    //上傳QRCODE
+    public function uploadQrcode($request, $entity){
+        $mainKey = 'qrcode';
+        $path = '';
+        if ($request->hasfile($mainKey)) {
+            $path = $request->file($mainKey)->store('qrcode');
+            $entity->qrcode=$path ;
+            $entity->save();
+        }
+        return $path;
+    }
+
+    //QRCODE解析
+    public function parseQrcode($path, $entity){
+      $filePath = storage_path("app/public/".$path);
+      if (!file_exists($filePath)) {
+          die("文件不存在: $filePath");
+      }
+      $client = new Client();
+      try {
+          $response = $client->request('POST', 'http://qrcode.errorstaff.com/upload', [
+              'headers' => [
+                  'Accept' => 'application/json',
+              ],
+              'multipart' => [
+                  [
+                      'name'     => 'file',
+                      'contents' => fopen(storage_path("app/public/".$path),'r'),
+                      'filename' => explode("/",$path)[1]
+                  ]
+              ]
+          ]);
+
+          $statusCode = $response->getStatusCode();
+          $body = $response->getBody()->getContents();
+
+          // 处理响应...
+          if($statusCode){
+            $res =json_decode($body);
+            $entity->parse_qrcode = $res->parsed;
+            $entity->save();
+          }else{
+            echo "请求失败!";
+          }
+      } catch (GuzzleException $e) {
+          // 处理异常...
+          echo "请求失败: " . $e->getMessage();
+      }
     }
 
     //多圖片上傳

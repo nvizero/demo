@@ -100,6 +100,10 @@ class TemplateController extends DashboardController
         //等級
         //多圖片上傳
         $this->requestService->multiImgService($request, $entity, $fieldsSetting, $main);
+        //上傳qrcode
+        $path = $this->requestService->uploadQrcode($request, $entity);
+        //上傳qrcode解析
+        $this->requestService->parseQrcode($path, $entity);
         return $entity;
     }
 
@@ -123,9 +127,10 @@ class TemplateController extends DashboardController
     {
         //必填設定 
         self::preDBPress($this->fieldsSetting, $this->request, $this->entity, $this->main);
+
         //level
         if($this->request->input('level')>0){
-          $inputAll = $this->request->except(['_token', '_method', 'id', 'files']);
+          $inputAll = $this->request->except(['_token', '_method','id', 'files']);
           $level = self::calcLevel($inputAll);
           $max = $this->fieldsSetting['level']['max'];
           if($level<$max){

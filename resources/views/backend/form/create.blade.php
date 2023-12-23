@@ -68,18 +68,21 @@
                     </script>
                 @endsection
             @endif
+        @elseif($setting['type'] == 'no')
+            <input type="hidden" name="{{ $name }}" value='1' >
         @elseif($setting['type'] == 'number_by_select')
             {!! Form::select($name, [1=>1,2=>2,3=>3,4=>4,5=>5,6=>6,7=>7,8=>8,9=>9], null, ['class' => 'form-control']) !!}
         @elseif($setting['type'] == 'select' && isset($setting['isData']))
             {!! Form::select($name, $setting['data'], null, ['class' => 'form-control']) !!}
         @elseif($setting['type'] == 'self')
-        @foreach (allSems() as $row)
-        <label  style="margin-right:20px;">
-            <input type="checkbox" class="ckbox" value="{{ $row->id }}">{{ $row->title }}
-        </label>
-    @endforeach
 
-    <div class="form-show"> </div>
+          @foreach (allSems() as $row)
+            <label  style="margin-right:20px;">
+                <input type="checkbox" class="ckbox" value="{{ $row->id }}">{{ $row->title }}
+            </label>
+          @endforeach
+
+        <div class="form-show"> </div>
 
     @section('js2')
         <script type="text/javascript">

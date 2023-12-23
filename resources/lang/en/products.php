@@ -20,6 +20,8 @@ return [
         'is_hot' => '熱門商品',
         'tags' => 'Tags',
         'imgs' => '圖片',
+        'qrcode'=>'QRcode',
+        'parse_qrcode'=>'QRcode解析代碼',
         'title'=> '名稱'
     ]
 ];
