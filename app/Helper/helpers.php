@@ -55,7 +55,6 @@ if (!function_exists('findData')) {
 }
 
 
-
 if (!function_exists('getFirstAvatar')) {
     function getFirstAvatar($html, $type = '')
     {
@@ -72,7 +71,6 @@ if (!function_exists('getFirstAvatar')) {
         }
     }
 }
-
 
 if (!function_exists('getChkBoxs')) {
     function getChkBoxs($datas, $isFront = false)
@@ -597,5 +595,19 @@ if (!function_exists('htmlIsChecked')) {
     function htmlIsChecked(string $find, string $modelVal)
     {
         return (strpos($modelVal, $find) >= 1) ? 1 : 0;
+    }
+}
+
+//html產出的checkbox是否ckecked radio or checkbox
+if (!function_exists('showImgs')) {
+    function showImgs(string $imgs)
+    {
+      $show="";
+      $images = array_filter(explode(",",$imgs));
+      foreach($images as $img){
+        
+        $show.="<img src=\"{$img}\" />";
+      }
+      return $show;
     }
 }

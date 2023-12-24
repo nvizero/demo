@@ -70,13 +70,18 @@ class Product extends BaseModel
                     'level' => 'like',
                ]
           ],
-            'imgs' => [
-                'type' => 'file',                
-                'required' => true,
-                'multi' => true,
-                'search' => false,
-
-            ],
+          'files' => [
+              'type' => 'files',
+              'required' => false,
+              'index_show' => false,
+              'association' => [
+                  'bool' => true,
+                  'hasMany' => "\App\Models\Image",
+                  'fromModel' => "\App\Models\Product",
+                  'type' => "hasMany",
+                  'pluck' => ['img', 'id']
+              ]
+          ],
           'sort' => [
                'type' => 'number',
                'required' => 1,

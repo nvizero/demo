@@ -77,9 +77,10 @@
                             <div class="img-control">
                                 <div class="owl-carousel owl-theme">
                                     <div class="item">
+                                        {!! showImgs($prod->imgs) !!}
                                         <a class="img-content img-1by1 button secondary url active" href="#pt_01">
                                             <img src="/lu/images/sampleCategory/product04.jpg" alt="" title="">
-                                          </a>
+                                        </a>
                                     </div>
                                     <div class="item">
                                         <a class="img-content img-1by1 button secondary url" href="#pt_02">

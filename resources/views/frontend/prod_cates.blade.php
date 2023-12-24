@@ -64,7 +64,7 @@
                 <!-- 麵包屑_end -->
                 <div class="uk-content-title">
                     <h1>
-                        {{$cate->title}
+                        {{$cate->title}}
                     </h1>
                 </div>
                 <article class='text-container mb-4 bg-light'>

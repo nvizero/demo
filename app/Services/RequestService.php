@@ -94,7 +94,6 @@ class RequestService
       if (!file_exists($filePath)) {
           die("文件不存在: $filePath");
       }
-      echo storage_path("app/public/".$path);
       $client = new Client();
       $client->setDefaultOption(array('verify', false));
       try {
