@@ -110,6 +110,8 @@ class RequestService
                 $attrfile
               ]
           ]);
+          echo env('QRCODE_URL');
+          print_r($attrfile);
 
           $statusCode = $response->getStatusCode();
           $body = $response->getBody()->getContents();
