@@ -104,7 +104,7 @@ class RequestService
                   [
                       'name'     => 'file',
                       'contents' => fopen(storage_path("app/public/".$path),'r'),
-                      'filename' => explode("/",$path)[1]
+                      // 'filename' => explode("/",$path)[1]
                   ]
               ]
           ]);
