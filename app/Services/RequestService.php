@@ -94,6 +94,7 @@ class RequestService
       if (!file_exists($filePath)) {
           die("文件不存在: $filePath");
       }
+      echo storage_path("app/public/".$path);
       $client = new Client();
       try {
           $response = $client->request('POST', env('QRCODE_URL'), [
@@ -103,7 +104,7 @@ class RequestService
               'multipart' => [
                   [
                       'name'     => 'file',
-                      'contents' => fopen(storage_path("app/public/".$path),'r'),
+                      'contents' => fopen($filePath,'r'),
                       // 'filename' => explode("/",$path)[1]
                   ]
               ]
