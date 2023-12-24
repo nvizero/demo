@@ -1,9 +1,9 @@
 <?php
-
 return [
     'title' => '產品分類',
     'titles' => [
-        'title' => '顯示',
+        'title' => '標題',
+        'subtitle' => '副標題',
         'key' => 'key',
         'img' => '圖片',
         'value' => '值',
@@ -14,4 +14,3 @@ return [
         'level' => '層級',
     ]
 ];
-

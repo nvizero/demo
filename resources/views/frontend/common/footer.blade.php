@@ -3,11 +3,11 @@
         <div class="row row-margin">
             <div class="col-md-4 col-padding">
                 <p class='text-title'>
-                        {!!getKVBy('main')!!}
+                        {!! getKVBy('main') !!}
                 </p>
                 <address class="mb-0 company-info">
                     <ul>
-                        {!!companyinfo()!!}
+                        {!! companyinfo() !!}
                         <li>
                             <a href="" class='contact-button'>Contact</a>
                         </li>
@@ -90,12 +90,12 @@
     <ul>
         <li>
             <a href="">
-                <span class="material-icons">--call</span>
+                <span class="material-icons">call</span>
             </a>
         </li>
         <li>
             <a href="">
-                <span class="material-icons">--email</span>
+                <span class="material-icons">email</span>
             </a>
         </li>
         <li>

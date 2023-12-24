@@ -6,6 +6,7 @@ return [
         'name' => '標題',        
         'able' => '可用',
         'sort' => '排序',        
+        'subtitle' => '副標題',        
     
     ]
 ];

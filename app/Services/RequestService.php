@@ -96,7 +96,7 @@ class RequestService
       }
       $client = new Client();
       try {
-          $response = $client->request('POST', 'http://qrcode.errorstaff.com/upload', [
+          $response = $client->request('POST', env('QRCODE_URL'), [
               'headers' => [
                   'Accept' => 'application/json',
               ],

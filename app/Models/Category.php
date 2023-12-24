@@ -36,11 +36,26 @@ class Category extends BaseModel
                     'pluck' => ['title', 'id']
                 ]
           ],
-            'level' => [
-                'type' => 'level',
-                'required' => 'required|not_in:4',
-                'max' => 4,
-            ],
+          'subtitle' => [
+               'type' => 'text',
+               'required' => 1,
+          ],
+          'img' => [
+               'type' => 'file',
+               'required' => 1,
+          ],
+          'content' => [
+              'type' => 'ckeditor',
+              'required' => true,
+              'search' => [
+                  'level' => 'like'
+              ],
+          ],
+          'level' => [
+              'type' => 'level',
+              'required' => 'required|not_in:4',
+              'max' => 4,
+          ],
        ];
     }
 

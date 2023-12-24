@@ -73,7 +73,6 @@ if (!function_exists('getFirstAvatar')) {
     }
 }
 
-// $data['semicCates'] = $this->baseService->getTableData('semic_cates', '');
 
 if (!function_exists('getChkBoxs')) {
     function getChkBoxs($datas, $isFront = false)
@@ -90,7 +89,6 @@ if (!function_exists('getChkBoxs')) {
         return $html;
     }
 }
-
 if (!function_exists('getKVBy')) {
     function getKVBy($key)
     {
@@ -102,7 +100,34 @@ if (!function_exists('getKVBy')) {
     }
 }
 
+if (!function_exists('hasRedis')) {
+    function hasRedis($key)
+    {
+        // $baseResp = new BaseRepository();
+        // $service = new BaseService($baseResp);
+        // $sql = "select * from keyval where `key` = '".$key."';";
+        // $res = $service->raw($sql);
+        // return $res[0]->value;
+    }
+}
 
+//產品分類資料
+if (!function_exists('prod_cates')) {
+    function prod_cates()
+    {
+        $baseResp = new BaseRepository();
+        $service = new BaseService($baseResp);
+        $sql = 'select * from categories where level = 1 ;';
+        $res = $service->raw($sql);
+        $html = "";
+        foreach ($res as $row) {
+            $html .= "<li><a href=\"/prod_categories/$row->id\">$row->title</a></li>";
+        }
+        return $html;
+    }
+}
+
+//公司資料
 if (!function_exists('companyinfo')) {
     function companyinfo()
     {

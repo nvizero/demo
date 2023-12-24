@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
 use App\Services\BaseService;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
@@ -12,6 +13,9 @@ use App\Mail\OrderShipped;
 use App\Repository\ContactRepository;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Routing\UrlGenerator;
+
+use Illuminate\Support\Facades\DB;
+
 class HomeController extends Controller
 {
   /**
@@ -20,16 +24,22 @@ class HomeController extends Controller
    * @return void
    */
   protected $url;
+  protected $prod;
+  protected $prod_cates;
+  protected $contactRepository;
+  protected $baseService;
 
   public function __construct(
-    Request $request,
     BaseService $baseService,
     ContactRepository $contResp,
-    UrlGenerator $url
+    UrlGenerator $url,
+    Product $prod,
+    Category $prod_cates
   ) {
       $this->contactRepository = $contResp;
-      $this->request = $request;
       $this->url = $url;
+      $this->prod = $prod;
+      $this->prod_cates = $prod_cates;
       $this->baseService = $baseService;
     }
 
@@ -40,7 +50,6 @@ class HomeController extends Controller
      */
     public function index(Product $prod)
     {
-      // $data['products'] = $this->baseService->getTableData('products', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
       $data['products'] = $prod->where('is_flag',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
       $data['hots'] = $prod->where('is_hot',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
       $data['index_shows'] = $this->baseService->getTableData('index_show', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
@@ -57,7 +66,6 @@ class HomeController extends Controller
 
     public function aboutMe()
     {
-
       return view('frontend.aboutMe');
     }
 
@@ -77,84 +85,12 @@ class HomeController extends Controller
       echo "<script> alert('联系成功！');window.location.href = \"/\";</script>";
     }
 
-    public function calc()
-    {
-      return view('frontend.calc');
-    }
 
-    //半導體
-    public function products($id)
-    {
-      $data['semic_cates'] = $this->baseService->getTableData('semic_cates', ['semic_main_id'=>$id]);
-      return view('frontend.products', $data);
-    }
-
-  public function productsIn()
-  {
-    $main_id =$this->request->input('main_id');
-    $cate_id =$this->request->input('cate_id');
-    $sql2  = "select * from semic_mains  where id = ".$main_id;
-    $cmain = $this->baseService->raw($sql2);
-    if(!empty($cate_id)){
-      $semicCates = $this->baseService->getTableData('semic_mains',['id'=>$cate_id]);
-    }
-    $sql  = "select * from semic_mains order by sort desc ";
-    $bars = $this->baseService->raw($sql);
-    $data['bars'] =$bars;
-    $data['main_id'] = $main_id;
-    $data['catmain'] = $cmain[0];
-    $data['semicCates'] = isset($semicCates)?$semicCates:$bars ;
-    $cids = array();
-    foreach($data['semicCates'] as $cate){
-      $cids[$cate->id] = $cate->id;
-    }
-    $data['semics'] = $this->baseService->getTableData('semics', ['status'=>1,'semicCate_id'=>$main_id], "",['sort','DESC']);
-    return view('frontend.products-in', $data);
-  }
-
-
-    public function productsDetail($id)
-    {
-      $semics = $this->baseService->find('semics', $id);
-      $data['semics'] = $semics;
-      $data['id'] = $id;
-      $data['semicCate'] = $this->baseService->find('semic_mains', $semics->semicCate_id);
-      $data['semicCates'] = $this->baseService->getTableData('semics', ['semicCate_id' => $semics->semicCate_id]);
-      return view('frontend.products-detail', $data);
-    }
-
-    //除鐵器
-    public function servicesCate()
-    {
-      $data['ironCates'] = $this->baseService->getTableData('irons', '');
-      return view('frontend.services', $data);
-    }
-
-    public function servicesIn($id)
-    {
-      $iron = $this->baseService->find('irons', $id);
-      $data['iron'] = $iron;
-      $data['irons'] = $this->baseService->getTableData('irons', '');
-      return view('frontend.services-in', $data);
-    }
-
-    public function getSems()
-    {
-      $val = $this->request->input('val');
-      if (!empty($val)) {
-        $vals = explode('_', $val);
-        $sql = 'select * from  semics where `semicCate_id` in(' . implode(',', array_filter($vals)) . ') ';
-        $datas = $this->baseService->raw($sql);
-        return response()->view('backend.components.checkboxs',  compact('datas'));
-        } else {
-          return false;
-        }
-    }
     //圖片上傳 回傳 CREATE格式
-    public function uploadimgs()
+    public function uploadimgs(Request $request)
     {
-      $file = $this->request->file('files');
-      if ($this->request->file('files')) {
+      $file = $request->file('files');
+      if ($request->file('files')) {
         $str = Str::random(10);
         $imagePath = $file[0]->store("uploads/{$str}", 'public');
         $image = Image::make(public_path("storage/{$imagePath}"));

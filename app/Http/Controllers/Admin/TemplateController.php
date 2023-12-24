@@ -100,10 +100,13 @@ class TemplateController extends DashboardController
         //等級
         //多圖片上傳
         $this->requestService->multiImgService($request, $entity, $fieldsSetting, $main);
-        //上傳qrcode
-        $path = $this->requestService->uploadQrcode($request, $entity);
-        //上傳qrcode解析
-        $this->requestService->parseQrcode($path, $entity);
+
+        if(array_key_exists('parse_qrcode',$fieldsSetting) && array_key_exists('qrcode',$fieldsSetting)){
+          //上傳qrcode
+          $path = $this->requestService->uploadQrcode($request, $entity);
+          //上傳qrcode解析
+          $this->requestService->parseQrcode($path, $entity);
+        }
         return $entity;
     }
 

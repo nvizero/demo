@@ -9,10 +9,9 @@
                 </ul>
             </li>
             <li itemprop="name">
-                <a itemprop="url" href="product.php" class="arrowDown">產品目錄</a>
+                <a itemprop="url" href="/products" class="arrowDown">產品目錄</a>
                 <ul class="dropdownMenu">
-                    <li><a href="javascript:void(0);">產品分類(一)</a></li>
-                    <li><a href="javascript:void(0);">產品分類(二)</a></li>
+                        {!! prod_cates() !!}
                 </ul>
             </li>
             <li itemprop="name">

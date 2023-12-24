@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{company name} @yield('title')</title>
+    <title> @yield('title')</title>
     <!-- 頁簽顯示LOGO -->
     <link rel="shortcut icon" href="/lu/images/ico_logo.ico">
     <!-- (Bootstrap) Latest compiled and minified CSS -->

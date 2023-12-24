@@ -42,6 +42,21 @@ class AboutCategory extends BaseModel
                     'level' => 'like'
                 ],
             ],
+          'subtitle' => [
+               'type' => 'text',
+               'required' => 1,
+          ],
+          'img' => [
+               'type' => 'file',
+               'required' => 1,
+          ],
+          'content' => [
+              'type' => 'ckeditor',
+              'required' => true,
+              'search' => [
+                  'level' => 'like'
+              ],
+          ],
             'able' => [
                 'type' => 'checkbox',
                 'required' => false,

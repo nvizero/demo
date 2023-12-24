@@ -6,17 +6,6 @@
             <ul class="metismenu list-unstyled" id="side-menu">
 
                 <li class="menu-title">一般設定 </li>
-                    <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                          <i class="mdi mdi-account-edit-outline"></i>
-                            <span>文章設定</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-
-                    <li><a href="{{ route('posts.index') }}">文章列表</a></li>
-                    <li><a href="{{ route('post_cates.index') }}">文章分類</a></li>
-                        </ul>
-                    </li>
 
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -29,6 +18,19 @@
                           <li><a href="{{ route('categories.index') }}">產品分類</a></li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                          <i class="mdi mdi-account-edit-outline"></i>
+                            <span>文章設定</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+
+                    <li><a href="{{ route('posts.index') }}">文章列表</a></li>
+                    <li><a href="{{ route('post_cates.index') }}">文章分類</a></li>
+                        </ul>
+                    </li>
+
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                           <i class="fas fa-address-book"></i>

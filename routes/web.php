@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
+use Illuminate\Http\Request;
 Auth::routes();
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Admin"], function () {
@@ -28,19 +29,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Adm
     Route::get('category-tree-view',['uses'=>'CategoryController@manageCategory'])->name('prodcatelist');;
     Route::post('add-category',['as'=>'add.category','uses'=>'CategoryController@addCategory']);
 });
+
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about/{id}', 'HomeController@about')->name('about');
 Route::post('uploadimgs', 'HomeController@uploadimgs')->name('uploadimgs');
-Route::get('/setcn', function(){
-    App::setLocale('cn');
-    return redirect()->back();
-});
 
-Route::get('/seten', function(){
-    App::setLocale('en');
-    return redirect()->back();
-});
-
-
-Route::get('mma', 'HomeController@handleContact');
+Route::get('/prod_details/{id}/{parent_id}', 'ProdController@details');
+Route::get('/prod_categories/{id}', 'ProdController@prodCategoriesById');
+Route::get('/products', 'ProdController@products');
