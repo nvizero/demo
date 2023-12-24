@@ -95,18 +95,19 @@ class RequestService
           die("文件不存在: $filePath");
       }
       $client = new Client();
-      $client->setDefaultOption(array('verify', false));
+
       try {
+          $attrfile=[
+              'name'     => 'file',
+              'contents' => fopen($filePath,'r'),
+              'filename' => explode("/",$path)[1]
+          ];
           $response = $client->request('POST', env('QRCODE_URL'), [
               'headers' => [
                   'Accept' => 'application/json',
               ],
               'multipart' => [
-                  [
-                      'name'     => 'file',
-                      'contents' => fopen($filePath,'r'),
-                      // 'filename' => explode("/",$path)[1]
-                  ]
+                $attrfile
               ]
           ]);
 

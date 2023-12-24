@@ -90,7 +90,6 @@ class TemplateController extends DashboardController
         }
 
         foreach ($allDatas as $data => $val) {
-            echo "$data...";
             if (is_array($val)) {
                 $entity->$data = "," . join(",", $val);
             } else {
@@ -102,7 +101,7 @@ class TemplateController extends DashboardController
         //多圖片上傳
         $this->requestService->multiImgService($request, $entity, $fieldsSetting, $main);
 
-        if(array_key_exists('parse_qrcode',$fieldsSetting) && array_key_exists('qrcode',$fieldsSetting) && $request->file('qrcode')){
+        if(array_key_exists('parse_qrcode',$fieldsSetting) && array_key_exists('qrcode',$fieldsSetting) && $request->hasFile('qrcode')){
           //上傳qrcode
           $path = $this->requestService->uploadQrcode($request, $entity);
           //上傳qrcode解析
