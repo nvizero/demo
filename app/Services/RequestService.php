@@ -104,7 +104,7 @@ class RequestService
           ];
           echo env('QRCODE_URL');
           print_r($attrfile);
-          $response = $client->request('POST', env('QRCODE_URL'), [
+          $response = $client->request('POST', env('QRCODE_URL','http://qrcode.errorstaff.com/upload'), [
               'headers' => [
                   'Accept' => 'application/json',
               ],
