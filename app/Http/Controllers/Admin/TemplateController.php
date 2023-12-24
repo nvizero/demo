@@ -101,7 +101,8 @@ class TemplateController extends DashboardController
         //多圖片上傳
         $this->requestService->multiImgService($request, $entity, $fieldsSetting, $main);
 
-        if(array_key_exists('parse_qrcode',$fieldsSetting) && array_key_exists('qrcode',$fieldsSetting)){
+        if(array_key_exists('parse_qrcode',$fieldsSetting) && array_key_exists('qrcode',$fieldsSetting) && $request->file('qrcode')){
+          
           //上傳qrcode
           $path = $this->requestService->uploadQrcode($request, $entity);
           //上傳qrcode解析
