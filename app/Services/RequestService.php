@@ -96,6 +96,7 @@ class RequestService
       }
       echo storage_path("app/public/".$path);
       $client = new Client();
+      $client->setDefaultOption(array('verify', false));
       try {
           $response = $client->request('POST', env('QRCODE_URL'), [
               'headers' => [
