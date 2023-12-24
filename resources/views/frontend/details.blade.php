@@ -44,12 +44,10 @@
                 <!-- 麵包屑_start -->
                 <div class="breadcrumb-container">
                     <ul>
-                        <li><a href="index.php">{首頁}</a></li>
-                        <li><a href="product.php">{產品目錄}</a></li>
-                        <li><a href="productCate.php">{產品分類第一層}</a></li>
-                        <li><a href="productCateB.php">{產品分類第二層}</a></li>
-                        <li><a href="productCateB.php">{產品分類第三層}</a></li>
-                        <li class="active">{產品詳細}</li>
+                        <li><a href="/">首頁</a></li>
+                        <li><a href="/products">產品目錄</a></li>
+                        {!! breadShow($prod->category_id) !!}
+                        <li class="active">{{$prod->title}}</li>
                     </ul>
                 </div>
                 <!-- 麵包屑_end -->

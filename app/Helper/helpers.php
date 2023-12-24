@@ -18,24 +18,24 @@ const MARKET_DEFAULT_AVATAR = '/frontend/images/img/img01.jpg';
 
 
 if (!function_exists('ms_str')) {
-function ms_str($content , $len=500)
-{
-    if (!empty($content)) {
-        $start = 0;
+  function ms_str($content , $len=500)
+  {
+      if (!empty($content)) {
+          $start = 0;
 
-        // $str_lng = mb_strlen( strip_tags(trim($content)), "utf-8");
-        // return  substr( strip_tags($content) , $start , $length );
-        $a = $content;
-        preg_match_all("/[\x80-\xff]/", $a, $r);
-        $nn = join('', $r[0]);
+          // $str_lng = mb_strlen( strip_tags(trim($content)), "utf-8");
+          // return  substr( strip_tags($content) , $start , $length );
+          $a = $content;
+          preg_match_all("/[\x80-\xff]/", $a, $r);
+          $nn = join('', $r[0]);
 
-        $length = empty($len)?$len: 600;
-        // $str_lng = mb_strlen( strip_tags(trim($nn)), "utf-8");
-        return  substr(strip_tags($nn), $start, $length);
-    } else {
-        return  false;
-    }
-}
+          $length = empty($len)?$len: 600;
+          // $str_lng = mb_strlen( strip_tags(trim($nn)), "utf-8");
+          return  substr(strip_tags($nn), $start, $length);
+      } else {
+          return  false;
+      }
+  }
 }
 
 if (!function_exists('findData')) {
@@ -89,6 +89,50 @@ if (!function_exists('getChkBoxs')) {
         return $html;
     }
 }
+//
+if (!function_exists('breadShow')) {
+    function breadShow($category_id, $type='categories')
+    {
+      $emp = [];
+      $obj = null;
+      $baseResp = new BaseRepository();
+      $service = new BaseService($baseResp);
+      $sql = "select * from $type where `id` = '".$category_id."';";
+      $res = $service->raw($sql);
+      $level = $res[0]->level;
+      $emp[$level]="<li><a href=\"/prod_categories/{$res[0]->id}\">{$res[0]->title}</a></li>";
+
+      while($level != 1){
+        if($obj == null){
+          $obj = breadModel($res[0]->parent_id,$type);
+        }else{
+          $obj = breadModel($obj->parent_id,$type);
+        }
+        $level = $obj->level;
+        $emp[$level]="<li><a href=\"/prod_categories/{$obj->id}\">{$obj->title}</a></li>";
+      }
+      // 反轉陣列
+      $reversedArray = array_reverse($emp);
+      // 遍歷反轉後的陣列並輸出其值
+      $html = "";
+      foreach ($reversedArray as $value) {
+          $html.=$value;
+      }
+      return $html;
+    }
+}
+
+if (!function_exists('breadModel')) {
+    function breadModel($id, $type='categories')
+    {
+        $baseResp = new BaseRepository();
+        $service = new BaseService($baseResp);
+        $sql = "select * from $type where `id` = '".$id."';";
+        $res = $service->raw($sql);
+        return $res[0];
+    }
+}
+
 if (!function_exists('getKVBy')) {
     function getKVBy($key)
     {

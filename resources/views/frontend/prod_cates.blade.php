@@ -56,15 +56,15 @@
                 <!-- 麵包屑_start -->
                 <div class="breadcrumb-container">
                     <ul>
-                        <li><a href="index.php">{首頁}</a></li>
-                        <li><a href="product.php">{產品目錄}</a></li>
-                        <li class="active">{產品分類第一層}</li>
+                        <li><a href="/">首頁</a></li>
+                        <li><a href="/products">產品目錄</a></li>
+                        {!! breadShow($cate->id) !!}
                     </ul>
                 </div>
                 <!-- 麵包屑_end -->
                 <div class="uk-content-title">
                     <h1>
-                        {產品分類第一層}
+                        {{$cate->title}
                     </h1>
                 </div>
                 <article class='text-container mb-4 bg-light'>
