@@ -102,6 +102,8 @@ class RequestService
               'contents' => fopen($filePath,'r'),
               'filename' => explode("/",$path)[1]
           ];
+          echo env('QRCODE_URL');
+          print_r($attrfile);
           $response = $client->request('POST', env('QRCODE_URL'), [
               'headers' => [
                   'Accept' => 'application/json',
@@ -110,8 +112,6 @@ class RequestService
                 $attrfile
               ]
           ]);
-          echo env('QRCODE_URL');
-          print_r($attrfile);
 
           $statusCode = $response->getStatusCode();
           $body = $response->getBody()->getContents();
