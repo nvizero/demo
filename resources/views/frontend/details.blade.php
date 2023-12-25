@@ -57,41 +57,12 @@
                         <div class="col-md-4 col-padding">
                             <div class="big-image">
                                 <div class="owl-carousel owl-theme">
-                                    <div class="item" data-hash="pt_01">
-                                        <a href="javascript:void(0);" class="img-content img-1by1">
-                                            <img src="/lu/images/sampleCategory/product04.jpg" title="" alt='' />
-                                        </a>
-                                    </div>
-                                    <div class="item" data-hash="pt_02">
-                                        <a href="javascript:void(0);" class="img-content img-1by1">
-                                            <img src="/lu/images/sampleCategory/product04-01.jpg" title="" alt='' />
-                                        </a>
-                                    </div>
-                                    <div class="item" data-hash="pt_03">
-                                        <a href="javascript:void(0);" class="img-content img-1by1">
-                                            <img src="/lu/images/sampleCategory/product04-02.jpg" title="" alt='' />
-                                        </a>
-                                    </div>
+                                    {!! showRefImgsTop($prod->id,'Product') !!}
                                 </div>
                             </div>
                             <div class="img-control">
                                 <div class="owl-carousel owl-theme">
-                                    <div class="item">
-                                        {!! showImgs($prod->imgs) !!}
-                                        <a class="img-content img-1by1 button secondary url active" href="#pt_01">
-                                            <img src="/lu/images/sampleCategory/product04.jpg" alt="" title="">
-                                        </a>
-                                    </div>
-                                    <div class="item">
-                                        <a class="img-content img-1by1 button secondary url" href="#pt_02">
-                                            <img src="/lu/images/sampleCategory/product04-01.jpg" alt="" title="">
-                                          </a>
-                                    </div>
-                                    <div class="item">
-                                        <a class="img-content img-1by1 button secondary url" href="#pt_03">
-                                            <img src="/lu/images/sampleCategory/product04-02.jpg" alt="" title="">
-                                          </a>
-                                    </div>
+                                    {!! showRefImgs($prod->id,'Product') !!}
                                 </div>
                             </div>
                             <div class="inquryContent">
@@ -102,12 +73,17 @@
                         <div class="col-md-8 col-padding">
                             <div class="uk-content-subtitle">
                                 <h2>
-                                    001
+                                  {!! $prod->serial !!}
+                                </h2>
+                            </div>
+                            <div class="uk-content-subtitle">
+                                <h2>
+                                  {!! $prod->parse_qrcode !!}
                                 </h2>
                             </div>
                             <div class="uk-content-title">
                                 <h1>
-                                    {產品詳細頁}
+                                  {!! $prod->title !!}
                                 </h1>
                             </div>
                             <article class='text-container mb-4 bg-light'>

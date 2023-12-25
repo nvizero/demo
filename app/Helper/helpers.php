@@ -3,6 +3,7 @@
 // 返回前台访问文件地址
 use App\Models\BusinessCategory;
 use App\Models\Business;
+use App\Models\Image;
 use App\Repository\BusinessCategoryRepository;
 use App\Repository\BaseRepository;
 use App\Services\BusinessService;
@@ -598,15 +599,38 @@ if (!function_exists('htmlIsChecked')) {
     }
 }
 
-//html產出的checkbox是否ckecked radio or checkbox
-if (!function_exists('showImgs')) {
-    function showImgs(string $imgs)
+if (!function_exists('showRefImgsTop')) {
+    function showRefImgsTop($id, $modelType)
     {
+      $model = new Image();
+      $res = $model->where('model_type','\\App\Models\\'.$modelType)->where('model_id' , $id)->get();
       $show="";
-      $images = array_filter(explode(",",$imgs));
-      foreach($images as $img){
-        
-        $show.="<img src=\"{$img}\" />";
+      foreach($res as $row){
+
+        $show.='<div class="item" data-hash="pt_'.$row->id.'">'.
+                  '<a href="javascript:void(0);" class="img-content img-1by1" >'.
+                      '<img src="'.$row->img.'" alt="" title="">'.
+                  '</a>'.
+              '</div>'; 
+        // $show.="<img src=\"{$row->img}\" />";
+      }
+      return $show;
+    }
+}
+
+if (!function_exists('showRefImgs')) {
+    function showRefImgs($id, $modelType)
+    {
+      $model = new Image();
+      $res = $model->where('model_type','\\App\Models\\'.$modelType)->where('model_id' , $id)->get();
+      $show="";
+      foreach($res as $row){
+        $show.='<div class="item">'.
+                  '<a class="img-content img-1by1 button secondary url active" href="#pt_'.$row->id.'">'.
+                      '<img src="'.$row->img.'" alt="" title="">'.
+                  '</a>'.
+              '</div>'; 
+        // $show.="<img src=\"{$row->img}\" />";
       }
       return $show;
     }
