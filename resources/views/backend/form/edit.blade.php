@@ -37,6 +37,8 @@
             </script>
         @elseif($setting['type'] == 'level')
             @include('backend.components.level')
+        @elseif($setting['type'] == 'tag-it')
+            @include('backend.components.tag_it')
         @elseif($setting['type'] == 'file')
             @include('backend.components.file')
         @elseif($setting['type'] == 'files')
