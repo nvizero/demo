@@ -91,10 +91,7 @@
                             </article>
                             <!-- hashTag _start -->
                             <div class="hashTagGroup">
-                                <a href="hashTagResult.php">#{hashTag}</a>
-                                <a href="hashTagResult.php">#{hashTag}</a>
-                                <a href="hashTagResult.php">#{hashTag}</a>
-                                <a href="hashTagResult.php">#{hashTag}</a>
+                              {!! hashTags($prod->tags) !!}
                             </div>
                             <!-- hashTag _end -->
                         </div>

@@ -39,6 +39,8 @@
                 placeholder='{{ __("$main.titles.$name") }}'>
         @elseif($setting['type'] == 'level')
             @include('backend.components.level')
+        @elseif($setting['type'] == 'tag-it')
+            @include('backend.components.tag_it')
         @elseif($setting['type'] == 'files')
             @include('backend.components.files')
         @elseif($setting['type'] == 'select' && isset($setting['association']['bool']))

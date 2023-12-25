@@ -617,7 +617,19 @@ if (!function_exists('showRefImgsTop')) {
       return $show;
     }
 }
+//hashTags
+if (!function_exists('hashTags')) {
+    function hashTags($tags)
+    {
+      $i='';
+      foreach(explode(',',$tags) as $tag){ 
+        $i.='<a href="/hashTagResult?='.$tag.'">#'.$tag.'</a>'; 
+      }
+      return $i;
+    }
+}
 
+//顯示對應圖片
 if (!function_exists('showRefImgs')) {
     function showRefImgs($id, $modelType)
     {

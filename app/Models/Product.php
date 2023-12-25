@@ -11,12 +11,17 @@ class Product extends BaseModel
     use Sortable;
     protected $table = 'products';
     protected $fillable = [
-         'content','tags','imgs','title',
+         'content','tags','imgs','title','img',
     ];
 
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function images()
+    {
+       return $this->morphMany(Image::class, 'model');
     }
 
     public function tableFieldsSetting()
@@ -42,6 +47,10 @@ class Product extends BaseModel
                   'pluck' => ['title', 'id']
               ]
           ],
+          'img' => [
+               'type' => 'file',
+               'required' => 0,
+          ],
           'qrcode' => [
                'type' => 'file',
                'required' => 0,
@@ -64,11 +73,8 @@ class Product extends BaseModel
                'required' => 0,
           ],
           'tags' => [
-               'type' => 'text',
+               'type' => 'tag-it',
                'required' => 0,
-               'search' => [
-                    'level' => 'like',
-               ]
           ],
           'files' => [
               'type' => 'files',
