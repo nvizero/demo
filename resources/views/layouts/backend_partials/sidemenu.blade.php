@@ -13,9 +13,9 @@
                             <span>產品設定</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-
                           <li><a href="{{ route('products.index') }}">產品</a></li>
                           <li><a href="{{ route('categories.index') }}">產品分類</a></li>
+                          <li><a href="{{ route('aforms.index') }}">動態表單</a></li>
                         </ul>
                     </li>
 

@@ -41,7 +41,7 @@ class TemplateController extends DashboardController
             if (in_array($this->main, $BigWords)) {
                 $data['objs'] = $this->entity->sortable()->paginate(10);
             } else {
-                $data['objs'] = $this->entity->orderBy('id', 'desc')->sortable()->paginate(10);
+                $data['objs'] = $this->entity->orderBy('id', 'asc')->sortable()->paginate(10);
             }
         }
 

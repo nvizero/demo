@@ -1,8 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
-use Illuminate\Http\Request;
 Auth::routes();
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Admin"], function () {
@@ -17,6 +15,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Adm
     Route::resource('index_about', 'IndexAboutController');
     Route::resource('index_show', 'IndexShowController');
     Route::resource('keyval', 'KeyvalController');
+    Route::resource('aforms', 'AformController');
     Route::resource('categories', 'CategoryController');
     Route::resource('aboutCategories', 'AboutCategoryController');
     Route::post('delimage', 'TemplateController@delimage')->name('delimage');               //刪除圖片

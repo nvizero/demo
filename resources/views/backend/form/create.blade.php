@@ -8,13 +8,17 @@
 <div class="row mb-3">
 
     @if ($setting['type'] != 'system' && $setting['type'] != 'level')
-        <label for="example-text-input" class="col-sm-2 col-form-label">{{ __("$main.titles.$name") }}</label>
+      <label for="example-text-input" class="col-sm-2 col-form-label {{$name}}">
+        {{ __("$main.titles.$name") }}
+      </label>
     @endif
 
     <div class="col-sm-10">
         @if ($setting['type'] == 'text' || $setting['type'] == 'number')
             <input type="{{ $setting['type'] }}" name="{{ $name }}" value='{{ old("$name") }}' class="form-control"
-                placeholder='{{ __("$main.titles.$name") }}'>
+                placeholder='{{  __("$main.titles.$name") }}'>
+            <min class="{{$name}}" style="color:red">{{ isset($setting['note']) ? $setting['note']  :''}}</min> 
+
         @elseif($setting['type'] == 'radio' && isset($setting['association']['bool']))
             @include('backend.components.radio_association')
         @elseif($setting['type'] == 'checkbox')
@@ -75,7 +79,27 @@
         @elseif($setting['type'] == 'number_by_select')
             {!! Form::select($name, [1=>1,2=>2,3=>3,4=>4,5=>5,6=>6,7=>7,8=>8,9=>9], null, ['class' => 'form-control']) !!}
         @elseif($setting['type'] == 'select' && isset($setting['isData']))
-            {!! Form::select($name, $setting['data'], null, ['class' => 'form-control']) !!}
+            {!! Form::select($name, $setting['data'], null, ['class' => 'form-control' ,'id'=>'active']) !!}
+
+        @section('js2')
+        <script type="text/javascript">
+            $("document").ready(function() {
+
+                $("input[name='key']").hide();
+                $(".key").css({"display":"none"});
+
+                $("#active").bind('change', function() {
+                  if('radio'===$(this).val()){
+                    $("input[name='key']").show();
+                    $(".key").css({"display":"block"});
+                  }else{
+                    $("input[name='key']").hide();
+                    $(".key").css({"display":"none"});
+                  } 
+                });
+            });
+        </script>
+    @endsection
         @elseif($setting['type'] == 'self')
 
           @foreach (allSems() as $row)
@@ -86,7 +110,7 @@
 
         <div class="form-show"> </div>
 
-    @section('js2')
+        @section('js2')
         <script type="text/javascript">
             $("document").ready(function() {
                 $(".ckbox").bind('click', function() {
