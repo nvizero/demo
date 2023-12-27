@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Services\RequestService;
 use Illuminate\Support\Facades\Storage;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class TemplateController extends DashboardController
 {
@@ -106,6 +106,10 @@ class TemplateController extends DashboardController
           $path = $this->requestService->uploadQrcode($request, $entity);
           //上傳qrcode解析
           $this->requestService->parseQrcode($path, $entity);
+        }
+
+        if($main=='aforms'){
+            DB::statement('ALTER TABLE getform ADD '.$request->val.' VARCHAR(255)');
         }
         return $entity;
     }

@@ -121,6 +121,25 @@ if (!function_exists('breadShow')) {
     }
 }
 
+if (!function_exists('cellKeys')) {
+    function cellKeys($keys)
+    {
+      return explode(',',$keys);
+    }
+}
+
+//動態表單
+if (!function_exists('getAform')) {
+    function getAform()
+    {
+        $baseResp = new BaseRepository();
+        $service = new BaseService($baseResp);
+        $sql = "select * from aforms order by sort asc";
+        $res = $service->raw($sql);
+        return $res;
+    }
+}
+
 if (!function_exists('breadModel')) {
     function breadModel($id, $type='categories')
     {

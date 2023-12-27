@@ -16,8 +16,12 @@ class Aform extends BaseModel
         $options = [
                     'input' => '文字', 
                     'textarea' => '輸入框', 
-                    'checkbox' => '單選',
-                    'radio' => '多選',
+                    'radio' => '單選',
+                    'checkbox' => '多選',
+                  ];
+        $sizes = [
+                    6 => '中', 
+                    12 => '大',
                   ];
 
         return  [
@@ -25,16 +29,28 @@ class Aform extends BaseModel
                'type' => 'text',
                'required' => 1,
           ],
+          'val' => [
+               'type' => 'text',
+               'required' => 'required|unique:aforms,val',
+                
+               'note' => '輸入英文',
+          ],
+          'size' => [
+               'type' => 'select',
+               'isData'=>true,
+               'required' => 1,
+               'data'=> $sizes 
+          ],
           'cate' => [
                'type' => 'select',
                'isData'=>true,
                'required' => 1,
-               'data'=>$options 
+               'data'=> $options 
           ],
           'key' => [
                'type' => 'text',
                'required' => 0,
-               'note' => '輸入文字以,區分',
+               'note' => '輸入文字以,區分(多選,單選才有用)',
           ],
           'sort' => [
                'type' => 'number',

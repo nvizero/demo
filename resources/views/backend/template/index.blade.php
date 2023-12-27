@@ -51,11 +51,11 @@
                                                         </th>
                                                     @elseif ($attrs['type'] == 'checkbox')
                                                         <th>
-@if($obj->$title==1)
-是
-@else
-否
-@endif
+                                                        @if($obj->$title==1)
+                                                        是
+                                                        @else
+                                                        否
+                                                        @endif
                                                         </th>
                                                     @elseif(isset($attrs['association']))
                                                         <th>
@@ -100,9 +100,9 @@
                                                     @method('DELETE')
 
                                                     @can("$main-delete")
+                                                    @endcan
                                                         <button type="submit"
                                                             class="btn btn-sm  btn-danger">{{ __('default.delete') }}</button>
-                                                    @endcan
 
                                                 </form>
                                             </td>

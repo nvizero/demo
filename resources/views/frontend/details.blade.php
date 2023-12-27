@@ -106,3 +106,7 @@
 <!-- 內容_end -->
 <link rel="stylesheet" href="/lu/css/page.css">
 @endsection
+
+@section('modal')
+    @include('frontend.common.modal')
+@endsection

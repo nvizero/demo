@@ -18,6 +18,7 @@
         @else
             <input type="{{ $setting['type'] }}" name="{{ $name }}" value='{{ $obj->$name }}' class="form-control"
                 placeholder='{{ __("$main.titles.$name") }}'>
+            <min class="{{$name}}" style="color:red">{{ isset($setting['note']) ? $setting['note']  :''}}</min> 
         @endif
         @elseif($setting['type'] == 'checkbox')
             <input type="{{ $setting['type'] }}" name="{{ $name }}" value='1'
@@ -37,12 +38,12 @@
             </script>
         @elseif($setting['type'] == 'level')
             @include('backend.components.level')
-        @elseif($setting['type'] == 'tag-it')
-            @include('backend.components.tag_it')
         @elseif($setting['type'] == 'file')
             @include('backend.components.file')
         @elseif($setting['type'] == 'files')
             @include('backend.components.files')
+
+
         @elseif($setting['type'] == 'select' && isset($setting['association']['bool']))
             {!! Form::select($name, modelsAssociation($setting['association']), $obj->$name, ['class' => 'form-control']) !!}
             @if (isset($setting['show_jquery']))
@@ -73,7 +74,8 @@
                 @endsection
             @endif
         @elseif($setting['type'] == 'select' && isset($setting['isData']))
-            {!! Form::select($name, $setting['data'], $obj->$name, ['class' => 'form-control']) !!}
+            {!! Form::select($name, $setting['data'], $obj->$name, ['class' => 'form-control','id'=>'active']) !!}
+
         @elseif($setting['type'] == 'number_by_select')
             {!! Form::select($name, [1=>1,2=>2,3=>3,4=>4,5=>5,6=>6,7=>7,8=>8,9=>9], $obj->$name, ['class' => 'form-control']) !!}
         @elseif($setting['type'] == 'self')

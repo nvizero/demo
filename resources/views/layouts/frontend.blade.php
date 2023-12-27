@@ -151,6 +151,7 @@
             <!-- 常駐項_end -->
         </main>
     </div>
+    @yield('modal')
     <!-- (Bootstrap) Latest compiled and minified JavaScript -->
     <script src="/lu/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/lu/node_modules/popper.js/dist/umd/popper.min.js"></script>

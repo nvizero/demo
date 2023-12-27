@@ -36,7 +36,7 @@ class ProdController
     }
 
     //DETAILS
-    public function details($id,$parent_id,Request $request)
+    public function details($id,$parent_id)
     {
       $prod = $this->prod->find($id);
       $data['prod'] = $prod;
@@ -60,6 +60,10 @@ class ProdController
       $data['pcates2'] = $this->prod_cates->whereNotIn('id',[$cate->id])->where('level',$cate->level)->get();
       $data['cate'] = $cate;
       return view('frontend.prod_cates',$data);
+    }
+    
+    public function prod_aform(Request $request){
+      print_r($request->all());
     }
 
     public function prodCategoriesByLevel($level)

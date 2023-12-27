@@ -8,7 +8,7 @@
 <div class="row mb-3">
 
     @if ($setting['type'] != 'system' && $setting['type'] != 'level')
-      <label for="example-text-input" class="col-sm-2 col-form-label {{$name}}">
+      <label for="example-text-input" class="col-sm-2 col-form-label">
         {{ __("$main.titles.$name") }}
       </label>
     @endif
@@ -78,28 +78,10 @@
             <input type="hidden" name="{{ $name }}" value='1' >
         @elseif($setting['type'] == 'number_by_select')
             {!! Form::select($name, [1=>1,2=>2,3=>3,4=>4,5=>5,6=>6,7=>7,8=>8,9=>9], null, ['class' => 'form-control']) !!}
+
         @elseif($setting['type'] == 'select' && isset($setting['isData']))
-            {!! Form::select($name, $setting['data'], null, ['class' => 'form-control' ,'id'=>'active']) !!}
+            {!! Form::select($name, $setting['data'], null, ['class' => 'form-control' ]) !!}
 
-        @section('js2')
-        <script type="text/javascript">
-            $("document").ready(function() {
-
-                $("input[name='key']").hide();
-                $(".key").css({"display":"none"});
-
-                $("#active").bind('change', function() {
-                  if('radio'===$(this).val()){
-                    $("input[name='key']").show();
-                    $(".key").css({"display":"block"});
-                  }else{
-                    $("input[name='key']").hide();
-                    $(".key").css({"display":"none"});
-                  } 
-                });
-            });
-        </script>
-    @endsection
         @elseif($setting['type'] == 'self')
 
           @foreach (allSems() as $row)
