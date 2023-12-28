@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="uk-card-body">
                                     <a href="productCate.php" class="text-title">{{$prod->title}}</a><br />
-                                    <a href="productCate.php" class="uk-text-subtitle">{{$prod->category->title}}</a>
+                                    <a href="productCate.php" class="uk-text-subtitle">{{isset($prod->category)?$prod->category->title:""}}</a>
                                 </div>
                                 <div class="uk-card-footer">
                                     <a href="productCate.php" class='ell-text'>{!! $prod->content!!}</a>
