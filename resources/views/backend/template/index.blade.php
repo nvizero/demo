@@ -88,21 +88,18 @@
                                             @endforeach
                                             <td>
                                                 <form action='{{ route("$main.destroy", $obj->id) }}' method="POST">
-
-                                                    {{-- <a class="btn btn-sm btn-info" href='{{ route( "$main.show" , $obj->id) }}'>{{__('default.show')}}</a> --}}
-
-
+                                                    @can("$main-edit")
                                                         <a class="btn btn-sm btn-primary"
                                                             href='{{ route("$main.edit", $obj->id) }}'>{{ __('default.edit') }}</a>
+                                                    @endcan
 
 
                                                     @csrf
                                                     @method('DELETE')
-
                                                     @can("$main-delete")
-                                                    @endcan
                                                         <button type="submit"
                                                             class="btn btn-sm  btn-danger">{{ __('default.delete') }}</button>
+                                                    @endcan
 
                                                 </form>
                                             </td>

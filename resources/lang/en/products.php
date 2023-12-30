@@ -16,7 +16,7 @@ return [
         'is_pop_ups' => '彈窗開關',
         'link' => '鏈結',
         'content' => '內容',
-        'is_flag' => '開啟',
+        'is_flag' => '啟用',
         'is_hot' => '熱門商品',
         'tags' => 'Tags',
         'imgs' => '圖片',

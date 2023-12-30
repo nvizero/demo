@@ -11,7 +11,7 @@ return [
         'link' => 'link',
         'img' => '圖片',
         'value' => '值',
-        'is_flag' => '是否顯示',
+        'is_flag' => '啟用',
         'sort' => '排序',
         'content' => '內容',
     ]

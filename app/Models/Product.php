@@ -69,7 +69,7 @@ class Product extends BaseModel
                'required' => 0,
           ],
           'is_hot' => [
-               'type' => 'number',
+               'type' => 'checkbox',
                'required' => 0,
           ],
           'tags' => [

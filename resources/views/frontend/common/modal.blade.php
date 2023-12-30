@@ -35,7 +35,7 @@
                                                   @elseif($row->cate=='radio' || $row->cate=='checkbox')
                                                     @foreach(cellKeys($row->key) as $k => $data)
                                                       <div class="{{$row->cate}}">
-                                                        <input type="{{$row->cate}}" class="" id="{{$row->cate}}_{{$data}}" placeholder="" name="{{$row->val}}_{{$row->id}}_{{$row->cate}}[{{$k}}]" value="{{$data}}">
+                                                        <input type="{{$row->cate}}" class="" id="{{$row->cate}}_{{$data}}" placeholder="" name="{{$row->val}}[{{$k}}]" value="{{$data}}">
                                                         <label for="{{$row->cate}}_{{$data}}" class="control-label">{{$data}}</label>
                                                       </div>
                                                     @endforeach

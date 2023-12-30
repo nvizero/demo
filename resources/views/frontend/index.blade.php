@@ -62,7 +62,7 @@
                         <div class="uk-card-liner">
                             <div class="uk-card-item">
                                 <div class="uk-card-header">
-                                    <a href="productCate.php" class='img-content img-4by3'><img src="/storage/{{$prod->imgs}}" /></a>
+                                    <a href="productCate.php" class='img-content img-4by3'><img src="/storage/{{$prod->img}}" /></a>
                                 </div>
                                 <div class="uk-card-body">
                                     <a href="productCate.php" class="text-title">{{$prod->title}}</a><br />

@@ -23,6 +23,11 @@
 <section class="page-container">
       <div class="container">
         <div class="row row-margin">
+              @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+              @endif
             <div class="col-md-3 col-sm-12 col-padding">
                 <aside class="sideContnet">
                     <ul>

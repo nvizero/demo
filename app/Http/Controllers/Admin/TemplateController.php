@@ -108,8 +108,10 @@ class TemplateController extends DashboardController
           $this->requestService->parseQrcode($path, $entity);
         }
 
+        //動態選單
         if($main=='aforms'){
-            DB::statement('ALTER TABLE getform ADD '.$request->val.' VARCHAR(255)');
+            // 处理 DELETE 请求
+          DB::statement('ALTER TABLE getform ADD '.$request->val.' VARCHAR(255)');
         }
         return $entity;
     }
@@ -207,6 +209,10 @@ class TemplateController extends DashboardController
     public function destroy(int $id)
     {
         $this->entity = $this->entity->find($id);
+        if($this->main=='aforms'){
+            // 处理 DELETE 请求
+          DB::statement('ALTER TABLE getform DROP COLUMN '.$this->entity->val.'; ');
+        }
         $this->entity->delete();
         return redirect()->route("$this->main.index")
             ->with('success',  __("$this->main.title") . __('default.deleted_successfully'));

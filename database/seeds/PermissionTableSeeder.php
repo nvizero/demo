@@ -2,11 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
-use App\Models\PostCategory;
-use App\Models\Industry;
-use App\Models\BusinessCategory;
-use App\Models\BusinessTag;
-use App\Models\Area;
+use App\Models\Keyval;
+use App\Models\Category;
 use Spatie\Permission\Models\Role;
 
 class PermissionTableSeeder extends Seeder
@@ -20,15 +17,10 @@ class PermissionTableSeeder extends Seeder
     {         
         //create Roles
         $this->initRoles();        
-
+        $this->initVK();
+        $this->initCate();
 
         $permissions = [
-             //'cnns' => [ 
-             //  'cnns-list',
-             //  'cnns-create',
-             //  'cnns-edit',
-             //  'cnns-delete',
-             //],
             #用戶組
             'roles' => [
                 'roles-list',
@@ -50,26 +42,25 @@ class PermissionTableSeeder extends Seeder
                 // 'operates-edit',
                 // 'operates-delete',
             ],
+            #動態表單
+            'aforms' => [
+                'aforms-list',
+                'aforms-create',
+                'aforms-delete',
+            ],
             #新聞管理
-            'news' => [
-                'news-list',
-                'news-create',
-                'news-edit',
-                'news-delete',
+            'posts' => [
+                'posts-list',
+                'posts-create',
+                'posts-edit',
+                'posts-delete',
             ],
             #安全管理
-            'safeties' => [
-                'safeties-list',
-                'safeties-create',
-                'safeties-edit',
-                'safeties-delete',
-            ],
-            #安全管理
-            'prods' => [
-                'prods-list',
-                'prods-create',
-                'prods-edit',
-                'prods-delete',
+            'products' => [
+                'products-list',
+                'products-create',
+                'products-edit',
+                'products-delete',
             ],
             #後台管理員
             'users' => [
@@ -84,69 +75,6 @@ class PermissionTableSeeder extends Seeder
                 'postCategories-create',
                 'postCategories-edit',
                 'postCategories-delete',
-            ],
-            #半導體管理    
-            'semics' => [
-                'semics-list',
-                'semics-create',
-                'semics-edit',
-                'semics-delete',
-            ],             
-            #半導體分類管理
-            'semicCates' => [
-                'semicCates-list',
-                'semicCates-create',
-                'semicCates-edit',
-                'semicCates-delete',
-            ],
-            #除鐵器管理    
-            'irons' => [
-                'irons-list',
-                'irons-create',
-                'irons-edit',
-                'irons-delete',
-            ],             
-            #除鐵器分類管理
-            'ironCates' => [
-                'ironCates-list',
-                'ironCates-create',
-                'ironCates-edit',
-                'ironCates-delete',
-            ],
-            #圖片管理
-            'advertisings' => [
-                'advertisings-list',
-                'advertisings-create',
-                'advertisings-edit',
-                'advertisings-delete',
-            ],
-            #地區管理
-            'areas' => [
-                'areas-list',
-                'areas-create',
-                'areas-edit',
-                'areas-delete',
-            ],
-            #行業管理
-            'industries' => [
-                'industries-list',
-                'industries-create',
-                'industries-edit',
-                'industries-delete',
-            ],
-            #業務分類管理
-            'businessCategories' => [
-                'businessCategories-list',
-                'businessCategories-create',
-                'businessCategories-edit',
-                'businessCategories-delete',
-                'businessCategories-show-list',
-            ],
-            'businesses' => [
-                'businesses-list',
-                'businesses-create',
-                'businesses-edit',
-                'businesses-delete',
             ],
             #Script
             'scripts' => [
@@ -164,7 +92,55 @@ class PermissionTableSeeder extends Seeder
         }
     }
 
-    
+    //create Roles
+    public function initVK()
+    {
+        Keyval::create(['title' => '公司',
+          'key' => 'main', 
+          'value' => '家家科技',
+          'is_flag'=>1,
+          'sort'=>1, 
+          "updated_at"=>date("Y-m-d H:i:s"),
+          "created_at"=>date("Y-m-d H:i:s")]
+        );
+
+        Keyval::create(['title' => 'tel',
+          'key' => 'tel', 
+          'value' => '091234457',
+          'is_flag'=>1,
+          'sort'=>2, 
+          "updated_at"=>date("Y-m-d H:i:s"),
+          "created_at"=>date("Y-m-d H:i:s")]
+        );
+    }
+    //分類
+    public function initCate(){
+      Category::create([
+        'title'=>"亞洲",
+        'parent_id'=>0,
+        'level'=>1,
+        'subtitle'=>1,
+        'content'=>1,
+        'img'=>'/images/image.png',
+      ]);
+      Category::create([
+        'title'=>"台灣",
+        'parent_id'=>1,
+        'level'=>2,
+        'subtitle'=>1,
+        'content'=>1,
+        'img'=>'/images/image.png',
+      ]);
+      Category::create([
+        'title'=>"星星科技",
+        'parent_id'=>2,
+        'level'=>3,
+        'subtitle'=>1,
+        'content'=>1,
+        'img'=>'/images/image.png',
+      ]);
+
+    }
 
     //create Roles
     public function initRoles()

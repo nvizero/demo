@@ -15,7 +15,7 @@ class AddCol2Prod extends Migration
     {
         //
         Schema::table('products', function (Blueprint $table) {            
-            $table->integer('is_hot')->comment('熱門');
+            $table->integer('is_hot')->nullable()->comment('熱門');
         });
     }
 

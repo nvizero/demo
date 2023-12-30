@@ -11,6 +11,10 @@ class Keyval extends BaseModel
      */
     use Sortable;
     protected $table = 'keyval';
+    protected $fillable = [
+        'title','key', 'value', 'sort', 'is_flag'
+    ];
+
 
     public function tableFieldsSetting()
     {

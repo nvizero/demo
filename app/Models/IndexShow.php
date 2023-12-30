@@ -39,7 +39,7 @@ class IndexShow extends BaseModel
                ]
           ],
           'hot' => [
-               'type' => 'text',
+               'type' => 'checkbox',
                'required' => 1,
                'search' => [
                     'level' => 'like',

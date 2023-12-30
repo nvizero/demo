@@ -62,8 +62,24 @@ class ProdController
       return view('frontend.prod_cates',$data);
     }
     
+    //動態表單
     public function prod_aform(Request $request){
-      print_r($request->all());
+      $input = [];
+      foreach($request->all() as $key => $data ){
+        
+        if($key != "_token"){
+          if(is_array($data)){
+            $input[$key]=implode(",",$data);
+          }else{
+            $input[$key]=$data;
+          }
+        }
+      }
+      $input['created_at'] = date("Y-m-d H:i:s");
+      $input['updated_at'] = date("Y-m-d H:i:s");
+      $this->baseService->createTableData('getform' ,$input);
+      return redirect()->back() 
+          ->with('success', "提交成功！");
     }
 
     public function prodCategoriesByLevel($level)
