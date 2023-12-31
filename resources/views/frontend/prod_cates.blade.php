@@ -81,7 +81,9 @@
                                 <div class="uk-card-liner">
                                     <div class="uk-card-item">
                                         <div class="uk-card-header">
-                                            <a href="/prod_details/{{$pro->id}}/{{$cate->parent_id}}" class='img-content img-4by3'><img src="/storage/{{$pro->img}}" /></a>
+                                          <a href="/prod_details/{{$pro->id}}/{{$cate->parent_id}}" class='img-content img-4by3'>
+                                            <img src="/storage/{{$pro->img}}" />
+                                          </a>
                                         </div>
                                         <div class="uk-card-body">
                                             <a href="/prod_details/{{$pro->id}}/{{$cate->parent_id}}" class="text-title">{{$pro->title}}</a><br />

@@ -52,6 +52,12 @@ class BaseService
         return $this->baseRepository->sqlStore($sql);
     }
     //get table 資料
+    public function storeDatabyM(string $table, $datas = '')
+    {
+        $obj = $this->baseRepository->dataStoreM($datas,$table);
+        return $obj;
+    }
+    //get table 資料
     public function createTableData(string $table, $datas = '')
     {
         $obj = $this->baseRepository->dataStore( $datas,$table);

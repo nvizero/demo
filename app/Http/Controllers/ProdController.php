@@ -70,22 +70,17 @@ class ProdController
           if(is_array($data)){
             $input[$key]=implode(",",$data);
           }else{
-            $input[$key]=$data;
+            $input[$key]= "$data";
           }
         }
       }
       $input['created_at'] = date("Y-m-d H:i:s");
       $input['updated_at'] = date("Y-m-d H:i:s");
-      $this->baseService->createTableData('getform' ,$input);
+      $this->baseService->storeDatabyM('getform' ,$input);
       return redirect()->back() 
           ->with('success', "提交成功！");
     }
 
-    public function pp(Getform $getform)
-    {
-      $res = $getform->tableFieldsSetting();
-      print_r($res);
-    }
 
     public function prodCategoriesByLevel($level)
     {

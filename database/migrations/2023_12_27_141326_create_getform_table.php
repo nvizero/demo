@@ -16,7 +16,7 @@ class CreateGetformTable extends Migration
         Schema::create('getform', function (Blueprint $table) {
             $table->id();
             $table->integer('product_id')->nullable();
-            $table->integer('product_name')->nullable();
+            $table->string('product_name')->nullable();
             $table->string('product_serial')->nullable();
             $table->timestamps();
         });

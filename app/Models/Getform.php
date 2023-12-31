@@ -13,6 +13,11 @@ class Getform extends BaseModel
      */
     use Sortable;
     protected $table = 'getform';
+    protected $fillable = [
+    'product_id', 
+    'product_name', 
+    'product_serial', 
+    ];
 
     public function product()
     {

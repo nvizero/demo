@@ -16,6 +16,16 @@ class BaseRepository
         DB::table($table)->insert($datas);
     }
 
+    public function dataStoreM($datas, $table)
+    {
+      $model =  "\\App\\Models\\".ucfirst($table);
+      $model = new $model;
+      foreach($datas as $key =>$val){
+          $model->$key = $val;
+      }
+      $model->save();
+    }
+
     //foreach 存資料 回傳物件
     public function forEachStore($table, $datas)
     {

@@ -99,6 +99,7 @@ class PermissionTableSeeder extends Seeder
         }
     }
 
+
     //create Roles
     public function initVK()
     {
