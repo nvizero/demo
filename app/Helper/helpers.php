@@ -88,6 +88,30 @@ if (!function_exists('getChkBoxs')) {
         return $html;
     }
 }
+
+if (!function_exists('getSetFieldName')) {
+    function getSetFieldName($val)
+    {
+        $baseResp = new BaseRepository();
+        $service = new BaseService($baseResp);
+        $sql = "select show_name from aforms where `val` = '" . $val ."'";
+        $res = $service->raw($sql);
+        return isset($res) ? $res[0]->show_name :"";
+    }
+}
+
+// fieldExpire(
+if (!function_exists('getFormShowName')) {
+    function getFormShowName($main ,$title)
+    {
+      $fields = ['product_serial','product_id','product_name'];
+      if(in_array($title,$fields)){
+        return __("$main.titles.$title");
+      }else{
+        return getSetFieldName($title);
+      }
+    }
+}
 //
 if (!function_exists('breadShow')) {
     function breadShow($category_id, $type='categories')

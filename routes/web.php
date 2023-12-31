@@ -16,6 +16,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Adm
     Route::resource('index_show', 'IndexShowController');
     Route::resource('keyval', 'KeyvalController');
     Route::resource('aforms', 'AformController');
+    Route::resource('getform', 'GetformController');
     Route::resource('categories', 'CategoryController');
     Route::resource('aboutCategories', 'AboutCategoryController');
     Route::post('delimage', 'TemplateController@delimage')->name('delimage');               //刪除圖片
@@ -37,4 +38,5 @@ Route::post('uploadimgs', 'HomeController@uploadimgs')->name('uploadimgs');
 Route::get('/prod_details/{id}/{parent_id}', 'ProdController@details');
 Route::get('/prod_categories/{id}', 'ProdController@prodCategoriesById');
 Route::get('/products', 'ProdController@products');
+Route::get('/pp', 'ProdController@pp');
 Route::post('/prod_aform', 'ProdController@prod_aform');

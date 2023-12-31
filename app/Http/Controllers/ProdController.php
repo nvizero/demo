@@ -1,14 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Repository\ContactRepository;
 use App\Models\Category;
+use App\Models\Getform;
 use App\Models\Product;
 use App\Services\BaseService;
-use Illuminate\View\View;
-use App\Repository\ContactRepository;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+
 
 class ProdController 
 {
@@ -80,6 +79,12 @@ class ProdController
       $this->baseService->createTableData('getform' ,$input);
       return redirect()->back() 
           ->with('success', "提交成功！");
+    }
+
+    public function pp(Getform $getform)
+    {
+      $res = $getform->tableFieldsSetting();
+      print_r($res);
     }
 
     public function prodCategoriesByLevel($level)

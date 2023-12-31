@@ -1,15 +1,15 @@
 <?php
 
 return [
-    'title' => '動態表單',
+    'title' => '詢問記錄',
     'titles' => [
-        'show_name' => '顯示名稱',
-        'cate' => '輸入類別',
+        'product_id' => '產品ID',
+        'product_name' => '產品名稱',
+        'product_serial' => '序號',
+        'title' => '顯示',
+        'key' => 'key',
         'img' => '圖片',
         'value' => '值',
-        'key' => 'key',
-        'size' => '顯示尺寸',
-        'val' => '名',
         'subtitle' => '副標題',
         'able' => '是否顯示',
         'about_category_id' => '分類',

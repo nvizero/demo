@@ -12,10 +12,12 @@
                             </div>
                             <div class="col-sm-12 col-md-2">
                                 <div class="pull-left">
+                                      @can("$main-create")
                                         <a class="btn btn-sm btn-success" href='{{ route("$main.create") }}'>
                                             {{ __('default.create') }}
                                             {{ __("$main.title") }}
                                         </a>
+                                      @endcan
 
                                 </div>
                             </div>
@@ -30,8 +32,13 @@
                                     <tr>
                                         @foreach ($fieldsSetting as $title => $attrs)
                                             @if (!isset($attrs['index_show']))
-                                                <th style="max-width: 150px;word-wrap: break-word; overflow-wrap: break-word;" >
-                                                    @sortablelink($title, __("$main.titles.$title"))
+                                                <th style="max-width: 50px;word-wrap: break-word; overflow-wrap: break-word;" >
+
+                                                    @if($main == "getform" )
+                                                      @sortablelink($title, getFormShowName($main,$title))
+                                                    @else
+                                                      @sortablelink($title, __("$main.titles.$title"))
+                                                    @endif
                                                 </th>
                                             @endif
                                         @endforeach
@@ -52,9 +59,9 @@
                                                     @elseif ($attrs['type'] == 'checkbox')
                                                         <th>
                                                         @if($obj->$title==1)
-                                                        是
+                                                          是
                                                         @else
-                                                        否
+                                                          否
                                                         @endif
                                                         </th>
                                                     @elseif(isset($attrs['association']))

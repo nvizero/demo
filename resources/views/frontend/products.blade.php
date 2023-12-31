@@ -27,17 +27,14 @@
         <!-- 麵包屑_start -->
         <div class="breadcrumb-container">
             <ul>
-                <li><a href="index.php">{首頁}</a></li>
-                <li class="active">{產品目錄}</li>
+                <li><a href="/">首頁</a></li>
+                <li class="active">產品目錄</li>
             </ul>
         </div>
         <!-- 麵包屑_end -->
         <!-- index_productCategory_owl_start -->
         <section class="category-container">
             <div class="container">
-                <!-- <article class='text-container mb-4 bg-light'> -->
-                <!--     {圖文編輯器} -->
-                <!-- </article> -->
                 <div class="row row-margin align-items-center">
                     <div class="col-md-3 col-padding">
                         <div class="uk-content-subtitle text-left">

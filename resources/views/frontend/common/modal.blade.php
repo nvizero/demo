@@ -22,6 +22,7 @@
                                 <form action="/prod_aform" method="POST" class="form-horizontal">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{$prod->id}}">
+                                    <input type="hidden" name="product_name" value="{{$prod->title}}">
                                     <input type="hidden" name="product_serial" value="{{$prod->serial}}">
                                     <div class="row row-margin">
                                         @foreach(getAform() as $row)

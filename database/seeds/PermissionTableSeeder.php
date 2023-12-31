@@ -69,6 +69,13 @@ class PermissionTableSeeder extends Seeder
                 'users-edit',
                 'users-delete',
             ],
+            #分類
+            'categories' => [
+                'categories-list',
+                'categories-create',
+                'categories-edit',
+                // 'categories-delete',
+            ],
             #新聞分類
             'postCategories' => [
                 'postCategories-list',
