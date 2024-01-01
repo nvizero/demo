@@ -280,7 +280,7 @@ if (!function_exists('getAbouts')) {
         $res = $service->raw($sql);
         $html = "";
         foreach ($res as $row) {
-            $html .= "<li><a href=\"/aboutList/{$row->id}\">{$row->name}</a></li>";
+            $html .= "<li><a href=\"/abouts/{$row->id}\">{$row->name}</a></li>";
         }
         return $html;
     }
