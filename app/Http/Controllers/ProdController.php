@@ -37,6 +37,8 @@ class ProdController
     //DETAILS
     public function details($id,$parent_id)
     {
+      $viewName = 'details'; 
+      $data['viewName'] = $viewName;
       $prod = $this->prod->find($id);
       $data['prod'] = $prod;
       $data['prod_cates'] = $this->prod_cates->where('parent_id',$parent_id )->get();
@@ -45,12 +47,16 @@ class ProdController
 
     public function products(Request $request)
     {
+      $viewName = 'products'; 
+      $data['viewName'] = $viewName;
       $data['cates'] = $this->prod_cates->where('level',1)->paginate(3);
       return view('frontend.products',$data);
     }
 
     public function prodCategoriesById($id)
     {
+      $viewName = 'prod_cates'; 
+      $data['viewName'] = $viewName;
       $data['prod_cates'] = $this->prod_cates->where('parent_id',$id)->paginate(3);
       $cate = $this->prod_cates->where('id',$id)->first();
       if(isset($cate->level)&& $cate->level==3){

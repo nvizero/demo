@@ -12,7 +12,7 @@
             <div class="banner-item">
                 <div class="bannerImg">
                     <a href="#" class="img-content img-banner">
-                        <img src="/lu/images/banner/81438612_p0.png" alt="" title="" />
+                        <img src="{{getPagePhoto($viewName)}}" alt="" title="" />
                     </a>
                 </div>
             </div>

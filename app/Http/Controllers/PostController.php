@@ -31,6 +31,8 @@ class PostController
     public function post_details($id,$parent_id)
     {
       $post = $this->post->find($id);
+      $viewName = 'post'; 
+      $data['viewName'] = $viewName;
       $data['post'] = $post;
       $data['post_cates'] = $this->post_cates->where('parent_id',$parent_id )->get();
       return view('frontend.post',$data);
@@ -38,12 +40,16 @@ class PostController
 
     public function posts()
     {
+      $viewName = 'posts'; 
+      $data['viewName'] = $viewName;
       $data['cates'] = $this->post_cates->where('level',1)->paginate(3);
       return view('frontend.posts',$data);
     }
 
     public function postCategoriesById($id)
     {
+      $viewName = 'posts_cates'; // 例如 'pages.home'
+      $data['viewName'] = $viewName;
       $data['prod_cates'] = $this->post_cates->where('parent_id',$id)->paginate(3);
       $cate = $this->post_cates->where('id',$id)->first();
       if(isset($cate->level)&& $cate->level==3){

@@ -70,10 +70,6 @@
                                     {!! showRefImgs($post->id,'Product') !!}
                                 </div>
                             </div>
-                            <div class="inquryContent">
-                                <!-- <a href="product.php" class="uk-button">INQURY</a> -->
-                                <a href="#" type="button" class="uk-button" data-toggle="modal" data-target="#inquryModal">INQURY</a>
-                            </div>
                         </div>
                         <div class="col-md-8 col-padding">
                             <div class="uk-content-subtitle">

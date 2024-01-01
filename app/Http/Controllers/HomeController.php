@@ -1,12 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Tag;
 use App\Models\Category;
-use App\Models\Post;
+use App\Models\PagePhoto;
 use App\Models\PostCategory;
 use App\Models\About;
 use App\Models\AboutCategory;
@@ -56,6 +57,8 @@ class HomeController extends Controller
      */
     public function index(Product $prod)
     { 
+      $viewName = 'index'; 
+      $data['viewName'] = $viewName;
       $data['products'] = $prod->where('is_flag',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
       $data['hots'] = $prod->where('is_hot',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
       $data['index_shows'] = $this->baseService->getTableData('index_show', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
@@ -64,24 +67,12 @@ class HomeController extends Controller
       return view('frontend.index',$data);
     }
   
-    public function postsCates(Product $prod)
-    { 
-      $data['products'] = $prod->where('is_flag',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
-      $data['hots'] = $prod->where('is_hot',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
-      $data['index_shows'] = $this->baseService->getTableData('index_show', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
-      $data['index_about'] = $this->baseService->getTableData('index_about', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
-      $data['news'] = $this->baseService->getTableData('posts', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
-      return view('frontend.postsCates',$data);
-    }
 
-    public function posts(Category $cate)
-    { 
-      $data['cates'] = $cate->where('level',1)->paginate(3);
-      return view('frontend.posts',$data);
-    }
 
     public function hashtag($tag)
     {
+      $viewName = 'hashtags'; 
+      $data['viewName'] = $viewName;
       Tag::where('name',$tag)->increment("count");
       $data['products'] = $this->baseService->searchData('products',["tags","like","%$tag%"] ,'*' , ['id','desc']);
       $data['htags'] = Tag::orderBy('count',"desc")->limit(5)->get();
@@ -91,15 +82,20 @@ class HomeController extends Controller
 
     public function aboutList($cate_id, About $about, AboutCategory $cate)
     {
+      $viewName = 'aboutList'; 
+      $data['viewName'] = $viewName;
       $data['abouts'] = $about->where('about_category_id',$cate_id)->paginate(3);
       $data['cate'] = $cate->find($cate_id);
       $data['cates'] = $cate->where('able',1)->whereNotIn('id',[$cate_id])->get();
 
       return view('frontend.aboutList',$data);
     }
+    
 
     public function about($id)
     {
+      $viewName = 'abou'; 
+      $data['viewName'] = $viewName;
       $data['about'] = $this->baseService->find('abouts',  $id ,'*');
       return view('frontend.about',$data);
     }
@@ -112,7 +108,9 @@ class HomeController extends Controller
     //聯絡我們
     public function contact()
     {
-      return view('frontend.contact');
+      $viewName = 'contact'; 
+      $data['viewName'] = $viewName;
+      return view('frontend.contact',$data);
     }
 
     //聯絡我們
@@ -146,5 +144,34 @@ class HomeController extends Controller
       $json['data']['code'] = 200;
       $json['data']['messages'] = ["/storage/" . $imagePath];
       return  json_encode($json);
+    }
+
+    public function ipageimg(){
+
+      $viewspath = resource_path('views/frontend'); // 獲取 views 目錄的路徑
+      $files = file::allfiles($viewspath); // 獲取該目錄下的所有文件
+
+      $filenames = [];
+      foreach ($files as $file) {
+          $filename = $file->getfilename();
+          $filename = str_replace('.blade.php', '', $filename); // 移除 .blade.php
+          $filenames[] = $filename;
+      }      
+      // 需要移除的元素
+      $removeItems = ['modal', 'index', 'navbar', 'footer'];
+      // 使用 array_filter 移除指定元素
+      $filteredFilenames = array_filter($filenames, function($filename) use ($removeItems) {
+          return !in_array($filename, $removeItems);
+      });
+      // 重设数组索引
+      $filteredFilenames = array_values($filteredFilenames);
+      foreach($filteredFilenames as $name){
+        try{
+          PagePhoto::create(['name'=>$name ,'key'=>$name ,'img'=>'']);
+        }catch(\Exception $e){
+          
+        }
+      }
+
     }
 }

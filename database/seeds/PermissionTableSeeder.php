@@ -81,19 +81,40 @@ class PermissionTableSeeder extends Seeder
                 'posts-edit',
                 'posts-delete',
             ],
-            #安全管理
-            'products' => [
-                'products-list',
-                'products-create',
-                'products-edit',
-                'products-delete',
-            ],
             #後台管理員
             'users' => [
                 'users-list',
                 'users-create',
                 'users-edit',
                 'users-delete',
+            ],
+            #index about
+            'page_photos' => [
+                'page_photos-list',
+                'page_photos-create',
+                'page_photos-edit',
+                'page_photos-delete',
+            ],
+            #index about
+            'index_about' => [
+                'index_about-list',
+                'index_about-create',
+                'index_about-edit',
+                'index_about-delete',
+            ],
+            #index show
+            'index_show' => [
+                'index_show-list',
+                'index_show-create',
+                'index_show-edit',
+                'index_show-delete',
+            ],
+            #辭條
+            'keyval' => [
+                'keyval-list',
+                'keyval-create',
+                'keyval-edit',
+                'keyval-delete',
             ],
             #分類
             'categories' => [
@@ -123,8 +144,35 @@ class PermissionTableSeeder extends Seeder
                 Permission::create(['main' => $main, 'name' => $name]);
             }
         }
-    }
 
+        $arys = ['products','getform'] ;
+        foreach($arys as $perm){
+          foreach(self::combile($perm)[$perm] as $name){
+            Permission::create(['main' => $perm, 'name' => $name]);
+            // print_r(self::combile($perm)[$perm]);
+          }
+        }
+    }
+  
+    public function combile($str){
+      $baseScripts = [
+          'list',
+          'create',
+          'edit',
+          'delete',
+      ];
+
+      $prefixedScripts = array_map(function($script) use ($str) {
+          return $str.'-' . $script;
+      }, $baseScripts);
+
+      return $scriptsArray = [
+          $str => $prefixedScripts,
+      ];
+
+      // 打印结果查看
+
+    }
     public function initAcoutCate(){
 
       AboutCategory::create(

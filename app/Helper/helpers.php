@@ -73,6 +73,22 @@ if (!function_exists('getFirstAvatar')) {
     }
 }
 
+//getPagePhoto(
+if (!function_exists('getPagePhoto')) {
+    function getPagePhoto($vname)
+    {
+        $baseResp = new BaseRepository();
+        $service = new BaseService($baseResp);
+        $sql = 'select * from page_photos where `key` = ' . $vname. '; ';
+        $res = $service->raw($sql);
+        if(isset($res[0])){
+          return $res[0]->img;
+        }else{
+          return '/lu/images/banner/81438612_p0.png';
+        }
+    }
+}
+
 if (!function_exists('getChkBoxs')) {
     function getChkBoxs($datas, $isFront = false)
     {
@@ -142,6 +158,14 @@ if (!function_exists('breadShow')) {
           $html.=$value;
       }
       return $html;
+    }
+}
+
+if (!function_exists('filePhoto')) {
+    function filePhoto($filename)
+    {
+      echo $filename;
+      $default = '/lu/images/banner/81438612_p0.png';
     }
 }
 

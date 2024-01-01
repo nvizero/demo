@@ -11,7 +11,7 @@
             <div class="banner-item">
                 <div class="bannerImg">
                     <a href="#" class="img-content img-banner">
-                        <img src="/lu/images/banner/81438612_p0.png" alt="" title="" />
+                        <img src="{{getPagePhoto($viewName)}}" alt="" title="" />
                     </a>
                 </div>
             </div>
@@ -19,6 +19,8 @@
         <!-- banner_item_end -->
     </div>
 </section>
+
+{{filePhoto(basename(__FILE__))}}
 <!-- page_banner_end -->
 <!-- page_content_start -->
 <section class="page-container">
