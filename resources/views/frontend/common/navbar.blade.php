@@ -15,9 +15,6 @@
                 </ul>
             </li>
             <li itemprop="name">
-                <a itemprop="url" href="javascript:void(0);">活動報名</a>
-            </li>
-            <li itemprop="name">
                 <a itemprop="url" href="/posts">最新消息</a>
                 <ul class="dropdownMenu">
                         {!! prod_cates('post_cates' , 'posts_categories') !!}
