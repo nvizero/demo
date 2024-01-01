@@ -79,15 +79,15 @@ class HomeController extends Controller
       return view('frontend.hashtags',$data);
     }
 
-    public function aboutlist($cate_id, About $about, AboutCategory $cate)
+    public function abouts($cate_id, About $about, AboutCategory $cate)
     {
-      $viewName = 'aboutList'; 
+      $viewName = 'abouts'; 
       $data['viewName'] = $viewName;
       $data['abouts'] = $about->where('about_category_id',$cate_id)->paginate(3);
       $data['cate'] = $cate->find($cate_id);
       $data['cates'] = $cate->where('able',1)->whereNotIn('id',[$cate_id])->get();
 
-      return view('frontend.aboutlist',$data);
+      return view('frontend.abouts',$data);
     }
     
 
