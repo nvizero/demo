@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', '產品')
+@section('title', '最新消息')
 
 @section('content')
 <section class="uk-banner-container p-0">
@@ -31,7 +31,7 @@
             <div class="col-md-3 col-sm-12 col-padding">
                 <aside class="sideContnet">
                     <ul>
-                        @foreach($prod_cates as $cate)
+                        @foreach($post_cates as $cate)
                            @if($loop->first)
                             <li class="sideInner">
                                 <span class="uk-text-subtitle active">{{$cate->title}}</span>
@@ -51,8 +51,8 @@
                     <ul>
                         <li><a href="/">首頁</a></li>
                         <li><a href="/products">產品目錄</a></li>
-                        {!! breadShow($prod->category_id) !!}
-                        <li class="active">{{$prod->title}}</li>
+                        {!! breadShow($post->category_id) !!}
+                        <li class="active">{{$post->title}}</li>
                     </ul>
                 </div>
                 <!-- 麵包屑_end -->
@@ -62,12 +62,12 @@
                         <div class="col-md-4 col-padding">
                             <div class="big-image">
                                 <div class="owl-carousel owl-theme">
-                                    {!! showRefImgsTop($prod->id,'Product') !!}
+                                    {!! showRefImgsTop($post->id,'Product') !!}
                                 </div>
                             </div>
                             <div class="img-control">
                                 <div class="owl-carousel owl-theme">
-                                    {!! showRefImgs($prod->id,'Product') !!}
+                                    {!! showRefImgs($post->id,'Product') !!}
                                 </div>
                             </div>
                             <div class="inquryContent">
@@ -78,25 +78,25 @@
                         <div class="col-md-8 col-padding">
                             <div class="uk-content-subtitle">
                                 <h2>
-                                  {!! $prod->serial !!}
+                                  {!! $post->serial !!}
                                 </h2>
                             </div>
                             <div class="uk-content-subtitle">
                                 <h2>
-                                  {!! $prod->parse_qrcode !!}
+                                  {!! $post->parse_qrcode !!}
                                 </h2>
                             </div>
                             <div class="uk-content-title">
                                 <h1>
-                                  {!! $prod->title !!}
+                                  {!! $post->title !!}
                                 </h1>
                             </div>
                             <article class='text-container mb-4 bg-light'>
-                              {!! $prod->content !!}
+                              {!! $post->content !!}
                             </article>
                             <!-- hashTag _start -->
                             <div class="hashTagGroup">
-                              {!! hashTags($prod->tags) !!}
+                              {!! hashTags($post->tags) !!}
                             </div>
                             <!-- hashTag _end -->
                         </div>
@@ -112,6 +112,3 @@
 <link rel="stylesheet" href="/lu/css/page.css">
 @endsection
 
-@section('modal')
-    @include('frontend.common.modal')
-@endsection

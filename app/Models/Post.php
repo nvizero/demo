@@ -61,6 +61,10 @@ class Post extends BaseModel
                 'search' => false,
 
             ],
+            'tags' => [
+                 'type' => 'tag-it',
+                 'required' => 0,
+            ],
             'sort' => [
                 'type' => 'number',
                 'required' => true,
@@ -101,6 +105,7 @@ class Post extends BaseModel
             'username' => [
                 'type' => 'system',
                 'required' => true,
+                'index_show' => false,
                 'search' => [
                     'level' => 'like'
                 ],

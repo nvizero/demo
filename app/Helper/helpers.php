@@ -199,15 +199,15 @@ if (!function_exists('hasRedis')) {
 
 //產品分類資料
 if (!function_exists('prod_cates')) {
-    function prod_cates()
+    function prod_cates($type = "categories",$url ='prod_categories')
     {
         $baseResp = new BaseRepository();
         $service = new BaseService($baseResp);
-        $sql = 'select * from categories where level = 1 ;';
+        $sql = 'select * from '.$type.' where level = 1 ;';
         $res = $service->raw($sql);
         $html = "";
         foreach ($res as $row) {
-            $html .= "<li><a href=\"/prod_categories/$row->id\">$row->title</a></li>";
+            $html .= "<li><a href=\"/".$url."/$row->id\">$row->title</a></li>";
         }
         return $html;
     }
@@ -242,11 +242,11 @@ if (!function_exists('getAbouts')) {
     {
         $baseResp = new BaseRepository();
         $service = new BaseService($baseResp);
-        $sql = "select * from `abouts`";
+        $sql = "select * from `about_categories` where able =1";
         $res = $service->raw($sql);
         $html = "";
         foreach ($res as $row) {
-            $html .= "<li><a href=\"/about/{$row->id}\">{$row->title}</a></li>";
+            $html .= "<li><a href=\"/aboutList/{$row->id}\">{$row->name}</a></li>";
         }
         return $html;
     }
@@ -666,7 +666,7 @@ if (!function_exists('hashTags')) {
     {
       $i='';
       foreach(explode(',',$tags) as $tag){ 
-        $i.='<a href="/hashTagResult?='.$tag.'">#'.$tag.'</a>'; 
+        $i.='<a href="/hashtag/'.$tag.'">#'.$tag.'</a>'; 
       }
       return $i;
     }

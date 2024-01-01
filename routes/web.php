@@ -32,11 +32,19 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Adm
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about/{id}', 'HomeController@about')->name('about');
+Route::get('/aboutList/{id}', 'HomeController@aboutList')->name('aboutList');
+Route::get('/hashtag/{tag}', 'HomeController@hashtag')->name('hashtag');
 Route::post('uploadimgs', 'HomeController@uploadimgs')->name('uploadimgs');
 
+#posts
+Route::get('/posts', 'PostController@posts')->name('posts');
+Route::get('/post/{id}/{parent_id}', 'PostController@post_details');
+Route::get('/posts_categories/{id}', 'PostController@postCategoriesById');
+
+#porducts
 Route::get('/prod_details/{id}/{parent_id}', 'ProdController@details');
 Route::get('/prod_categories/{id}', 'ProdController@prodCategoriesById');
 Route::get('/products', 'ProdController@products');
-Route::get('/pp', 'ProdController@pp');
 Route::post('/prod_aform', 'ProdController@prod_aform');

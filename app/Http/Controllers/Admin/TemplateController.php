@@ -110,9 +110,29 @@ class TemplateController extends DashboardController
 
         //動態選單
         if($main=='aforms'){
-            // 处理 DELETE 请求
-          DB::statement('ALTER TABLE getform ADD '.$request->val.' VARCHAR(255)');
+          DB::statement('ALTER TABLE getform ADD '.$request->val.' VARCHAR(255) null');
         }
+
+        //產品tag
+        if($main=='products'){
+          $tags = $request->input("tags");
+          foreach(explode(",",$tags) as $tag){
+            $data = [
+              "name"=>$tag , 
+              "count"=>1,
+              "created_at"=>date("Y-m-d H:i:s"),
+              "updated_at"=>date("Y-m-d H:i:s")
+            ];
+            try{
+                DB::table("tags")->insert($data);
+            }catch(\Exception $e){
+                echo $e->getCode();
+                echo $e->getMessage();
+            }
+          }
+
+        }
+
         return $entity;
     }
 

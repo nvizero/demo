@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redis;
 class BaseService
 {
     const ttl = 60 * 60 * 3; //三小時
+
     function __construct(BaseRepository $baseRepository)
     {
         $this->baseRepository = $baseRepository;
@@ -40,7 +41,7 @@ class BaseService
         return $this->baseRepository->delete($table, $where);
     }
 
-    //取得
+    //update
     public function update(string $table, int $id, $updateData = [])
     {
         return $this->baseRepository->updateTableData($table, $id, $updateData);
@@ -63,12 +64,21 @@ class BaseService
         $obj = $this->baseRepository->dataStore( $datas,$table);
         return $obj;
     }
+
     //get table 資料
-    public function getTableData(string $table, $where = '', $select = '', $sort = '', $page = 0)
+    public function getTableData(string $table, $where = '', $select = '', $sort = '')
     {
-        $obj = $this->baseRepository->getTableData($table, $where, $select, $sort, $page);
+        $obj = $this->baseRepository->getTableData($table, $where, $select, $sort);
         return $obj;
     }
+    //get table 資料
+    //  searchData('products',["tags",$tag] ,'*' , ['id','desc']);
+    public function searchData(string $table, $where = '', $select = '', $sort = '',  $offset = 0, $take = 1)
+    {
+        $obj = $this->baseRepository->search($table, $where, $select, $sort);
+        return $obj;
+    }
+
     //get table 資料
     public function getTableOffset(string $table, $where = '', $select = '', $sort = '',  $offset = 0, $take = 1)
     {

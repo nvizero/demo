@@ -18,11 +18,14 @@
                 <a itemprop="url" href="javascript:void(0);">活動報名</a>
             </li>
             <li itemprop="name">
-                <a itemprop="url" href="newsList.php">最新消息</a>
+                <a itemprop="url" href="/posts">最新消息</a>
+                <ul class="dropdownMenu">
+                        {!! prod_cates('post_cates' , '/post_cate/') !!}
+                </ul>
             </li>
             
             <li itemprop="name">
-                <a itemprop="url" href="contact.php">連路我們</a>
+                <a itemprop="url" href="/contact">連路我們</a>
             </li>
             {{-- <li class='lang-btn liner-button'>
                 <a itemprop="url" href="javascript:void(0);" class='after-none'>En</a>

@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use App\Models\Keyval;
 use App\Models\Category;
+use App\Models\PostCategory;
+use App\Models\AboutCategory;
 use Spatie\Permission\Models\Role;
 
 class PermissionTableSeeder extends Seeder
@@ -18,9 +20,26 @@ class PermissionTableSeeder extends Seeder
         //create Roles
         $this->initRoles();        
         $this->initVK();
-        $this->initCate();
+        $this->initProductCate();
+        $this->initPostCate();
+        $this->initAcoutCate();
 
+        #aboutCategories
         $permissions = [
+            #abouts
+            'abouts' => [
+                'abouts-list',
+                'abouts-create',
+                'abouts-edit',
+                'abouts-delete',
+            ],
+            #用戶組
+            'aboutCategories' => [
+                'aboutCategories-list',
+                'aboutCategories-create',
+                'aboutCategories-edit',
+                'aboutCategories-delete',
+            ],
             #用戶組
             'roles' => [
                 'roles-list',
@@ -47,6 +66,13 @@ class PermissionTableSeeder extends Seeder
                 'aforms-list',
                 'aforms-create',
                 'aforms-delete',
+            ],
+            #新聞管理
+            'post_cates' => [
+                'post_cates-list',
+                'post_cates-create',
+                'post_cates-edit',
+                'post_cates-delete',
             ],
             #新聞管理
             'posts' => [
@@ -99,11 +125,44 @@ class PermissionTableSeeder extends Seeder
         }
     }
 
+    public function initAcoutCate(){
+
+      AboutCategory::create(
+        [
+            'name' => '產品',
+            'able' => 1, 
+            'sort' => 1,
+            'level' => 1,
+            'parent_id'=>1,
+            'subtitle'=>'產品說明',
+            'img'=>"/images/image.png", 
+            'content'=>"/images/image.png", 
+            "updated_at"=>date("Y-m-d H:i:s"),
+            "created_at"=>date("Y-m-d H:i:s")
+        ]
+      );
+
+      AboutCategory::create(
+        [
+            'name' => '分公司',
+            'able' => 1, 
+            'sort' => 2,
+            'level' => 1,
+            'parent_id'=>1,
+            'subtitle'=>'分公司說明',
+            'img'=>"/images/image.png", 
+            'content'=>"/images/image.png", 
+            "updated_at"=>date("Y-m-d H:i:s"),
+            "created_at"=>date("Y-m-d H:i:s")
+        ]
+      );
+    }
 
     //create Roles
     public function initVK()
     {
-        Keyval::create(['title' => '公司',
+        Keyval::create([
+          'title' => '公司',
           'key' => 'main', 
           'value' => '家家科技',
           'is_flag'=>1,
@@ -122,7 +181,43 @@ class PermissionTableSeeder extends Seeder
         );
     }
     //分類
-    public function initCate(){
+    public function initPostCate(){
+      PostCategory::create([
+        'title'=>"竹北",
+        'parent_id'=>0,
+        'level'=>1,
+        'subtitle'=>1,
+        'content'=>1,
+        'able'=>1,
+        'sort'=>1,
+        'img'=>'/images/image.png',
+      ]);
+
+      PostCategory::create([
+        'title'=>"國中小學",
+        'parent_id'=>1,
+        'level'=>2,
+        'subtitle'=>1,
+        'content'=>1,
+        'able'=>1,
+        'sort'=>2,
+        'img'=>'/images/image.png',
+      ]);
+
+      PostCategory::create([
+        'title'=>"中正國小",
+        'parent_id'=>2,
+        'level'=>3,
+        'subtitle'=>1,
+        'content'=>1,
+        'able'=>1,
+        'sort'=>2,
+        'img'=>'/images/image.png',
+      ]);
+
+    }
+    //分類
+    public function initProductCate(){
       Category::create([
         'title'=>"亞洲",
         'parent_id'=>0,

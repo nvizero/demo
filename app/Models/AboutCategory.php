@@ -50,6 +50,16 @@ class AboutCategory extends BaseModel
                'type' => 'file',
                'required' => 1,
           ],
+          'able' => [
+              'type' => 'checkbox',
+              'required' => false,
+              'search' => true,
+          ],
+          'sort' => [
+              'type' => 'text',
+              'required' => true,
+              'search' => true,
+          ],
           'content' => [
               'type' => 'ckeditor',
               'required' => true,
@@ -57,21 +67,6 @@ class AboutCategory extends BaseModel
                   'level' => 'like'
               ],
           ],
-            'able' => [
-                'type' => 'checkbox',
-                'required' => false,
-                'search' => true,
-            ],
-            'sort' => [
-                'type' => 'text',
-                'required' => true,
-                'search' => true,
-            ],
-            'level' => [
-                'type' => 'level',
-                'required' => 'required|not_in:4',
-                'max' => 2,
-            ],
         ];
     }
 }

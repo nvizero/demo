@@ -62,6 +62,17 @@ class BaseRepository
         return $obj;
     }
     //簡易查詢
+    public function search(string $tableName, $where, $select = '*', $sort = '')
+    {
+        $obj = DB::table($tableName);
+        if ($select) {
+            $obj = $obj->select($select);
+        }
+        $obj = $obj->where([$where]);
+        return $obj->get();
+    }
+
+    //簡易查詢
     public function getTableData(string $tableName, $where, $select = '', $sort = '', $page = 0)
     {
         $obj = $this->sample($tableName, $where, $select);

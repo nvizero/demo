@@ -1,7 +1,8 @@
 
-{!! Form::hidden($name, null, ['id' => 'mySingleField']) !!}
+{!! Form::hidden($name, (empty($obj->$name) ? "" :$obj->$name), ['id' => 'mySingleField']) !!}
 
 <ul id="singleFieldTags"></ul>
+
 
 @section('js2')
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset-fonts/reset-fonts.css">

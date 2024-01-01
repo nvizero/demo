@@ -4,7 +4,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Tag;
 use App\Models\Category;
+use App\Models\Post;
+use App\Models\PostCategory;
+use App\Models\About;
+use App\Models\AboutCategory;
+
 use App\Services\BaseService;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
@@ -49,13 +55,47 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(Product $prod)
-    {
+    { 
       $data['products'] = $prod->where('is_flag',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
       $data['hots'] = $prod->where('is_hot',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
       $data['index_shows'] = $this->baseService->getTableData('index_show', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
       $data['index_about'] = $this->baseService->getTableData('index_about', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
       $data['news'] = $this->baseService->getTableData('posts', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
       return view('frontend.index',$data);
+    }
+  
+    public function postsCates(Product $prod)
+    { 
+      $data['products'] = $prod->where('is_flag',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
+      $data['hots'] = $prod->where('is_hot',1)->orderBy('sort','desc')->get();// '', ['sort', 'DESC'], 9);
+      $data['index_shows'] = $this->baseService->getTableData('index_show', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
+      $data['index_about'] = $this->baseService->getTableData('index_about', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
+      $data['news'] = $this->baseService->getTableData('posts', ['is_flag'=>1], '', ['sort', 'DESC'], 9);
+      return view('frontend.postsCates',$data);
+    }
+
+    public function posts(Category $cate)
+    { 
+      $data['cates'] = $cate->where('level',1)->paginate(3);
+      return view('frontend.posts',$data);
+    }
+
+    public function hashtag($tag)
+    {
+      Tag::where('name',$tag)->increment("count");
+      $data['products'] = $this->baseService->searchData('products',["tags","like","%$tag%"] ,'*' , ['id','desc']);
+      $data['htags'] = Tag::orderBy('count',"desc")->limit(5)->get();
+      $data['hashTag'] = $tag;
+      return view('frontend.hashtags',$data);
+    }
+
+    public function aboutList($cate_id, About $about, AboutCategory $cate)
+    {
+      $data['abouts'] = $about->where('about_category_id',$cate_id)->paginate(3);
+      $data['cate'] = $cate->find($cate_id);
+      $data['cates'] = $cate->where('able',1)->whereNotIn('id',[$cate_id])->get();
+
+      return view('frontend.aboutList',$data);
     }
 
     public function about($id)
@@ -70,7 +110,7 @@ class HomeController extends Controller
     }
 
     //聯絡我們
-    public function cont()
+    public function contact()
     {
       return view('frontend.contact');
     }

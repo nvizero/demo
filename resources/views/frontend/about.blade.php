@@ -67,6 +67,5 @@
         </div>
     </div>
 </section>
-<!-- page_content_end -->
-<!-- 內容_end -->
+<link rel="stylesheet" href="/lu/css/page.css">
 @endsection
