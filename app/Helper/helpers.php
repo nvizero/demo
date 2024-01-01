@@ -122,7 +122,7 @@ if (!function_exists('breadShow')) {
       $service = new BaseService($baseResp);
       $sql = "select * from $type where `id` = '".$category_id."';";
       $res = $service->raw($sql);
-      $level = $res[0]->level;
+      $level = isset($res[0])?$res[0]->level:1;
       $emp[$level]="<li><a href=\"/prod_categories/{$res[0]->id}\">{$res[0]->title}</a></li>";
 
       while($level != 1){

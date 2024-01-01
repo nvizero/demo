@@ -182,8 +182,9 @@ class PermissionTableSeeder extends Seeder
     }
     //分類
     public function initPostCate(){
+
       PostCategory::create([
-        'title'=>"竹北",
+        'title'=>"選舉",
         'parent_id'=>0,
         'level'=>1,
         'subtitle'=>1,
@@ -194,7 +195,7 @@ class PermissionTableSeeder extends Seeder
       ]);
 
       PostCategory::create([
-        'title'=>"國中小學",
+        'title'=>"區域",
         'parent_id'=>1,
         'level'=>2,
         'subtitle'=>1,
@@ -203,9 +204,20 @@ class PermissionTableSeeder extends Seeder
         'sort'=>2,
         'img'=>'/images/image.png',
       ]);
+    
+      PostCategory::create([
+        'title'=>"中區",
+        'parent_id'=>2,
+        'level'=>3,
+        'subtitle'=>1,
+        'content'=>1,
+        'able'=>1,
+        'sort'=>2,
+        'img'=>'/images/image.png',
+      ]);
 
       PostCategory::create([
-        'title'=>"中正國小",
+        'title'=>"北區",
         'parent_id'=>2,
         'level'=>3,
         'subtitle'=>1,
@@ -218,6 +230,7 @@ class PermissionTableSeeder extends Seeder
     }
     //分類
     public function initProductCate(){
+
       Category::create([
         'title'=>"亞洲",
         'parent_id'=>0,
@@ -226,6 +239,7 @@ class PermissionTableSeeder extends Seeder
         'content'=>1,
         'img'=>'/images/image.png',
       ]);
+
       Category::create([
         'title'=>"台灣",
         'parent_id'=>1,
@@ -234,6 +248,7 @@ class PermissionTableSeeder extends Seeder
         'content'=>1,
         'img'=>'/images/image.png',
       ]);
+
       Category::create([
         'title'=>"星星科技",
         'parent_id'=>2,

@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', $cate->title)
+@section('title','產品 '. $cate->title)
 
 @section('content')
 

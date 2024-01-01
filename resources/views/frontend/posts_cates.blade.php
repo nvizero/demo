@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', $cate->title)
+@section('title', '最新消息 '.$cate->title)
 
 @section('content')
 
@@ -58,7 +58,7 @@
                     <ul>
                         <li><a href="/">首頁</a></li>
                         <li><a href="/products">產品目錄</a></li>
-                        {!! breadShow($cate->id) !!}
+                        {!! breadShow($cate->id , 'post_cates') !!}
                     </ul>
                 </div>
                 <!-- 麵包屑_end -->

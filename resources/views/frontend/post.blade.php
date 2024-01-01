@@ -51,7 +51,7 @@
                     <ul>
                         <li><a href="/">首頁</a></li>
                         <li><a href="/products">產品目錄</a></li>
-                        {!! breadShow($post->category_id) !!}
+                        {!! breadShow($post->category_id , 'post_cates') !!}
                         <li class="active">{{$post->title}}</li>
                     </ul>
                 </div>
