@@ -6,6 +6,7 @@ use App\Models\Keyval;
 use App\Models\Category;
 use App\Models\PostCategory;
 use App\Models\AboutCategory;
+use App\Models\PagePhoto;
 use Spatie\Permission\Models\Role;
 
 class PermissionTableSeeder extends Seeder
@@ -19,6 +20,7 @@ class PermissionTableSeeder extends Seeder
     {         
         //create Roles
         $this->initRoles();        
+        $this->initPagePhoto();        
         $this->initVK();
         $this->initProductCate();
         $this->initPostCate();
@@ -149,7 +151,6 @@ class PermissionTableSeeder extends Seeder
         foreach($arys as $perm){
           foreach(self::combile($perm)[$perm] as $name){
             Permission::create(['main' => $perm, 'name' => $name]);
-            // print_r(self::combile($perm)[$perm]);
           }
         }
     }
@@ -166,7 +167,7 @@ class PermissionTableSeeder extends Seeder
           return $str.'-' . $script;
       }, $baseScripts);
 
-      return $scriptsArray = [
+      return  [
           $str => $prefixedScripts,
       ];
 
@@ -204,6 +205,36 @@ class PermissionTableSeeder extends Seeder
             "created_at"=>date("Y-m-d H:i:s")
         ]
       );
+    }
+
+    //create Roles
+    public function initPagePhoto()
+    {
+      $arys = 
+          [
+            ['name'=>'關於我們','key'=>'about'],
+            ['name'=>'關於我們多頁','key'=>'abouts'],
+            ['name'=>'聯絡我們','key'=>'contact'],
+            ['name'=>'產品','key'=>'details'],
+            ['name'=>'HashTags','key'=>'hashtags'],
+
+            ['name'=>'最新消息','key'=>'post'],
+            ['name'=>'最新消息列表','key'=>'posts'],
+            ['name'=>'最新消息分類','key'=>'posts_cates'],
+            ['name'=>'產品列表分類','key'=>'prod_cates'],
+            ['name'=>'產品列表','key'=>'products'],
+
+          ];
+      foreach( $arys as $cell){
+        PagePhoto::create([
+          'name' =>$cell['name'],
+          'key' => $cell['key'], 
+          'img' => '/lu/images/banner/81438612_p0.png',
+          "updated_at"=>date("Y-m-d H:i:s"),
+          "created_at"=>date("Y-m-d H:i:s")]
+        );
+
+      }
     }
 
     //create Roles
