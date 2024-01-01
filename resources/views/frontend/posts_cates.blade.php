@@ -20,7 +20,6 @@
     </div>
 </section>
 
-{{filePhoto(basename(__FILE__))}}
 <!-- page_banner_end -->
 <!-- page_content_start -->
 <section class="page-container">

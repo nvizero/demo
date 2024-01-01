@@ -50,4 +50,4 @@ Route::get('/prod_categories/{id}', 'ProdController@prodCategoriesById');
 Route::get('/products', 'ProdController@products');
 Route::post('/prod_aform', 'ProdController@prod_aform');
 
-Route::get('/iimg', 'HomeController@ipageimg');
+Route::get('/setimg', 'HomeController@ipageimg');

@@ -79,10 +79,10 @@ if (!function_exists('getPagePhoto')) {
     {
         $baseResp = new BaseRepository();
         $service = new BaseService($baseResp);
-        $sql = 'select * from page_photos where `key` = ' . $vname. '; ';
+        $sql = "select * from page_photos where `key` = '" . $vname. "'; ";
         $res = $service->raw($sql);
-        if(isset($res[0])){
-          return $res[0]->img;
+        if(isset($res[0]) && strlen($res[0]->img)>2 ){
+          return "/storage/".$res[0]->img;
         }else{
           return '/lu/images/banner/81438612_p0.png';
         }

@@ -67,14 +67,13 @@ class HomeController extends Controller
       return view('frontend.index',$data);
     }
   
-
-
     public function hashtag($tag)
     {
       $viewName = 'hashtags'; 
       $data['viewName'] = $viewName;
       Tag::where('name',$tag)->increment("count");
       $data['products'] = $this->baseService->searchData('products',["tags","like","%$tag%"] ,'*' , ['id','desc']);
+      $data['posts'] = $this->baseService->searchData('posts',["tags","like","%$tag%"] ,'*' , ['id','desc']);
       $data['htags'] = Tag::orderBy('count',"desc")->limit(5)->get();
       $data['hashTag'] = $tag;
       return view('frontend.hashtags',$data);
@@ -167,7 +166,7 @@ class HomeController extends Controller
       $filteredFilenames = array_values($filteredFilenames);
       foreach($filteredFilenames as $name){
         try{
-          PagePhoto::create(['name'=>$name ,'key'=>$name ,'img'=>'']);
+          PagePhoto::create(['name'=>$name ,'key'=>$name ,'img'=>'/lu/images/banner/81438612_p0.png']);
         }catch(\Exception $e){
           
         }
