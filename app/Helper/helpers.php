@@ -139,7 +139,12 @@ if (!function_exists('breadShow')) {
       $sql = "select * from $type where `id` = '".$category_id."';";
       $res = $service->raw($sql);
       $level = isset($res[0])?$res[0]->level:1;
-      $emp[$level]="<li><a href=\"/prod_categories/{$res[0]->id}\">{$res[0]->title}</a></li>";
+      if($type=="categories")
+      {
+        $emp[$level]="<li><a href=\"/prod_categories/{$res[0]->id}\">{$res[0]->title}</a></li>";
+      }else{
+        $emp[$level]="<li><a href=\"/posts_categories/{$res[0]->id}\">{$res[0]->title}</a></li>";
+      }  
 
       while($level != 1){
         if($obj == null){
@@ -148,7 +153,12 @@ if (!function_exists('breadShow')) {
           $obj = breadModel($obj->parent_id,$type);
         }
         $level = $obj->level;
-        $emp[$level]="<li><a href=\"/prod_categories/{$obj->id}\">{$obj->title}</a></li>";
+        if($type=="categories")
+        {
+          $emp[$level]="<li><a href=\"/prod_categories/{$obj->id}\">{$obj->title}</a></li>";
+        }else{
+          $emp[$level]="<li><a href=\"/posts_categories/{$obj->id}\">{$obj->title}</a></li>";
+        }
       }
       // 反轉陣列
       $reversedArray = array_reverse($emp);
