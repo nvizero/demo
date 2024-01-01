@@ -79,7 +79,7 @@ class HomeController extends Controller
       return view('frontend.hashtags',$data);
     }
 
-    public function aboutList($cate_id, About $about, AboutCategory $cate)
+    public function aboutlist($cate_id, About $about, AboutCategory $cate)
     {
       $viewName = 'aboutList'; 
       $data['viewName'] = $viewName;
@@ -87,7 +87,7 @@ class HomeController extends Controller
       $data['cate'] = $cate->find($cate_id);
       $data['cates'] = $cate->where('able',1)->whereNotIn('id',[$cate_id])->get();
 
-      return view('frontend.aboutList',$data);
+      return view('frontend.aboutlist',$data);
     }
     
 

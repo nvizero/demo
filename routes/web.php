@@ -35,7 +35,7 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about/{id}', 'HomeController@about')->name('about');
-Route::get('/aboutList/{id}', 'HomeController@aboutList')->name('aboutList');
+Route::get('/aboutlist/{id}', 'HomeController@aboutlist')->name('aboutList');
 Route::get('/hashtag/{tag}', 'HomeController@hashtag')->name('hashtag');
 Route::post('uploadimgs', 'HomeController@uploadimgs')->name('uploadimgs');
 
