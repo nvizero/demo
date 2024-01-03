@@ -97,11 +97,15 @@ class HomeController extends Controller
       return view('frontend.about_cates',$data);
     }
 
-    public function about($id)
+    public function about($id, About $abouts, AboutCategory $cate)
     {
       $viewName = 'about'; 
       $data['viewName'] = $viewName;
-      $data['about'] = $this->baseService->find('abouts',  $id ,'*');
+      $about = $this->baseService->find('abouts',  $id ,'*');
+      $data['about'] = $about ;
+      $data['abouts'] = $abouts->where('about_category_id',$about->about_category_id)->whereNotIn('id',[$id] )->get();
+      $data['cates'] = $cate->where('id',$about->about_category_id)->first();
+      $data['viewName'] = $viewName;
       return view('frontend.about',$data);
     }
 
