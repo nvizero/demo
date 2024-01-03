@@ -35,7 +35,8 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about/{id}', 'HomeController@about')->name('about');
-Route::get('/abouts/{id}', 'HomeController@abouts')->name('abouts');
+Route::get('/about_cates/{id}', 'HomeController@about_cates')->name('about_cates');
+Route::get('/abouts', 'HomeController@abouts')->name('abouts');
 Route::get('/hashtag/{tag}', 'HomeController@hashtag')->name('hashtag');
 Route::post('uploadimgs', 'HomeController@uploadimgs')->name('uploadimgs');
 
@@ -50,4 +51,3 @@ Route::get('/prod_categories/{id}', 'ProdController@prodCategoriesById');
 Route::get('/products', 'ProdController@products');
 Route::post('/prod_aform', 'ProdController@prod_aform');
 
-Route::get('/setimg', 'HomeController@ipageimg');

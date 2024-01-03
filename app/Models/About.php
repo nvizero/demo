@@ -31,6 +31,10 @@ class About extends BaseModel
                     'level' => 'like',
                ]
           ],
+          'img' => [
+               'type' => 'file',
+               'required' => 1,
+          ],
           'sort' => [
                'type' => 'number',
                'required' => 1,

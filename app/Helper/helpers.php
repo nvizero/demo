@@ -130,18 +130,24 @@ if (!function_exists('getFormShowName')) {
 }
 //
 if (!function_exists('breadShow')) {
-    function breadShow($category_id, $type='categories')
+    function breadShow($category_id=false, $type='categories')
     {
       $emp = [];
       $obj = null;
       $baseResp = new BaseRepository();
       $service = new BaseService($baseResp);
-      $sql = "select * from $type where `id` = '".$category_id."';";
+      if($category_id==false){
+        $sql = "select * from $type;";
+      }else{
+        $sql = "select * from $type where `id` = '".$category_id."';";
+      }
       $res = $service->raw($sql);
       $level = isset($res[0])?$res[0]->level:1;
       if($type=="categories")
       {
         $emp[$level]="<li><a href=\"/prod_categories/{$res[0]->id}\">{$res[0]->title}</a></li>";
+      }elseif($type=="about_categories"){
+        $emp[$level]="<li><a href=\"/about_cates/{$res[0]->id}\">{$res[0]->name}</a></li>";
       }else{
         $emp[$level]="<li><a href=\"/posts_categories/{$res[0]->id}\">{$res[0]->title}</a></li>";
       }  
@@ -280,7 +286,7 @@ if (!function_exists('getAbouts')) {
         $res = $service->raw($sql);
         $html = "";
         foreach ($res as $row) {
-            $html .= "<li><a href=\"/abouts/{$row->id}\">{$row->name}</a></li>";
+            $html .= "<li><a href=\"/about_cates/{$row->id}\">{$row->name}</a></li>";
         }
         return $html;
     }

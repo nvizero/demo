@@ -1,8 +1,10 @@
+
 @extends('layouts.frontend')
 
-@section('title', 'abbss')
+@section('title', $cate->title)
 
 @section('content')
+
 
 <section class="uk-banner-container">
     <div class="">
@@ -16,7 +18,7 @@
                         </a>
                     </div>
                     <!-- <div class="banner-text"> -->
-                    <!--     <p class='text-title'> -->
+                    <!--     <p class='text-title'>{Title} -->
                     <!--     </p> -->
                     <!--     <p class='uk-text-subtitle'>{Subtitle} -->
                     <!--     </p> -->
@@ -36,11 +38,22 @@
             <div class="col-md-3 col-padding">
                 <aside class="sideContnet">
                     <ul>
-                      @foreach($cates as $cate)
-                          <li class="sideInner">
-                              <a href="/about_cates/{{$cate->id}}" class="uk-text-subtitle">{{$cate->name}}</a>
-                          </li>
-                      @endforeach
+                        <li class="sideInner active">
+                            <div class="sideActive">
+                                <div class="sideActiveInner">
+                                    <span class='uk-text-subtitle'>{分類文章標題}</span>
+                                </div>
+                                <div class="sideActiveInner">
+                                    <a href='javascript:void(0);' class="sideBtn"></a>
+                                </div>
+                            </div>
+                            <ul class="sideInnerMenu">
+                                <li class="sideInner"><a href="pageCateB.php">{分類文章列表標題(一)}</a></li>
+                                <li class="sideInner"><a href="pageCateB.php">{分類文章列表標題(一)}</a></li>
+                                <li class="sideInner"><a href="pageCateB.php">{分類文章列表標題(一)}</a></li>
+                                <li class="sideInner"><a href="pageCateB.php">{分類文章列表標題(一)}</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </aside>
             </div>
@@ -49,39 +62,40 @@
                 <div class="breadcrumb-container">
                     <ul>
                         <li><a href="/">首頁</a></li>
-                        <li><a href="/abouts">關於我們</a></li>
+                        <li class="/abouts">關於我們</li>
+                        {!! breadShow($cate->id , 'about_categories') !!}
                     </ul>
                 </div>
                 <!-- 麵包屑_end -->
-                <!-- <div class="uk-content-title"> -->
-                <!--     <h1> -->
-                <!--         {分類文章列表標題} -->
-                <!--     </h1> -->
-                <!-- </div> -->
-                <!-- <div class='uk-text-container'> -->
-                <!--     <img src='images/sampleCategory/uk-text-containerImg.jpg' /> -->
-                <!--     <p>{圖文編輯器}</p> -->
-                <!-- </div> -->
+                <div class="uk-content-title">
+                    <h1>
+                        {{$cate->name}}
+                    </h1>
+                </div>
+                <div class='uk-text-container'>
+                    <img src='/storage/{{$cate->img}}' />
+                    <p>{{$cate->content}}</p>
+                </div>
                 <ul class="newsItemContent">
-                    <!-- page_item_start -->
-                    @foreach($cates as $cate)
+                    @foreach($abouts as $row)
                     <li class="newsItem">
                         <div class="newsItemInner">
-                            <img src="/storage/{{$cate->img}}" />
+                            <img src="/storage/{{$row->img}}" />
                         </div>
                         <div class="newsItemInner">
-                            <a href="/about_cates/{{$cate->id}}" class="text-title">{{$cate->name}}</a>
-                            <time class="">{{$cate->created_at}}</time>
-                            <a href="/about_cates/{{$cate->id}}">{!! ms_str($cate->content ,20)!!}</a>
+                            <a href="/about/{{$row->id}}" class="text-title">1111{{$row->title}}</a>
+                            <time class="">{{$row->created_at}}</time>
+                            <a href="/about/{{$row->id}}">{!! ms_str($row->content ,20)!!}</a>
                         </div>
                     </li>
                     @endforeach
+                    <!-- page_item_end -->
                     <!-- page_item_end -->
                 </ul>
                 <!-- 分頁 -->
                 <nav aria-label="navigation" class="navigation">
                     <ul class="pagination">
-                      {{ $cates->links() }}
+                      {{ $abouts->links() }}
                     </ul>
                 </nav>
             </div>

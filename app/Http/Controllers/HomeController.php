@@ -79,21 +79,27 @@ class HomeController extends Controller
       return view('frontend.hashtags',$data);
     }
 
-    public function abouts($cate_id, About $about, AboutCategory $cate)
+    public function abouts( AboutCategory $cate)
     {
       $viewName = 'abouts'; 
       $data['viewName'] = $viewName;
-      $data['abouts'] = $about->where('about_category_id',$cate_id)->paginate(3);
-      $data['cate'] = $cate->find($cate_id);
-      $data['cates'] = $cate->where('able',1)->whereNotIn('id',[$cate_id])->get();
-
+      $data['cates'] = $cate->where('able',1)->paginate(3);
       return view('frontend.abouts',$data);
     }
     
+    public function about_cates($id, About $about, AboutCategory $cate)
+    {
+      $viewName = 'about_cates'; 
+      $data['viewName'] = $viewName;
+      $data['cate'] = $cate->find($id);
+      $data['cates'] = $cate->where('able',1)->whereNotIn('id',[$id] )->get();
+      $data['abouts'] = $about->where('able',1)->where('about_category_id',$id )->paginate(3);
+      return view('frontend.about_cates',$data);
+    }
 
     public function about($id)
     {
-      $viewName = 'abou'; 
+      $viewName = 'about'; 
       $data['viewName'] = $viewName;
       $data['about'] = $this->baseService->find('abouts',  $id ,'*');
       return view('frontend.about',$data);
@@ -145,32 +151,4 @@ class HomeController extends Controller
       return  json_encode($json);
     }
 
-    public function ipageimg(){
-
-      $viewspath = resource_path('views/frontend'); // 獲取 views 目錄的路徑
-      $files = file::allfiles($viewspath); // 獲取該目錄下的所有文件
-
-      $filenames = [];
-      foreach ($files as $file) {
-          $filename = $file->getfilename();
-          $filename = str_replace('.blade.php', '', $filename); // 移除 .blade.php
-          $filenames[] = $filename;
-      }      
-      // 需要移除的元素
-      $removeItems = ['modal', 'index', 'navbar', 'footer'];
-      // 使用 array_filter 移除指定元素
-      $filteredFilenames = array_filter($filenames, function($filename) use ($removeItems) {
-          return !in_array($filename, $removeItems);
-      });
-      // 重设数组索引
-      $filteredFilenames = array_values($filteredFilenames);
-      foreach($filteredFilenames as $name){
-        try{
-          PagePhoto::create(['name'=>$name ,'key'=>$name ,'img'=>'/lu/images/banner/81438612_p0.png']);
-        }catch(\Exception $e){
-          
-        }
-      }
-
-    }
 }

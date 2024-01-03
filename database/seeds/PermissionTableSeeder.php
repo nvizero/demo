@@ -212,24 +212,27 @@ class PermissionTableSeeder extends Seeder
     {
       $arys = 
           [
-            ['name'=>'關於我們','key'=>'about'],
-            ['name'=>'關於我們多頁','key'=>'abouts'],
             ['name'=>'聯絡我們','key'=>'contact'],
-            ['name'=>'產品','key'=>'details'],
             ['name'=>'HashTags','key'=>'hashtags'],
 
-            ['name'=>'最新消息','key'=>'post'],
+            ['name'=>'關於我們多頁','key'=>'abouts'],
+            ['name'=>'關於我們','key'=>'about'],
+            ['name'=>'關於我們分類多頁','key'=>'about_cates'],
+
             ['name'=>'最新消息列表','key'=>'posts'],
+            ['name'=>'最新消息','key'=>'post'],
             ['name'=>'最新消息分類','key'=>'posts_cates'],
-            ['name'=>'產品列表分類','key'=>'prod_cates'],
+
             ['name'=>'產品列表','key'=>'products'],
+            ['name'=>'產品列表分類','key'=>'prod_cates'],
+            ['name'=>'產品','key'=>'details'],
 
           ];
       foreach( $arys as $cell){
         PagePhoto::create([
           'name' =>$cell['name'],
           'key' => $cell['key'], 
-          'img' => '/lu/images/banner/81438612_p0.png',
+          'img' => '',
           "updated_at"=>date("Y-m-d H:i:s"),
           "created_at"=>date("Y-m-d H:i:s")]
         );
