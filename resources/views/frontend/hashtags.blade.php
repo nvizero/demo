@@ -154,7 +154,7 @@
             </div>
             <div class="col-md-3 col-padding">
                 <div class="topHashtagContent">
-                    <p class='text-title'>{熱門搜尋標籤}</p>
+                    <p class='text-title'>熱門搜尋標籤</p>
                     <div class="hashTagGroup">
                         @foreach($htags as $tag)
                           <a href="/hashtag/{{$tag->name}}">#{{$tag->name}}</a>

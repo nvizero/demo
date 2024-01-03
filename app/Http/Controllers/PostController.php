@@ -28,13 +28,17 @@ class PostController
     }
 
     //DETAILS
-    public function post_details($id,$parent_id)
+    public function post_details($id,$parent_id=false)
     {
       $post = $this->post->find($id);
       $viewName = 'post'; 
       $data['viewName'] = $viewName;
       $data['post'] = $post;
-      $data['post_cates'] = $this->post_cates->where('parent_id',$parent_id )->get();
+      if($parent_id==false){
+        $data['post_cates'] = $this->post_cates->where('parent_id',$post->category_id )->get();
+      }else{
+        $data['post_cates'] = $this->post_cates->where('parent_id',$parent_id )->get();
+      }
       return view('frontend.post',$data);
     }
 

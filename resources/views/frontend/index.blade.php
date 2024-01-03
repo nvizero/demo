@@ -62,14 +62,14 @@
                         <div class="uk-card-liner">
                             <div class="uk-card-item">
                                 <div class="uk-card-header">
-                                    <a href="productCate.php" class='img-content img-4by3'><img src="/storage/{{$prod->img}}" /></a>
+                                    <a href="/prod_details/{{$prod->id}}" class='img-content img-4by3'><img src="/storage/{{$prod->img}}" /></a>
                                 </div>
                                 <div class="uk-card-body">
-                                    <a href="productCate.php" class="text-title">{{$prod->title}}</a><br />
-                                    <a href="productCate.php" class="uk-text-subtitle">{{isset($prod->category)?$prod->category->title:""}}</a>
+                                    <a href="/prod_details/{{$prod->id}}" class="text-title">{{$prod->title}}</a><br />
+                                    <a href="/prod_details/{{$prod->id}}" class="uk-text-subtitle">{{isset($prod->category)?$prod->category->title:""}}</a>
                                 </div>
                                 <div class="uk-card-footer">
-                                    <a href="productCate.php" class='ell-text'>{!! $prod->content!!}</a>
+                                    <a href="/prod_details/{{$prod->id}}" class='ell-text'>{!! $prod->content!!}</a>
                                 </div>
                             </div>
                         </div>
@@ -117,13 +117,13 @@
             </div>
             <div class="col-md-2 col-padding">
                 <div class="liner-button w-100">
-                    <a href="product.php">View More</a>
+                    <a href="/products">View More</a>
                 </div>
             </div>
         </div>
-        <article class='text-container bg-light mb-4'>
-            {圖文編輯器}
-        </article>
+        <!-- <article class='text-container bg-light mb-4'> -->
+        <!--     {圖文編輯器} -->
+        <!-- </article> -->
         <div class="row row-margin row-high">
             <!-- product_item_start -->
             @foreach($hots as $hot)
@@ -131,15 +131,15 @@
                 <!-- item-main_start -->
                 <div class="uk-card-item">
                     <div class="uk-card-header">
-                        <a href="productCate.php" class='img-content img-1by1'><img src="/storage/{{$hot->imgs}}" /></a>
+                        <a href="/prod_details/{{$hot->id}}" class='img-content img-1by1'><img src="/storage/{{$hot->imgs}}" /></a>
                     </div>
                     <div class="uk-card-body">
-                        <a href="productCate.php" class='text-primary'>{{$hot->serial}}</a><br />
-                        <a href="productCate.php" class="text-title">{{$hot->title}}</a><br />
-                        <a href="productCate.php" class="uk-text-subtitle">{{$hot->category->title}}</a>
+                        <a href="/prod_details/{{$hot->id}}" class='text-primary'>{{$hot->serial}}</a><br />
+                        <a href="/prod_details/{{$hot->id}}" class="text-title">{{$hot->title}}</a><br />
+                        <a href="/prod_details/{{$hot->id}}" class="uk-text-subtitle">{{$hot->category->title}}</a>
                     </div>
                     <div class="uk-card-footer">
-                        <a href="productCate.php" class='ell-text'>{!! $prod->content!!}</a>
+                        <a href="/prod_details/{{$hot->id}}" class='ell-text'>{!! $prod->content!!}</a>
                     </div>
                 </div>
                 <!-- item-main_end -->
@@ -167,7 +167,7 @@
             </div>
             <div class="col-md-2 col-padding">
                 <div class="liner-button w-100">
-                    <a href="product.php">View More</a>
+                    <a href="/posts">View More</a>
                 </div>
             </div>
         </div>
@@ -179,14 +179,14 @@
                 <div class="uk-card-liner">
                     <div class="uk-card-item">
                         <div class="uk-card-header">
-                            <a href="productCate.php" class='img-content img-10by3'><img src="/storage/{{$new->img}}" /></a>
+                            <a href="/post/{{$new->id}}" class='img-content img-10by3'><img src="/storage/{{$new->img}}" /></a>
                         </div>
                         <div class="uk-card-body">
-                            <a href="productCate.php" class='text-primary'>{{$new->created_at}}</a><br />
-                            <a href="productCate.php" class="text-title">{{$new->title}}</a><br />
+                            <a href="" class='text-primary'>{{$new->created_at}}</a><br />
+                            <a href="" class="text-title">{{$new->title}}</a><br />
                         </div>
                         <div class="uk-card-footer">
-                            <a href="productCate.php" class='ell-text'>{!! $new->content!!}</a>
+                            <a href="" class='ell-text'>{!! $new->content!!}</a>
                         </div>
                     </div>
                 </div>

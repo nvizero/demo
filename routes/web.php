@@ -42,7 +42,8 @@ Route::post('uploadimgs', 'HomeController@uploadimgs')->name('uploadimgs');
 
 #posts
 Route::get('/posts', 'PostController@posts')->name('posts');
-Route::get('/post/{id}/{parent_id}', 'PostController@post_details');
+Route::get('/post/{id}/?{parent_id}', 'PostController@post_details');
+Route::get('/post/{id}', 'PostController@post_details');
 Route::get('/posts_categories/{id}', 'PostController@postCategoriesById');
 
 #porducts
