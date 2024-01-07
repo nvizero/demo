@@ -1,5 +1,8 @@
 @extends('layouts.backend')
 @section('content')
+<link href="/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+<script src="/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
     <div class="row">
         <div class="col-12">
             <div class="card" style="padding: 25px;">

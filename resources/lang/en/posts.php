@@ -15,6 +15,8 @@ return [
         'username'=>'昵称',
         'created_at'=>'創建時間',
         'img'=>'封面圖',
+        'start'=>'開始時間',
+        'end'=>'結束時間',
         'tags'=>'hashTags',
         'isTop'=>'是否设为推荐',
     ]

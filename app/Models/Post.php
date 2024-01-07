@@ -68,6 +68,14 @@ class Post extends BaseModel
                 'search' => false,
 
             ],
+            'start' => [
+                'type' => 'datetime',                
+                'required' => true,
+            ],
+            'end' => [
+                'type' => 'datetime',                
+                'required' => true,
+            ],
             'tags' => [
                  'type' => 'tag-it',
                  'required' => 0,
@@ -76,6 +84,10 @@ class Post extends BaseModel
                 'type' => 'number',
                 'required' => true,
                 'search' =>  false,
+            ],
+            'indexshow' => [
+                 'type' => 'checkbox',
+                 'required' => 0,
             ],
             'is_flag' => [
                  'type' => 'checkbox',

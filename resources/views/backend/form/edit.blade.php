@@ -27,6 +27,15 @@
             {!! Form::textarea($name, $obj->$name, ['class' => 'form-control']) !!}
         @elseif($setting['type'] == 'text|model')
             @include('backend.components.model')
+
+        @elseif($setting['type'] == 'datetime')
+          <div class="input-group" id="datepicker2">
+              <input type="text"  name="{{ $name }}" value='{{ $obj->$name }}' class="form-control" placeholder="yyyy-mm-dd"
+                  data-date-format="yyyy-mm-dd" data-date-container='#datepicker2'
+                  data-provide="datepicker" data-date-autoclose="true">
+              <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+          </div>
+
         @elseif($setting['type'] == 'ckeditor')
             <textarea id="editor{{ $name }}" name="{{ $name }}" cols="200" rows="60" name="update_context">{{ $obj->$name }}</textarea>
             <script>
@@ -141,5 +150,7 @@
             @endif
 
         @endif
+        <min style="color:red">{{ isset($setting['note']) ? $setting['note']  :''}}</min> 
+
     </div>
 </div>

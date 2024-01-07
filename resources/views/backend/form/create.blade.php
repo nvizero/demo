@@ -4,7 +4,6 @@
 />
 <script src="https://unpkg.com/jodit@3.23.2/build/jodit.es2018.min.js"></script>
 
-
 <div class="row mb-3">
 
     @if ($setting['type'] != 'system' && $setting['type'] != 'level')
@@ -24,6 +23,15 @@
         @elseif($setting['type'] == 'checkbox')
             <input type="{{ $setting['type'] }}" name="{{ $name }}" value="1"
                 placeholder='{{ __("$main.titles.$name") }}'>
+        @elseif($setting['type'] == 'datetime')
+
+          <div class="input-group" id="datepicker2">
+              <input type="text"  name="{{ $name }}" class="form-control" placeholder="yyyy-mm-dd"
+                  data-date-format="yyyy-mm-dd" data-date-container='#datepicker2'
+                  data-provide="datepicker" data-date-autoclose="true">
+
+              <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+          </div>
         @elseif($setting['type'] == 'textarea')
             {!! Form::textarea($name, null, ['class' => 'form-control']) !!}
         @elseif($setting['type'] == 'text|model')
@@ -132,5 +140,6 @@
             @endif
 
         @endif
+        <min style="color:red">{{ isset($setting['note']) ? $setting['note']  :''}}</min> 
     </div>
 </div>

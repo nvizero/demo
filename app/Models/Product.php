@@ -80,13 +80,14 @@ class Product extends BaseModel
               'type' => 'files',
               'required' => false,
               'index_show' => false,
+             'note' => '可上傳多張圖片',
               'association' => [
                   'bool' => true,
                   'hasMany' => "\App\Models\Image",
                   'fromModel' => "\App\Models\Product",
                   'type' => "hasMany",
                   'pluck' => ['img', 'id']
-              ]
+              ],
           ],
           'sort' => [
                'type' => 'number',
