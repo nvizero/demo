@@ -54,6 +54,13 @@ class Post extends BaseModel
                     'level' => 'like',
                 ] 
             ],            
+            'subtitle' => [
+                'type' => 'text',
+                'required' => true,
+                'search' => [
+                    'level' => 'like',
+                ] 
+            ],            
             'img' => [
                 'type' => 'file',                
                 'required' => true,
@@ -86,6 +93,13 @@ class Post extends BaseModel
                     'type' => "hasOne",
                     'pluck' => ['title', 'id']
                 ]
+            ],
+            'saylittle' => [
+                'type' => 'ckeditor',
+                'required' => true,
+                'search' => [
+                    'level' => 'like'
+                ],
             ],
             'content' => [
                 'type' => 'ckeditor',

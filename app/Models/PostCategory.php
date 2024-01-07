@@ -54,6 +54,13 @@ class PostCategory extends BaseModel
                'type' => 'file',
                'required' => 1,
           ],
+          'saylittle' => [
+              'type' => 'ckeditor',
+              'required' => true,
+              'search' => [
+                  'level' => 'like'
+              ],
+          ],
           'content' => [
               'type' => 'ckeditor',
               'required' => true,

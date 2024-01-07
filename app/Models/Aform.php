@@ -19,10 +19,6 @@ class Aform extends BaseModel
                     'radio' => '單選',
                     'checkbox' => '多選',
                   ];
-        $sizes = [
-                    6 => '中', 
-                    12 => '大',
-                  ];
 
         return  [
           'show_name' => [
@@ -36,16 +32,20 @@ class Aform extends BaseModel
                'note' => '輸入英文',
           ],
           'size' => [
-               'type' => 'select',
+               'type' => 'number',
                'isData'=>true,
                'required' => 1,
-               'data'=> $sizes 
+               'note' => '輸入1到12',
           ],
           'cate' => [
                'type' => 'select',
                'isData'=>true,
                'required' => 1,
                'data'=> $options 
+          ],
+          'is_required' => [
+               'type' => 'checkbox',
+               'required' => 1,
           ],
           'key' => [
                'type' => 'text',

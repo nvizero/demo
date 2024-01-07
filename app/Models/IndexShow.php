@@ -24,6 +24,10 @@ class IndexShow extends BaseModel
                     'level' => 'like',
                ]
           ],
+          'subtitle' => [
+               'type' => 'text',
+               'required' => 1,
+          ],
           'img' => [
             'type' => 'file',                
             'required' => true,

@@ -7,7 +7,10 @@ return [
     'titles' => [
         'name' => 'SEO顯示',
         'category_id' => '分類',
-        'serial' => '序號',
+        'serial' => '型號',
+        'hot' => '熱門商品',
+        'is_index' => '首頁顯示',
+        'product_qrcode' => '產品qrcode',
         'ad_close_icon' => '右側icon',
         'ad_img' => '廣告圖',
         'able' => '是否顯示',

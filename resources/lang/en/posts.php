@@ -4,8 +4,11 @@ return [
     'title' => '新聞',    
     'titles' => [
         'title' => '標題',        
+        'subtitle' => '副標',        
         'category_id' => '分類',
         'content' => '內容',
+        'saylittle' => '概述',
+        'indexshow' => '首頁顯示',
         'sort' => '排序',         
         'is_flag' => '啟用',         
         'user_id' =>'用户id',

@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-md-7 col-padding">
                         <div class="uk-content-subtitle text-left">
-                            <h3>{{$show->hot}}
+                            <h3>{{$show->subtitle}}
                             </h3>
                         </div>
                         <div class="uk-content-title text-left">

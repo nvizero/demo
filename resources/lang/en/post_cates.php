@@ -8,6 +8,7 @@ return [
         'content' => '內容',
         'sort' => '排序',         
         'able' => '啟用',         
+        'saylittle' => '概述',
         'subtitle' => '副標題',        
         'user_id' =>'用户id',
         'username'=>'昵称',

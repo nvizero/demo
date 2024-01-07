@@ -19,6 +19,7 @@ class CreateAformTable extends Migration
             $table->string("cate");
             $table->string("key")->nullable();
             $table->integer('sort')->nullable()->comment('排序');
+            $table->integer('is_required')->nullable()->comment('必填');
             $table->timestamps();
         });
     }

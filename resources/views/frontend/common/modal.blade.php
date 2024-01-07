@@ -30,16 +30,18 @@
                                                 <div class="form-group">
                                                   <label for="" class="control-label">{{$row->show_name}}</label>
                                                   @if($row->cate=='input')
-                                                    <input type="text" class="form-control" id="cname" placeholder="" name="{{$row->val}}">
+                  <input type="text" class="form-control" id="cname" placeholder="" name="{{$row->val}}"  @if($row->is_required ==1)  required="required"  @endif  >
                                                   @elseif($row->cate=='textarea')
-                                                    <textarea class="form-control" rows="8" name="{{$row->val}}" id="content"></textarea>
+                                                    <textarea class="form-control" rows="8" name="{{$row->val}}" id="content" @if($row->is_required ==1)  required="required"  @endif ></textarea>
                                                   @elseif($row->cate=='radio' || $row->cate=='checkbox')
+
                                                     @foreach(cellKeys($row->key) as $k => $data)
                                                       <div class="{{$row->cate}}">
-                                                        <input type="{{$row->cate}}" class="" id="{{$row->cate}}_{{$data}}" placeholder="" name="{{$row->val}}[{{$k}}]" value="{{$data}}">
+                                                        <input type="{{$row->cate}}" class="" id="{{$row->cate}}_{{$data}}" placeholder="" name="{{$row->val}}[{{$k}}]" value="{{$data}}" @if($row->is_required ==1)  required="required"  @endif >
                                                         <label for="{{$row->cate}}_{{$data}}" class="control-label">{{$data}}</label>
                                                       </div>
                                                     @endforeach
+
                                                   @endif
                                                 </div>
                                             </div>

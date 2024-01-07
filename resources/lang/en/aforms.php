@@ -5,11 +5,12 @@ return [
     'titles' => [
         'show_name' => '顯示名稱',
         'cate' => '輸入類別',
+        'is_required' => '是否必填',
         'img' => '圖片',
         'value' => '值',
         'key' => 'key',
         'size' => '顯示尺寸',
-        'val' => '名',
+        'val' => 'html name',
         'subtitle' => '副標題',
         'able' => '是否顯示',
         'about_category_id' => '分類',
