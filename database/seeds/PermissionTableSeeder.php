@@ -139,6 +139,18 @@ class PermissionTableSeeder extends Seeder
                 'scripts-edit',
                 'scripts-delete',                
             ],
+            #bforms
+            'bforms' => [
+                'bforms-list',
+                'bforms-create',
+                'bforms-delete',                
+            ],
+            #get_bforms
+            'get_bforms' => [
+                'get_bforms-list',
+                'get_bforms-edit',
+                'get_bforms-delete',                
+            ],
         ];
 
         foreach ($permissions as $main => $permission) {

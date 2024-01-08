@@ -112,6 +112,10 @@ class TemplateController extends DashboardController
         if($main=='aforms'){
           DB::statement('ALTER TABLE getform ADD '.$request->val.' VARCHAR(255) null');
         }
+        //動態選單
+        if($main=='bforms'){
+          DB::statement('ALTER TABLE get_bforms ADD '.$request->val.' VARCHAR(255) null');
+        }
 
         //產品tag
         if($main=='products'){
@@ -229,9 +233,12 @@ class TemplateController extends DashboardController
     public function destroy(int $id)
     {
         $this->entity = $this->entity->find($id);
+        // 处理 DELETE 请求
         if($this->main=='aforms'){
-            // 处理 DELETE 请求
           DB::statement('ALTER TABLE getform DROP COLUMN '.$this->entity->val.'; ');
+        }
+        if($this->main=='bforms'){
+          DB::statement('ALTER TABLE get_bforms DROP COLUMN '.$this->entity->val.'; ');
         }
         $this->entity->delete();
         return redirect()->route("$this->main.index")
@@ -251,7 +258,7 @@ class TemplateController extends DashboardController
         } else {
       Storage::delete($imgPath);
       if($main=="semicMains"){
-     $main="semic_mains"; 
+         $main="semic_mains"; 
       }
                 DB::table($main)->where('id', $id)->update(["$name" => '']);
                 return 1;

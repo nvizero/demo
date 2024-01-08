@@ -56,11 +56,11 @@ class PostController
       $data['viewName'] = $viewName;
       $data['prod_cates'] = $this->post_cates->where('parent_id',$id)->paginate(3);
       $cate = $this->post_cates->where('id',$id)->first();
-      if(isset($cate->level)&& $cate->level==3){
-        $data['posts'] = $this->post->where('category_id',$id)->get();
+      if(isset($cate->level) && $cate->level==3){
+        $data['posts'] = $this->post->where('category_id',$id)->paginate(3);
       }  
       $data['pcates2'] = $this->post_cates->whereNotIn('id',[$cate->id])->where('level',$cate->level)->get();
       $data['cate'] = $cate;
-      return view('frontend.posts_cates',$data);
+      return view('frontend.posts2',$data);
     }
 }

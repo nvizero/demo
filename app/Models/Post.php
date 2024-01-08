@@ -16,7 +16,7 @@ class Post extends BaseModel
     use Sortable;
     protected $table = 'posts';
     protected $fillable = [
-        'title', 'category_id', 'content', 'sort', 'user_id', 'username' ,'img'
+        'title', 'category_id', 'content', 'sort', 'user_id', 'username' ,'img','start','end'
     ];
 
     /**

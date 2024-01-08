@@ -4,91 +4,105 @@
 
 @section('content')
 
-<!-- page_banner_start -->
-<section class="uk-banner-container">
-    <div class="">
-        <div class="owl-carousel owl-theme">
-            <!-- banner_item_start -->
-            <div class="item">
-                <div class="banner-item">
-                    <div class="bannerImg">
-                        <a href="#" class="img-content img-banner">
-                        <img src="{{getPagePhoto($viewName)}}" alt="" title="" />
-                        </a>
-                    </div>
-                    <!-- <div class="banner-text"> -->
-                    <!--     <p class='text-title'>{Title} -->
-                    <!--     </p> -->
-                    <!--     <p class='uk-text-subtitle'>{Subtitle} -->
-                    <!--     </p> -->
-                    <!--      -->
-                    <!-- </div> -->
-                </div>
-            </div>
-            <!-- banner_item_end -->
-        </div>
-    </div>
-</section>
-<!-- page_banner_end -->
 <!-- page_content_start -->
 <section class="page-container">
     <div class="container">
         <div class="row row-margin">
-            <!-- <div class="col-md-3 col-padding"> -->
-            <!--     <aside class="sideContnet"> -->
-            <!--         <ul> -->
-            <!--             <li class="sideInner active"> -->
-            <!--                 <a href="pageList.php" class="uk-text-subtitle">{分類文章列標題}</a> -->
-            <!--             </li> -->
-            <!--             <li class="sideInner"> -->
-            <!--                 <a href="pageList.php" class="uk-text-subtitle">{分類文章列標題}</a> -->
-            <!--             </li> -->
-            <!--         </ul> -->
-            <!--     </aside> -->
-            <!-- </div> -->
+            <div class="col-md-3 col-padding">
+                <aside class="sideContnet">
+                    <ul>
+                        <li class="sideInner active">
+
+                            <div class="sideActive">
+                                <div class="sideActiveInner">
+                                    <span class='uk-text-subtitle'>最新消息列表</span>
+                                </div>
+                                @if($cate->level!=3)
+                                  <div class="sideActiveInner">
+                                      <a href='javascript:void(0);' class="sideBtn"></a>
+                                  </div>
+                                @endif
+                            </div>
+
+                            <ul class="sideInnerMenu">
+                                @foreach($prod_cates as $pcate)
+                                  <li class="sideInner"><a href="/posts_categories/{{$pcate->id}}">{{$pcate->title}}</a></li>
+                                @endforeach
+                            </ul>
+
+                            @foreach($pcates2 as $row)
+                            <li class="sideInner">
+                                <a href="/posts_categories/{{$row->id}}" class="uk-text-subtitle">{{$row->title}}</a>
+                            </li>
+                            @endforeach
+                        </li>
+                    </ul>
+                </aside>
+            </div>
             <div class="col-md-9 col-padding">
                 <!-- 麵包屑_start -->
                 <div class="breadcrumb-container">
                     <ul>
                         <li><a href="/">首頁</a></li>
-                        <li class="active">最新消息</li>
+                        <li><a href="/products">產品目錄</a></li>
+                        {!! breadShow($cate->id , 'post_cates') !!}
                     </ul>
                 </div>
                 <!-- 麵包屑_end -->
-                <!-- <div class="uk-content-title"> -->
-                <!--     <h1> -->
-                <!--         {分類文章列表標題} -->
-                <!--     </h1> -->
-                <!-- </div> -->
-                <!-- <div class='uk-text-container'> -->
-                <!--     <img src='images/sampleCategory/uk-text-containerImg.jpg' /> -->
-                <!--     <p>{圖文編輯器}</p> -->
-                <!-- </div> -->
+                <div class="uk-content-title">
+                    <h1>
+                        {{$cate->title}}
+                    </h1>
+                    <p>{!! $cate->saylittle!!}</p>
+                </div>
+                <div class='uk-text-container'>
+                    <img src='images/sampleCategory/uk-text-containerImg.jpg' />
+                    <p>
+                        {!!$cate->content!!}
+                    </p>
+                </div>
                 <ul class="newsItemContent">
-                    @foreach($cates as $cate)
+                  @if($cate->level==3)
+                    @foreach($posts as $pro)
                     <li class="newsItem">
                         <div class="newsItemInner">
-                            <img src="/storage/{!! $cate->img !!}" />
+                            <img src="/storage/{{$pro->img}}" />
                         </div>
                         <div class="newsItemInner">
-                            <a href="/posts_categories/{{$cate->id}}" class="text-title">{!! $cate->title !!}</a>
-                            <time class="">{!! $cate->subtitle !!}</time>
-                            <a href="/posts_categories/{{$cate->id}}">{!! ms_str($cate->content ,20)!!}</a>
+                            <a href="/post/{{$pro->id}}" class="text-title">{{$cate->title}}</a>
+                            <time class="">{{$pro->start}} - {{$pro->end}}</time>
+                            <a href="/post/{{$pro->id}}">{!! $pro->saylittle  !!}</a>
                         </div>
                     </li>
                     @endforeach
-
+                  @else
+                    @foreach($prod_cates as $pcate)
+                    <li class="newsItem">
+                        <div class="newsItemInner">
+                            <img src="/storage/{{$pcate->img}}" />
+                        </div>
+                        <div class="newsItemInner">
+                            <a href="/posts_categories/{{$pcate->id}}" class="text-title">{{$pcate->title}}</a>
+                            <time class="">{{$pcate->start}} - {{$pcate->end}}</time>
+                            <a href="/posts_categories/{{$pcate->id}}">{!! $pcate->saylittle  !!}</a>
+                        </div>
+                    </li>
+                    @endforeach
+                  @endif
                 </ul>
                 <!-- 分頁 -->
                 <nav aria-label="navigation" class="navigation">
                     <ul class="pagination">
-                      {{ $cates->links() }}
+                      @if($cate->level==3)
+                          {{ $posts->links() }}
+                      @else
+                          {{ $prod_cates->links() }}
+                      @endif
                     </ul>
                 </nav>
             </div>
         </div>
     </div>
-</section>
-<!-- page_content_end -->
-<!-- 內容_end -->
+  <link rel="stylesheet" href="/lu/css/page.css">
+
 @endsection

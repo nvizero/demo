@@ -16,7 +16,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => "Adm
     Route::resource('index_show', 'IndexShowController');
     Route::resource('keyval', 'KeyvalController');
     Route::resource('aforms', 'AformController');
+    Route::resource('bforms', 'BformController');
     Route::resource('getform', 'GetformController');
+    Route::resource('get_bforms', 'GetbformController');
     Route::resource('categories', 'CategoryController');
     Route::resource('aboutCategories', 'AboutCategoryController');
     Route::resource('page_photos', 'PagePhotoController');

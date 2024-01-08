@@ -63,6 +63,22 @@
                           @endcan
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                          <i class="ri-contacts-book-line"></i>
+                            <span>聯絡我們設定</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+
+                          @can('get_bforms-list')
+                              <li><a href="{{ route('get_bforms.index') }}">聯絡我們</a></li>
+                          @endcan
+
+                          @can('bforms-list')
+                              <li><a href="{{ route('bforms.index') }}">聯絡我們-動態表單</a></li>
+                          @endcan
+                       </ul>
+                    </li>
                   </li>
 
 
@@ -78,12 +94,13 @@
                               <li><a href="{{ route('users.index') }}">{{ __('menu.admin_manage') }}</a></li>
                           @endcan
 
+
                           @can('roles-list')
                               <li><a href="{{ route('roles.index') }}">{{ __('menu.role_manage') }}</a></li>
                           @endcan
 
                           @can('index_about-list')
-                            <li><a href="{{ route('index_about.index') }}">首頁-關於我們</a></li>
+                            <!-- <li><a href="{{ route('index_about.index') }}">首頁-關於我們</a></li> -->
                           @endcan
 
                           @can('index_show-list')

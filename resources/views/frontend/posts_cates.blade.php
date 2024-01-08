@@ -98,9 +98,7 @@
                                 <!-- item-main_end -->
                             </div>
                           @endforeach
-
                         @else
- 
                           @foreach($prod_cates as $pcate)
                           <div class="col-md-4 col-sm-6 col-xs-12 col-padding">
                               <!-- item-main_start -->

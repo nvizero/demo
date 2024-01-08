@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => '產品-動態表單',
+    'title' => '聯絡我們-動態表單',
     'titles' => [
         'show_name' => '顯示名稱',
         'cate' => '輸入類別',
