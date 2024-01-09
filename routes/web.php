@@ -50,6 +50,7 @@ Route::get('/posts_categories/{id}', 'PostController@postCategoriesById');
 
 #porducts
 Route::get('/prod_details/{id}/{parent_id}', 'ProdController@details');
+Route::get('/prod_details/{id}', 'ProdController@details');
 Route::get('/prod_categories/{id}', 'ProdController@prodCategoriesById');
 Route::get('/products', 'ProdController@products');
 Route::post('/prod_aform', 'ProdController@prod_aform');

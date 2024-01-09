@@ -21,6 +21,7 @@ return [
         'content' => '內容',
         'is_flag' => '啟用',
         'is_hot' => '熱門商品',
+        'is_index' => '首頁啟用',
         'tags' => 'Tags',
         'imgs' => '圖片',
         'img' => '封面圖',

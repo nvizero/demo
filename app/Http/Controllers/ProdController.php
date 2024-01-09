@@ -35,13 +35,17 @@ class ProdController
     }
 
     //DETAILS
-    public function details($id,$parent_id)
+    public function details($id,$parent_id=false)
     {
       $viewName = 'details'; 
       $data['viewName'] = $viewName;
       $prod = $this->prod->find($id);
       $data['prod'] = $prod;
-      $data['prod_cates'] = $this->prod_cates->where('parent_id',$parent_id )->get();
+      if($parent_id==false){
+        $data['prod_cates'] = $this->prod_cates->where('parent_id',$prod->parent_id )->get();
+      }else{
+        $data['prod_cates'] = $this->prod_cates->where('parent_id',$parent_id )->get();
+      }
       return view('frontend.details',$data);
     }
 

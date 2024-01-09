@@ -96,6 +96,10 @@ class Product extends BaseModel
                     'level' => 'like',
                ]
           ],
+          'is_index' => [
+            'type' => 'checkbox',             
+               'required' => 0,
+          ],
           'is_flag' => [
             'type' => 'checkbox',             
                'required' => 0,
